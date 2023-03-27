@@ -58,9 +58,38 @@ const navbar = () => {
         </a>
       </div>
       <div className="hidden lg:flex lg:flex-1 lg:justify-end">
-        <a href="#" className="text-sm font-semibold leading-6 text-gray-900">
-          Log in <span aria-hidden="true">→</span>
-        </a>
+        <a
+          href="#"
+          className="text-sm font-semibold leading-6 text-gray-900"
+        ></a>
+        <svg
+          class="h-8 w-8 text-black-500"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z" />
+        </svg>{" "}
+        <svg
+          class="h-8 w-8 text-black-500"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+        >
+          {" "}
+          <path
+            d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"
+            class="h-8 w-8 text-black-500"
+          />{" "}
+          <circle cx="8.5" cy="7" r="4" />{" "}
+          <line x1="23" y1="11" x2="17" y2="11" />
+        </svg>
       </div>
     </nav>
   );
