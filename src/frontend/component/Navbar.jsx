@@ -8,21 +8,20 @@ let Logo = require("../../frontend/image/logo.png");
 const navbar = () => {
   return (
     <nav
-      className="flex items-center justify-between p-6 lg:px-28"
+      className="flex items-center justify-between p-6 lg:px-28  bg-pink-900"
       aria-label="Global"
     >
       <div className="flex lg:flex-1">
         <a href="#" className="-m-1.5 p-1.5 flex justify-center align-center">
           <img className="h-8 w-auto" src="" alt="" />
-          <h1 className="text-xl px-2 py-1 font-bold">Accessores</h1>
+          <h1 className="text-xl px-2 py-1 font-bold text-white">Accessores</h1>
         </a>
       </div>
       <div className="flex lg:hidden">
         <button
           type="button"
-          className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-gray-700"
+          className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-white"
         >
-          <span className="sr-only">Open main menu</span>
           <svg
             className="h-6 w-6"
             fill="none"
@@ -42,20 +41,20 @@ const navbar = () => {
       <div className="hidden lg:flex lg:gap-x-12">
         <a
           href="#"
-          className="text-lg font-semibold leading-6 text-gray-900 font-bold"
+          className="text-lg font-semibold leading-6text-white font-bold text-white"
         >
           Home
         </a>
-        <a href="#" className="text-lg font-semibold leading-6 text-gray-900">
+        <a href="#" className="text-lg font-semibold leading-6 text-white">
           Product
         </a>
-        <a href="#" className="text-lg font-semibold leading-6 text-gray-900">
+        <a href="#" className="text-lg font-semibold leading-6 text-white">
           Shop
         </a>
-        <a href="#" className="text-lg font-semibold leading-6 text-gray-900">
+        <a href="#" className="text-lg font-semibold leading-6 text-white">
           About
         </a>
-        <a href="#" className="text-lg font-semibold leading-6 text-gray-900">
+        <a href="#" className="text-lg font-semibold leading-6 text-white">
           Contact
         </a>
       </div>
@@ -63,7 +62,7 @@ const navbar = () => {
       <div className="hidden lg:flex lg:flex-1 lg:justify-end ">
         {/* shoping icon */}
         <svg
-          class="h-8 w-8 text-black-500 px-1"
+          class="h-8 w-8 text-white px-1"
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"
@@ -77,7 +76,7 @@ const navbar = () => {
         </svg>
         {/* heart svg */}
         <svg
-          class="h-8 w-8 text-black-500 px-1"
+          class="h-8 w-8 text-white px-1"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -92,7 +91,7 @@ const navbar = () => {
 
         {/* usericon */}
         <svg
-          class="h-8 w-8 text-black-500 px-1"
+          class="h-8 w-8 text-white px-1"
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"
