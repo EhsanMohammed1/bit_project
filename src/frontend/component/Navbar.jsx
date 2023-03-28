@@ -1,5 +1,3 @@
-/* eslint-disable jsx-a11y/anchor-has-content */
-/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from "react";
 import "../../index.css";
 
@@ -41,7 +39,7 @@ const navbar = () => {
       <div className="hidden lg:flex lg:gap-x-12">
         <a
           href="#"
-          className="text-lg font-semibold leading-6text-white font-bold text-white"
+          className="text-lg font-ubuntu leading-6text-white font-bold text-white"
         >
           Home
         </a>
