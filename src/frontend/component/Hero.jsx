@@ -4,19 +4,14 @@ const Hero = () => {
   return (
     <>
       <section className="bg-pink-900 ">
-        <div className="grid max-w-screen-xl  py-8 mx-auto lg:gap-2  lg:py-32 lg:grid-cols-12 px-30">
+        <div className="grid max-w-screen-l  py-8 mx-auto lg:gap-8 px-32 lg:py-10 lg:grid-cols-12 ">
           <div className="mr-auto place-self-center lg:col-span-7">
             <h1 className="max-w-7xl mb-4 text-8xl font-bold tracking-tight  text-white">
               Find The Perfect
               <br /> Style <br />
               For Yourself
-            </h1>
-            <form>
-              <label className="mb-6  text-sm font-medium text-gray-900 sr-only dark:text-white">
-                Search
-              </label>
-              <div className="relative">
-                <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+              <div className="relative w-8/12 pt-12">
+                <div className="absolute flex items-center pl-3 pointer pt-3  ">
                   <svg
                     aria-hidden="true"
                     className="w-5 h-5 text-gray-900 dark:text-gray-400"
@@ -36,8 +31,7 @@ const Hero = () => {
                   type="search"
                   id="default-search"
                   className="block w-full p-4 pl-10 text-sm text-gray-900 "
-                  placeholder="Search brand, category ,product name..."
-                  required=""
+                  placeholder="Search brand, category ,productname ..."
                 />
                 <button
                   type="submit"
@@ -46,7 +40,7 @@ const Hero = () => {
                   Search
                 </button>
               </div>
-            </form>
+            </h1>
           </div>
           <div className=" lg:mt-0 lg:col-span-5 flex">
             <img
