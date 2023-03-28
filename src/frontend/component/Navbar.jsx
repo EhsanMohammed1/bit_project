@@ -1,8 +1,6 @@
 import React from "react";
 import "../../index.css";
 
-let Logo = require("../../frontend/image/logo.png");
-
 const navbar = () => {
   return (
     <nav
