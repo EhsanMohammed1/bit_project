@@ -4,15 +4,15 @@ import { BsChevronCompactLeft, BsChevronCompactRight } from 'react-icons/bs'
 const Carousel = () => {
   const slides = [
     {
-      url: "https://thumbs.dreamstime.com/b/beauty-brunette-model-girl-perfect-makeup-trendy-accessories-fashion-wear-88929334.jpg",
+      url: "https://t3.ftcdn.net/jpg/01/59/74/48/360_F_159744874_MshH8rY3U6RRnUXmHpAGmF31my7hJAtV.jpg",
 
     },
     {
-      url: "https://media.istockphoto.com/id/1010215852/photo/beautiful-girl-wearing-hat.jpg?s=612x612&w=0&k=20&c=My74d5aoGLaALQ_wt0TJeatf5svgGS6ks1g0OS8pEMU=",
+      url: "https://sgp1.digitaloceanspaces.com/tz-mag-ph/wp-content/uploads/2021/05/060605053838/Mcdodo-Mobile-Phone-Accessories-770x403.jpg",
 
     },
     {
-      url: "https://cdn.shopify.com/s/files/1/0246/1060/3085/articles/Test_22_900x.jpg?v=1612489900",
+      url: "http://www.pointekonline.com/wp-content/uploads/2018/03/phone-accessories.jpg",
     }
   ]
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -33,12 +33,12 @@ const Carousel = () => {
       setCurrentIndex((prevIndex) =>
         prevIndex === slides.length - 1 ? 0 : prevIndex + 1
       );
-    }, 6000);
+    }, 9000);
 
     return () => clearInterval(interval);
   }, []);
   return (
-    <section className='max-w-[1850px] h-[720px] py-8 w- m-auto  px-4 relative group' >
+    <section className='w-[1850px] h-[720px] py-8 w- m-auto  px-4 relative group' >
 
       <div style={{ backgroundImage: `url(${slides[currentIndex].url})` }} className='w-full h-full  bg-center bg-cover duration-500'>
       </div>

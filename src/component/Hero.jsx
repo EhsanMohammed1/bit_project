@@ -3,7 +3,7 @@ import React from "react";
 const Hero = () => {
   return (
     
-     <section class=" bg-violet-900  grid max-w-screen-l mx-auto lg:gap-8 px-4 sm:px-6 md:px-8 lg:px-10 lg:py-11 lg:grid-cols-12 ">
+     <section class=" bg-violet-900  grid max-w-screen-l mx-auto lg:gap-8 px-4  sm:px-6 md:px-8 lg:px-10 lg:py-20 lg:grid-cols-12  ">
   <div class="mr-auto place-self-center lg:col-span-7 ">
     <h1 class="max-w-7xl mb-4 px-20 text-4xl sm:text-5xl md:text-6xl lg:text-8xl font-bold tracking-tight text-white ">
       Find The Perfect

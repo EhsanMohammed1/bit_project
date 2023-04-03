@@ -1,9 +1,9 @@
 import "./index.css";
-
+import Products from "./component/Products";
 // components
-import Navbar from "./frontend/component/Navbar";
-import Hero from "./frontend/component/Hero";
-import Carousel from "./frontend/component/Carousel";
+import Navbar from "./component/Navbar";
+import Hero from "./component/Hero";
+import Carousel from "./component/Carousel";
 
 function App() {
   return (
@@ -11,6 +11,7 @@ function App() {
       <Navbar />
       <Hero />
       <Carousel />
+      <Products/>
     </div>
   );
 }
