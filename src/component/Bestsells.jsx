@@ -1,22 +1,32 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
+import { useState, useEffect } from 'react';
 import { BsChevronCompactLeft, BsChevronCompactRight } from 'react-icons/bs'
 
-const Carousel = () => {
+const Bestsells = () => {
+
   const slides = [
     {
-      url: " https://savyour.com.pk/products/wp-content/uploads/2022/11/Mobile-Accessories-Banner.jpg",
+      url: "https://mediatrend.mediamarkt.com.tr/wp-content/uploads/2019/11/apple-airpods-pro-sat%C4%B1%C5%9Flar%C4%B1-y%C3%BCkseli%C5%9Fte-apple-yo%C4%9Fun-%C3%A7al%C4%B1%C5%9F%C4%B1yor.jpg",
 
     },
     {
-      url: "https://hips.hearstapps.com/hmg-prod/images/ghi-10bestphonecases-1663335912.jpg?crop=1.00xw:1.00xh;0,0&resize=1200:*",
+      url: "https://i.ytimg.com/vi/fuwqFhiLobc/maxresdefault.jpg",
 
     },
     {
-      url: "https://cdn.shopify.com/s/files/1/0155/5801/files/The-Dairy-Tech-Accessories-Phone-Cases.jpg?v=1645044677",
+      url: "https://i.ytimg.com/vi/KLoJQozTjmQ/maxresdefault.jpg",
     },
     {
-      url: "https://cdn.shopify.com/s/files/1/0235/2326/2541/files/Vlogging_Updates_IMG1.png?v=1645795475",
+      url: " https://i.ytimg.com/vi/6tf6Ld_fCCA/maxresdefault.jpg",
+    },
+    {
+      url: "https://nano.komputronik.pl/wp-content/uploads/2023/02/miband8.jpg ",
+    },
+    {
+      url: "https://oiot.pl/wp-content/uploads/2021/07/huawei-sound-x-2021-2.jpg ",
     }
+
+
 
   ]
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -37,15 +47,14 @@ const Carousel = () => {
       setCurrentIndex((prevIndex) =>
         prevIndex === slides.length - 1 ? 0 : prevIndex + 1
       );
-    }, 4000);
+    }, 9000);
 
     return () => clearInterval(interval);
   }, []);
   return (
-
     <section className='w-[1850px] h-[720px] py-8 w- m-auto  px-4 relative group' >
       <div className='flex p-5 justify-center'>
-        <h1 className='text-black underline text-2xl font-extrabold '>OFFERS</h1>
+        <h1 className='text-black underline text-2xl font-extrabold tracking-wide uppercase'>Bestsells</h1>
       </div>
       <div style={{ backgroundImage: `url(${slides[currentIndex].url})` }} className='w-full h-full  bg-center bg-cover duration-500'>
       </div>
@@ -62,4 +71,4 @@ const Carousel = () => {
   )
 }
 
-export default Carousel;
+export default Bestsells
