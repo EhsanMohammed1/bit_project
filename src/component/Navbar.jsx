@@ -1,17 +1,20 @@
 import React from "react";
 import "../index.css";
 
+import { NavLink } from "react-router-dom";
+
 const navbar = () => {
   return (
     <nav
+
       className="flex items-center justify-between p-6 lg:px-28 bg-violet-900 "
       aria-label="Global"
     >
       <div className="flex lg:flex-1">
-        <a href="#" className="-m-1.5 p-1.5 flex justify-center align-center">
+        <nav to="#" className="-m-1.5 p-1.5 flex justify-center align-center">
           <img className="h-8 w-auto" src="" alt="" />
           <h1 className="text-xl px-2 py-1 font-bold text-white">Accessores</h1>
-        </a>
+        </nav>
       </div>
       <div className="flex lg:hidden">
         <button
@@ -35,30 +38,28 @@ const navbar = () => {
         </button>
       </div>
       <div className="hidden lg:flex lg:gap-x-12">
-        <a
-          href="#"
+        <NavLink
+          to="/"
           className="text-lg font-ubuntu leading-6text-white font-bold text-white"
         >
           Home
-        </a>
-        <a href="#" className="text-lg font-semibold leading-6 text-white">
+        </NavLink>
+        <NavLink to="/product" className="text-lg font-semibold leading-6 text-white">
           Product
-        </a>
-        <a href="#" className="text-lg font-semibold leading-6 text-white">
-          Shop
-        </a>
-        <a href="#" className="text-lg font-semibold leading-6 text-white">
+        </NavLink>
+
+        <NavLink to="/about" className="text-lg font-semibold leading-6 text-white">
           About
-        </a>
-        <a href="#" className="text-lg font-semibold leading-6 text-white">
+        </NavLink>
+        <NavLink to="/contact" className="text-lg font-semibold leading-6 text-white">
           Contact
-        </a>
+        </NavLink>
       </div>
 
       <div className="hidden lg:flex lg:flex-1 lg:justify-end ">
         {/* shoping icon */}
         <svg
-          class="h-8 w-8 text-white px-1"
+          className="h-8 w-8 text-white px-1"
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"
@@ -72,7 +73,7 @@ const navbar = () => {
         </svg>
         {/* heart svg */}
         <svg
-          class="h-8 w-8 text-white px-1"
+          className="h-8 w-8 text-white px-1"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -87,7 +88,7 @@ const navbar = () => {
 
         {/* usericon */}
         <svg
-          class="h-8 w-8 text-white px-1"
+          className="h-8 w-8 text-white px-1"
           viewBox="0 0 24 24"
           fill="none"
           stroke="currentColor"

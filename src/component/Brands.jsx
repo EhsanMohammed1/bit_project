@@ -19,7 +19,7 @@ const Brands = () => {
             data-rounded-max="rounded-full"
           >
             <div
-              className="p-3 text-white"
+              className="pt-8 text-white w-58 "
 
             >
               <img className='w-50 h-56 cursor-pointer' src="https://www.freepnglogos.com/uploads/huawei-logo-png/huawei-logo-communication-13.png " alt="" />
@@ -33,7 +33,7 @@ const Brands = () => {
             data-rounded-max="rounded-full"
           >
             <div
-              className="p-3 text-white"
+              className=" text-white w-58  pt-5 "
 
             >
               <img className='w-50 h-56 cursor-pointer' src="https://www.freepnglogos.com/uploads/apple-logo-png/apple-logo-png-dallas-shootings-don-add-are-speech-zones-used-4.png" alt="" />
@@ -43,14 +43,14 @@ const Brands = () => {
           </div>
 
           <div
-            className="flex flex-col items-center justify-between col-span-4 px-8 py-24 space-y-4 bg-white"
+            className="flex flex-col items-center justify-between col-span-4 px-8 py-24 space-y-4 bg-white w-58  p-5"
             data-rounded="rounded-xl"
             data-rounded-max="rounded-full"
           >
             <div
 
             >
-              <img className='w-50 h-40 cursor-pointer' src="https://seeklogo.com/images/C/cat-machinery-logo-0D2946DA1A-seeklogo.com.png" alt="" />
+              <img className=' cursor-pointer ' src="https://seeklogo.com/images/C/cat-machinery-logo-0D2946DA1A-seeklogo.com.png" alt="" />
 
             </div>
 
@@ -61,11 +61,11 @@ const Brands = () => {
             data-rounded-max="rounded-full"
           >
             <div
-              className="p-3 text-white"
+              className="p-3  w-52"
               data-primary="blue-500"
               data-rounded="rounded-full"
             >
-              <img className='cursor-pointer' src="https://assets.stickpng.com/images/6011a23c1b7ff00004506b08.png" alt="" />
+              <img className='cursor-pointer' src="https://cdn.worldvectorlogo.com/logos/razer.svg" alt="" />
 
             </div>
 
@@ -76,7 +76,7 @@ const Brands = () => {
             data-rounded-max="rounded-full"
           >
             <div
-              className="p-3 text-white"
+              className="pt-20 text-white w-52"
               data-primary="blue-500"
               data-rounded="rounded-full"
             >
@@ -91,7 +91,7 @@ const Brands = () => {
             data-rounded-max="rounded-full"
           >
             <div
-              className="p-3 text-white"
+              className="pt-20 text-white w-52"
               data-primary="blue-500"
               data-rounded="rounded-full"
             >

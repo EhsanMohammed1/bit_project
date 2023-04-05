@@ -4,7 +4,7 @@ import React from 'react'
 const Fotter = () => {
   return (
     <div className="pt-60 ">
-      <footer className=" z-50 bg-violet-700">
+      <footer className=" z-50 bg-violet-900">
         <div
           tabIndex={0}
           aria-label="footer"
