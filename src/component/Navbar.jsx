@@ -2,7 +2,7 @@ import React from "react";
 import "../index.css";
 
 import { NavLink } from "react-router-dom";
-
+import Login from "../modal/Login"
 const navbar = () => {
   return (
     <nav
@@ -11,10 +11,10 @@ const navbar = () => {
       aria-label="Global"
     >
       <div className="flex lg:flex-1">
-        <nav to="#" className="-m-1.5 p-1.5 flex justify-center align-center">
+        <NavLink to="#" className="-m-1.5 p-1.5 flex justify-center align-center">
           <img className="h-8 w-auto" src="" alt="" />
           <h1 className="text-xl px-2 py-1 font-bold text-white">Accessores</h1>
-        </nav>
+        </NavLink>
       </div>
       <div className="flex lg:hidden">
         <button
@@ -56,9 +56,12 @@ const navbar = () => {
         </NavLink>
       </div>
 
-      <div className="hidden lg:flex lg:flex-1 lg:justify-end ">
+      <div className="hidden lg:flex lg:flex-1 lg:justify-end " >
         {/* shoping icon */}
+
         <svg
+
+
           className="h-8 w-8 text-white px-1"
           viewBox="0 0 24 24"
           fill="none"
@@ -87,19 +90,22 @@ const navbar = () => {
         </svg>
 
         {/* usericon */}
-        <svg
-          className="h-8 w-8 text-white px-1"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-          {" "}
-          <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />{" "}
-          <circle cx="12" cy="7" r="4" />
-        </svg>
+        <NavLink >
+          <svg
+            class="h-8 w-8 text-white px-1"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
+            <circle cx="12" cy="7" r="4" />
+          </svg>
+        </NavLink>
+        <Login />
+
       </div>
     </nav>
   );
