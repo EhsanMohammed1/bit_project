@@ -28,23 +28,26 @@ const Login = () => {
             placeholder="Enter your password"
           />
         </div>
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between p-4 ">
           <a
             href="#"
             className="text-gray-500 hover:text-violet-500 focus:outline-none focus:underline transition duration-150 ease-in-out"
           >
             Forgot Password?
           </a>
-          <div>
-         
-          </div>
-          <button
-            type="submit"
-            className="bg-violet-500 text-white py-2 px-4 rounded-md shadow-sm hover:bg-violet-700 focus:outline-none focus:shadow-outline-blue active:bg-violet-800 transition duration-150 ease-in-out"
+          <a
+            href="#"
+            className="text-gray-500 hover:text-violet-500 focus:outline-none focus:underline transition duration-150 ease-in-out"
           >
-            Login
-          </button>
+            I don'n ave Account
+          </a>
         </div>
+        <button
+          type="submit"
+          className="bg-violet-500 text-white py-4 px-16   justify-center align-center rounded-md shadow-sm hover:bg-violet-700 focus:outline-none focus:shadow-outline-blue active:bg-violet-800 transition duration-150 ease-in-out"
+        >
+          Login
+        </button>
       </form>
     </div>
 
