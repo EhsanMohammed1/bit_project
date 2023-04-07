@@ -1,11 +1,15 @@
 import React from 'react'
+import Search from '../component/search'
+import Product from "../component/Items"
 
 const Products = () => {
+
   return (
     <div>
-      <h1>products</h1>
+      <Search />
+      <Product />
     </div>
-  )
-}
+  );
+};
 
 export default Products
