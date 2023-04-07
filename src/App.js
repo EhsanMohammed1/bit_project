@@ -10,6 +10,7 @@ import Contact from "./Pages/contact"
 import Fotter from "./component/Fotter";
 import Login from "./Pages/Login";
 import Checkout from "./Pages/Checkout";
+import Regester from "./Pages/regester";
 function App() {
   return (
     <>
@@ -21,6 +22,7 @@ function App() {
         <Route path="/about" Component={About}/>
         <Route path="/login" Component={Login}/>
         <Route path="/checkout" Component={Checkout}/>
+        <Route path="./regester" Component={Regester}/>
       </Routes>
       <Fotter/>
     </>
