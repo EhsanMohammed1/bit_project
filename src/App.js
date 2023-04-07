@@ -8,7 +8,8 @@ import Productspage from "./Pages/Productspage"
 import About from "./Pages/About"
 import Contact from "./Pages/contact"
 import Fotter from "./component/Fotter";
-
+import Login from "./Pages/Login";
+import Checkout from "./Pages/Checkout";
 function App() {
   return (
     <>
@@ -18,6 +19,8 @@ function App() {
         <Route path="/product"  Component={Productspage}/>
         <Route path="/contact" Component={Contact}/>
         <Route path="/about" Component={About}/>
+        <Route path="/login" Component={Login}/>
+        <Route path="/checkout" Component={Checkout}/>
       </Routes>
       <Fotter/>
     </>

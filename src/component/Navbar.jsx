@@ -1,8 +1,12 @@
 import React from "react";
 import "../index.css";
-
 import { NavLink } from "react-router-dom";
-import Login from "../modal/Login"
+
+// buttons
+import Loginbt from "./Button/LoginBt"
+import Checkout from "./Button/checkoutBt";
+
+
 const navbar = () => {
   return (
     <nav
@@ -11,7 +15,7 @@ const navbar = () => {
       aria-label="Global"
     >
       <div className="flex lg:flex-1">
-        <NavLink to="#" className="-m-1.5 p-1.5 flex justify-center align-center">
+        <NavLink to="/" className="-m-1.5 p-1.5 flex justify-center align-center">
           <img className="h-8 w-auto" src="" alt="" />
           <h1 className="text-xl px-2 py-1 font-bold text-white">Accessores</h1>
         </NavLink>
@@ -51,60 +55,27 @@ const navbar = () => {
         <NavLink to="/about" className="text-lg font-semibold leading-6 text-white">
           About
         </NavLink>
+
         <NavLink to="/contact" className="text-lg font-semibold leading-6 text-white">
           Contact
         </NavLink>
       </div>
 
       <div className="hidden lg:flex lg:flex-1 lg:justify-end " >
-        {/* shoping icon */}
-
-        <svg
 
 
-          className="h-8 w-8 text-white px-1"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-        >
-          {" "}
-          <circle cx="9" cy="21" r="1" /> <circle cx="20" cy="21" r="1" />{" "}
-          <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6" />
-        </svg>
+
         {/* heart svg */}
-        <svg
-          className="h-8 w-8 text-white px-1"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"
-          />
-        </svg>
+        <NavLink to="/checkout" >
+          < Checkout />
+        </NavLink>
 
         {/* usericon */}
-        <NavLink >
-          <svg
-            class="h-8 w-8 text-white px-1"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-          >
-            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" />
-            <circle cx="12" cy="7" r="4" />
-          </svg>
+        <NavLink to="/login">
+          < Loginbt />
         </NavLink>
-        <Login />
+
+
 
       </div>
     </nav>
