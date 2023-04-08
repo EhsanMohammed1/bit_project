@@ -1,5 +1,5 @@
 import "./index.css";
-import { Routes , Route} from 'react-router-dom'
+import { Routes , Route,re} from 'react-router-dom'
 
 import Navbar from "./component/Navbar";
 //component
@@ -12,6 +12,8 @@ import Login from "./Pages/Login";
 import Checkout from "./Pages/Checkout";
 import Regester from "./Pages/regester";
 import Singleitem from "./Pages/Singleitem";
+import Notfound from "./Pages/Notfound"
+
 function App() {
   return (
     <>
@@ -23,6 +25,7 @@ function App() {
         <Route path="/contact" Component={Contact}/>
         <Route path="/about" Component={About}/>
         <Route path="/login" Component={Login}/>
+        <Route path="*" Component={Notfound}/>
         <Route path="/checkout" Component={Checkout}/>
         <Route path="./regester" Component={Regester}/>
       </Routes>

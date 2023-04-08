@@ -3,7 +3,12 @@ import { PRODUCT } from "../data"
 import { IoHeartOutline, IoHeartSharp } from "react-icons/io5"
 import { NavLink } from 'react-router-dom'
 
+
 const Items = () => {
+
+
+
+
   const cardItem = (item) => {
     return (
 
@@ -19,9 +24,9 @@ const Items = () => {
         <h4 className="text-xl font-[500] text-black text-center">{item.name}</h4>
         <h4 className="text-l font-[400] text-black text-center ">{item.price}$</h4>
 
-        <div className='flex justify-between'>
+        <div className='flex justify-between' >
           <IoHeartOutline size={30} />
-          {/* <IoHeartSharp size={30} /> */}
+          <IoHeartSharp size={30} />
 
           <NavLink to={`/product/${item.id}`}
             className="  hover:bg-violet-500   cursor-pointer justify-center text-violet-700 font-semibold hover:text-white py-2 px-5 border border-violet-500 hover:border-transparent rounded">
@@ -37,8 +42,8 @@ const Items = () => {
   }
   return (
     <>
-      <div className='flex justify-center p-8'>
-        <h1 className='text-black underline   font-extrabold tracking-wide uppercase'>Products</h1>
+      <div className='flex justify-center pt-16 p-8'>
+        <h1 className='text-black underline text-3xl  font-extrabold tracking-wide uppercase'>Products</h1>
       </div>
 
       <section

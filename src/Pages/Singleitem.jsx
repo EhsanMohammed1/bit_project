@@ -66,7 +66,7 @@ const Singleitem = () => {
                 </li>
                 <li>
                   <a
-                    className="text-sm font-medium text-indigo-500 hover:text-indigo-600"
+                    className="text-sm font-medium text-violet-500 hover:text-violet-600"
                     href="#"
                   >
                     {product.brand} {product.name}
@@ -123,7 +123,7 @@ const Singleitem = () => {
               </div>
               <div className="flex flex-wrap -mx-2 mb-12">
                 <div className="w-full md:w-2/3 px-2 mb-2 md:mb-0">
-                  <a
+                  <a onClick={addToBag}
                     className="block py-4 px-2 leading-8 font-heading font-medium tracking-tighter text-xl text-white text-center bg-violet-500 focus:ring-2 focus:ring-violet-500 focus:ring-opacity-50 hover:bg-violet-600 rounded-xl"
                     href="#"
                   >
@@ -166,5 +166,7 @@ const Singleitem = () => {
 
   )
 }
-
+const addToBag = () => {
+  alert("hello")
+}
 export default Singleitem
