@@ -6,7 +6,8 @@ export const PRODUCT=[
     dic:"k2ld2j",
     img:"https://cdn.shopify.com/s/files/1/0078/1032/files/otterbox-case_600x600.jpg?v=1656437931",
     price:10,
-    cat:"smartwatch"
+    cat:"smartwatch",
+    color:"green"
   },
    {
     id:2,
@@ -15,7 +16,8 @@ export const PRODUCT=[
     dic:"k2ld2j",
     img:"https://cdn.shopify.com/s/files/1/0078/1032/files/smartish_1024x1024.jpg?v=1656077533",
     price:15,
-    cat:"smartwatch"
+    cat:"smartwatch",
+    color:"black"
   },
    {
     id:3,
@@ -24,16 +26,18 @@ export const PRODUCT=[
     dic:"k2ld2j",
     img:"https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/51ASC9iqTfL._SX425_.jpg",
     price:20,
-    cat:"smartwatch"
+    cat:"smartwatch",
+    color:"pink"
   },
    {
     id:4,
-    name:"Potector",
+    name:"Protector",
     brand:"JETech",
     dic:"k2ld2j",
     img:"https://olixar.com/wp-content/uploads/2021/11/Glass-Screen-Protectors.jpg",
     price:10,
-    cat:"smartwatch"
+    cat:"smartwatch",
+    color:"white"
   },
    {
     id:5,
@@ -42,7 +46,8 @@ export const PRODUCT=[
     dic:"k2ld2j",
     img:"https://m.media-amazon.com/images/W/IMAGERENDERING_521856-T1/images/I/61ult08OEiL._AC_SX679_.jpg",
     price:195,
-    cat:"smartwatch"
+    cat:"smartwatch",
+    color:"black"
   },
 
      {
@@ -52,7 +57,8 @@ export const PRODUCT=[
     dic:"k2ld2j",
     img:"https://d3cd3hu9wl72jo.cloudfront.net/1.d/preview/a/8/a897b718_a07ff526_AirPods-3rd.jpg",
     price:120,
-    cat:"smartwatch"
+    cat:"smartwatch",
+    color:"white"
   },
      {
     id:7,
@@ -61,7 +67,8 @@ export const PRODUCT=[
     dic:"k2ld2j",
     img:"https://www.giztop.com/media/catalog/product/cache/dc206057cdd42d7e34b9d36e347785ca/h/u/huawei_sound_x_2021-3.jpg",
     price:340,
-    cat:"Audio"
+    cat:"Audio",
+    color:"black"
   },
      {
     id:8,
@@ -70,7 +77,8 @@ export const PRODUCT=[
     dic:"k2ld2j",
     img:"https://images.dailyobjects.com/marche/product-images/1101/slick-phone-case-cover-for-iphone-13-images/Nimbus-Phone-Case-Cover-For-iPhone-13.png?tr=cm-pad_resize,v-2",
     price:25,
-    cat:"smartwatch"
+    cat:"smartwatch",
+    color:"black"
   },
      {
     id:9,
@@ -79,7 +87,8 @@ export const PRODUCT=[
     dic:"k2ld2j",
     img:"https://arrivly.com/images/tradeMark/6/privacy-screen-protector.jpg",
     price:20,
-    cat:"protector"
+    cat:"protector",
+    color:"red"
   },
        {
     id:10,
@@ -88,7 +97,8 @@ export const PRODUCT=[
     dic:"k2ld2j",
     img:"https://alhoot-palace.com/wp-content/uploads/2023/01/huawei-freebuds-5i-4.jpg",
     price:160,
-    cat:"protector"
+    cat:"protector",
+    color:"silver"
   },
  
 ]

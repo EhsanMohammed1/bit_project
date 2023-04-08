@@ -11,6 +11,7 @@ import Fotter from "./component/Fotter";
 import Login from "./Pages/Login";
 import Checkout from "./Pages/Checkout";
 import Regester from "./Pages/regester";
+import Singleitem from "./Pages/Singleitem";
 function App() {
   return (
     <>
@@ -18,6 +19,7 @@ function App() {
       <Routes>
         <Route path="/" Component={Home}/>
         <Route path="/product"  Component={Productspage}/>
+        <Route path="/product/:id"  Component={Singleitem}/>
         <Route path="/contact" Component={Contact}/>
         <Route path="/about" Component={About}/>
         <Route path="/login" Component={Login}/>
