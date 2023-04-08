@@ -1,6 +1,7 @@
 import React from 'react'
 import { useParams } from 'react-router'
 import { PRODUCT } from '../data';
+import { NavLink } from 'react-router-dom';
 const Singleitem = () => {
 
   const proid = useParams();
@@ -19,7 +20,10 @@ const Singleitem = () => {
                     className="flex items-center text-sm font-medium text-gray-400 hover:text-gray-500"
                     href="#"
                   >
-                    <span>Home</span>
+                    <NavLink to="/">
+
+                      <span>Home</span>
+                    </NavLink>
                     <svg
                       className="ml-6"
                       width={4}
@@ -40,8 +44,11 @@ const Singleitem = () => {
                     className="flex items-center text-sm font-medium text-gray-400 hover:text-gray-500"
                     href="#"
                   >
+                    <NavLink to="/product">
 
-                    <span>Product</span>
+                      <span>Product</span>
+                    </NavLink>
+
                     <svg
                       className="ml-6"
                       width={4}
@@ -70,7 +77,7 @@ const Singleitem = () => {
             <div className="w-full lg:w-1/2 px-4 mb-16 lg:mb-0">
               <div className="flex -mx-4 flex-wrap items-center justify-between lg:justify-start lg:items-start xl:items-center">
 
-                <div className="w-full sm:w-9/12 px-4">
+                <div className="w-full sm:w-9/12 px-4 hover:-translate-y-1 hover:scale-110 transition ease-in-out delay-32">
                   <img
                     className="mb-5"
                     src={product.img}
@@ -86,7 +93,7 @@ const Singleitem = () => {
                 <span className="text-xs text-gray-400 tracking-wider">
                   {product.brand} {product.id}
                 </span>
-                <h2 className="mt-6 mb-4 text-5xl md:text-7xl lg:text-8xl font-heading font-medium">
+                <h2 className="mt-6 mb-4 text-5xl md:text-5xl lg:text-6xl font-heading font-medium">
                   <h1>{product.name}</h1>
 
                 </h2>
@@ -98,81 +105,7 @@ const Singleitem = () => {
                   {product.dic}
                 </p>
               </div>
-              <div className="flex mb-6 items-center">
-                <div className="inline-flex mr-4">
-                  <button className="mr-1">
-                    <svg
-                      width={20}
-                      height={20}
-                      viewBox="0 0 20 20"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M20 7.91679H12.4167L10 0.416779L7.58333 7.91679H0L6.18335 12.3168L3.81668 19.5835L10 15.0835L16.1834 19.5835L13.8167 12.3168L20 7.91679Z"
-                        fill="#C1C9D3"
-                      />
-                    </svg>
-                  </button>
-                  <button className="mr-1">
-                    <svg
-                      width={20}
-                      height={20}
-                      viewBox="0 0 20 20"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M20 7.91679H12.4167L10 0.416779L7.58333 7.91679H0L6.18335 12.3168L3.81668 19.5835L10 15.0835L16.1834 19.5835L13.8167 12.3168L20 7.91679Z"
-                        fill="#C1C9D3"
-                      />
-                    </svg>
-                  </button>
-                  <button className="mr-1">
-                    <svg
-                      width={20}
-                      height={20}
-                      viewBox="0 0 20 20"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M20 7.91679H12.4167L10 0.416779L7.58333 7.91679H0L6.18335 12.3168L3.81668 19.5835L10 15.0835L16.1834 19.5835L13.8167 12.3168L20 7.91679Z"
-                        fill="#C1C9D3"
-                      />
-                    </svg>
-                  </button>
-                  <button className="mr-1">
-                    <svg
-                      width={20}
-                      height={20}
-                      viewBox="0 0 20 20"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M20 7.91679H12.4167L10 0.416779L7.58333 7.91679H0L6.18335 12.3168L3.81668 19.5835L10 15.0835L16.1834 19.5835L13.8167 12.3168L20 7.91679Z"
-                        fill="#C1C9D3"
-                      />
-                    </svg>
-                  </button>
-                  <button>
-                    <svg
-                      width={20}
-                      height={20}
-                      viewBox="0 0 20 20"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M20 7.91679H12.4167L10 0.416779L7.58333 7.91679H0L6.18335 12.3168L3.81668 19.5835L10 15.0835L16.1834 19.5835L13.8167 12.3168L20 7.91679Z"
-                        fill="#C1C9D3"
-                      />
-                    </svg>
-                  </button>
-                </div>
-                <span className="text-md text-gray-400">4.59</span>
-              </div>
+
               <div className="mb-6">
                 <h4 className="mb-3 font-heading font-medium">
                   <span>Color:</span>
@@ -225,10 +158,10 @@ const Singleitem = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section >
 
 
-    </div>
+    </div >
 
 
   )
