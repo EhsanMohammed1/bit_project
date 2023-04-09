@@ -17,7 +17,7 @@ const Notfound = () => {
                   to go.
                 </p>
                 <NavLink to="/"
-                  className="  hover:bg-violet-500   cursor-pointer justify-center text-violet-700 font-semibold hover:text-white py-4 px-8 border border-violet-500 hover:border-transparent rounded">
+                  className="  hover:bg-violet-500   cursor-pointer justify-center text-violet-700 font-semibold hover:text-white py-4 px-10 border border-violet-500 hover:border-transparent rounded">
                   Home !
 
                 </NavLink>
