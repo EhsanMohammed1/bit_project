@@ -3,7 +3,7 @@ import React from 'react'
 
 const Fotter = () => {
   return (
-    <div className="pt-60 ">
+    <div className=" ">
       <footer className=" z-50 bg-violet-900">
         <div
           tabIndex={0}
