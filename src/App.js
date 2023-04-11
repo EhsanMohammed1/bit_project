@@ -10,10 +10,9 @@ import Contact from "./Pages/contact"
 import Fotter from "./component/Fotter";
 import Login from "./Pages/Login";
 import Checkout from "./Pages/Checkout";
-import Regester from "./Pages/regester";
 import Singleitem from "./Pages/Singleitem";
 import Notfound from "./Pages/Notfound"
-
+import Regeister from "./Pages/Regeister";
 function App() {
   return (
     <>
@@ -27,7 +26,7 @@ function App() {
         <Route path="/login" Component={Login}/>
         <Route path="*" Component={Notfound}/>
         <Route path="/checkout" Component={Checkout}/>
-        <Route path="./regester" Component={Regester}/>
+        <Route path="/regester" Component={Regeister}/>
       </Routes>
       <Fotter/>
     </>

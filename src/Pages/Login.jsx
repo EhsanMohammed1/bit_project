@@ -1,5 +1,6 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react'
-
+import { NavLink } from 'react-router-dom'
 const Login = () => {
   return (
     <div className="max-w-md mx-auto mt-24">
@@ -35,12 +36,10 @@ const Login = () => {
           >
             Forgot Password?
           </a>
-          <a
-            href="#"
-            className="text-gray-500 hover:text-violet-500 focus:outline-none focus:underline transition duration-150 ease-in-out"
+          <NavLink to="/regester" className="text-gray-500 hover:text-violet-500 focus:outline-none focus:underline transition duration-150 ease-in-out"
           >
             I don'n ave Account
-          </a>
+          </NavLink>
         </div>
         <button
           type="submit"
