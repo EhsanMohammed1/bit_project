@@ -1,12 +1,11 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react'
-import { useParams } from 'react-router'
-import { PRODUCT } from '../data';
+// import { useParams } from 'react-router'
 import { NavLink } from 'react-router-dom';
 const Singleitem = () => {
-  const proid = useParams();
-  const prodetail = PRODUCT.filter(x => x.id == proid.id);
-  const product = prodetail[0];
+  // const proid = useParams();
+  // const prodetail = PRODUCT.filter(x => x.id == proid.id);
+  // const product = prodetail[0];
   return (
     <div>
       <section className="pt-12 pb-24 bg-blueGray-100 rounded-b-10xl overflow-hidden">
@@ -68,7 +67,7 @@ const Singleitem = () => {
                     className="text-sm font-medium text-violet-500 hover:text-violet-600"
                     href="#"
                   >
-                    {product.brand} {product.name}
+                    {/* {product.brand} {product.name} */}
                   </a>
                 </li>
               </ul>
@@ -76,39 +75,39 @@ const Singleitem = () => {
             <div className="w-full lg:w-1/2 px-4 mb-16 lg:mb-0">
               <div className="flex -mx-4 flex-wrap items-center justify-between lg:justify-start lg:items-start xl:items-center">
 
-                <div className="w-full sm:w-9/12 px-4 hover:-translate-y-1 hover:scale-110 transition ease-in-out delay-32">
+                {/* <div className="w-full sm:w-9/12 px-4 hover:-translate-y-1 hover:scale-110 transition ease-in-out delay-32">
                   <img
                     className="mb-5"
-                    src={product.img}
-                    alt={product.name}
+                  // src={product.img}
+                  // alt={product.name}
 
 
                   />
-                </div>
+                </div> */}
               </div>
             </div>
             <div className="w-full lg:w-1/2 px-4">
               <div className="max-w-md mb-6">
                 <span className="text-xs text-gray-400 tracking-wider">
-                  {product.brand} {product.id}
+                  {/* {product.brand} {product.id} */}
                 </span>
                 <h2 className="mt-6 mb-4 text-5xl md:text-5xl lg:text-6xl font-heading font-medium">
-                  <h1>{product.name}</h1>
+                  {/* <h1>{product.name}</h1> */}
 
                 </h2>
                 <p className="flex items-center mb-6">
                   <span className="mr-2 text-sm text-violet-500 font-medium">$</span>
-                  <span className="text-3xl text-violet-500 font-medium">{product.price}</span>
+                  {/* <span className="text-3xl text-violet-500 font-medium">{product.price}</span> */}
                 </p>
                 <p className="text-lg text-gray-400">
-                  {product.dic}
+                  {/* {product.dic} */}
                 </p>
               </div>
 
               <div className="mb-6">
                 <h4 className="mb-3 font-heading font-medium">
                   <span>Color:</span>
-                  <span className="text-gray-400">{product.color}</span>
+                  {/* <span className="text-gray-400">{product.color}</span> */}
                 </h4>
 
               </div>
