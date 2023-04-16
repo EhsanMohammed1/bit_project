@@ -39,14 +39,7 @@ const Fotter = () => {
                         Products
                       </a>
                     </li>
-                    <li className="mt-6">
-                      <a
-                        className="focus:outline-none focus:underline text-xs lg:text-sm leading-none hover:text-brand dark:hover:text-brand text-white"
-                        href="javascript:void(0)"
-                      >
-                        Shop
-                      </a>
-                    </li>
+
 
                   </ul>
                 </div>

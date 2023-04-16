@@ -1,34 +1,34 @@
 import "./index.css";
-import { Routes , Route,re} from 'react-router-dom'
+import { Routes, Route, re } from "react-router-dom";
 
 import Navbar from "./component/Navbar";
 //component
 import Home from "./Pages/Home";
-import Productspage from "./Pages/Productspage"
-import About from "./Pages/About"
-import Contact from "./Pages/contact"
+import Productspage from "./Pages/Productspage";
+import About from "./Pages/About";
+import Contact from "./Pages/contact";
 import Fotter from "./component/Fotter";
 import Login from "./Pages/Login";
 import Checkout from "./Pages/Checkout";
 import Singleitem from "./Pages/Singleitem";
-import Notfound from "./Pages/Notfound"
+import Notfound from "./Pages/Notfound";
 import Regeister from "./Pages/Regeister";
 function App() {
   return (
     <>
-    <Navbar/>
+      <Navbar />
       <Routes>
-        <Route path="/" Component={Home}/>
-        <Route path="/product"  Component={Productspage}/>
-        <Route path="/product/:id"  Component={Singleitem}/>
-        <Route path="/contact" Component={Contact}/>
-        <Route path="/about" Component={About}/>
-        <Route path="/login" Component={Login}/>
-        <Route path="*" Component={Notfound}/>
-        <Route path="/checkout" Component={Checkout}/>
-        <Route path="regester" Component={Regeister}/>
+        <Route path="/" Component={Home} />
+        <Route path="/product" Component={Productspage} />
+        <Route path="/product/:id" Component={Singleitem} />
+        <Route path="/contact" Component={Contact} />
+        <Route path="/about" Component={About} />
+        <Route path="/login" Component={Login} />
+        <Route path="*" Component={Notfound} />
+        <Route path="/checkout" Component={Checkout} />
+        <Route path="regester" Component={Regeister} />
       </Routes>
-      <Fotter/>
+      <Fotter />
     </>
   );
 }
