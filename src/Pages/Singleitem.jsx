@@ -1,13 +1,12 @@
+/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react'
 import { useParams } from 'react-router'
 import { PRODUCT } from '../data';
 import { NavLink } from 'react-router-dom';
 const Singleitem = () => {
-
   const proid = useParams();
   const prodetail = PRODUCT.filter(x => x.id == proid.id);
   const product = prodetail[0];
-  console.log(product);
   return (
     <div>
       <section className="pt-12 pb-24 bg-blueGray-100 rounded-b-10xl overflow-hidden">
@@ -123,7 +122,8 @@ const Singleitem = () => {
               </div>
               <div className="flex flex-wrap -mx-2 mb-12">
                 <div className="w-full md:w-2/3 px-2 mb-2 md:mb-0">
-                  <a onClick={addToBag}
+                  <a
+                    // onClick={() => dispatch(increment())}
                     className="block py-4 px-2 leading-8 font-heading font-medium tracking-tighter text-xl text-white text-center bg-violet-500 focus:ring-2 focus:ring-violet-500 focus:ring-opacity-50 hover:bg-violet-600 rounded-xl"
                     href="#"
                   >
@@ -166,7 +166,5 @@ const Singleitem = () => {
 
   )
 }
-const addToBag = () => {
-  alert("hello")
-}
+
 export default Singleitem
