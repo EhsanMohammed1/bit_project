@@ -54,7 +54,7 @@ const Items = () => {
     {
       data &&
       data.map((product) =>
-        <div className="w-full max-w-sm m-8 p-2 bg-white gap-4 border border-violet-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 transition ease-in-out delay-250  hover:-translate-y-2 hover:scale-110 duration-500 hover:border-violet-700 ">
+        <div className="w-full max-w-sm m-8 p-2 bg-white gap-4 border border-violet-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 ">
           <div className='text-left'>
             <button onClick={() => handleAddToCard(product)}>
 
@@ -62,7 +62,7 @@ const Items = () => {
             </button>
           </div>
           <img
-            className="p-8  "
+            className="p-8  transition ease-in-out delay-250  hover:-translate-y-2 hover:scale-110 duration-500 hover:border-violet-700 "
             src={product.img}
             alt="product image"
           />
