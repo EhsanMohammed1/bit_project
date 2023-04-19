@@ -11,7 +11,7 @@ const navbar = () => {
   return (
     <nav
 
-      className="flex items-center justify-between p-6 lg:px-28 bg-violet-900 "
+      className="flex items-center w-full justify-between p-6 lg:px-28 bg-violet-900 "
       aria-label="Global"
     >
       <div className="flex lg:flex-1">

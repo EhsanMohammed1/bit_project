@@ -5,7 +5,7 @@ import Product from "../component/Items"
 const Products = () => {
 
   return (
-    <div>
+    <div className='flex flex-col items-center'>
       <Search />
       <Product />
     </div>

@@ -1,10 +1,12 @@
-/* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react'
-// import { useParams } from 'react-router'
+import { useParams } from 'react-router'
 import { NavLink } from 'react-router-dom';
+// import { useGetallProductsQuery } from '../Redux/ProductApi'
+
 const Singleitem = () => {
-  // const proid = useParams();
-  // const prodetail = PRODUCT.filter(x => x.id == proid.id);
+
+  // const { data } = useParams();
+  // const prodetail = data.filter(x => x.id === data.id);
   // const product = prodetail[0];
   return (
     <div>
@@ -75,7 +77,7 @@ const Singleitem = () => {
             <div className="w-full lg:w-1/2 px-4 mb-16 lg:mb-0">
               <div className="flex -mx-4 flex-wrap items-center justify-between lg:justify-start lg:items-start xl:items-center">
 
-                {/* <div className="w-full sm:w-9/12 px-4 hover:-translate-y-1 hover:scale-110 transition ease-in-out delay-32">
+                <div className="w-full sm:w-9/12 px-4 hover:-translate-y-1 hover:scale-110 transition ease-in-out delay-32">
                   <img
                     className="mb-5"
                   // src={product.img}
@@ -83,7 +85,7 @@ const Singleitem = () => {
 
 
                   />
-                </div> */}
+                </div>
               </div>
             </div>
             <div className="w-full lg:w-1/2 px-4">

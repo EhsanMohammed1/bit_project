@@ -1,6 +1,6 @@
-const products = [
+ const products = [
   {
-    id: 0,
+    id: 1,
     name: "Green",
     brand: "Otterbox",
     dic: "Mobile covers are available in a wide range of prices, depending on the material, design, and brand. They are popular among mobile device users as a way to personalize their devices and express their style and personality.",
@@ -50,13 +50,11 @@ const products = [
     cat: "smartwatch",
     color: "black",
   },
-
   {
     id: 6,
     name: "Airpods3",
     brand: "Apple",
     dic: "the third-generation AirPods are Apple's main wireless earbuds, featuring a streamlined design, force sensor controls, Adaptive EQ, spatial audio with dynamic head tracking, a MagSafe charging case, and more",
-
     img: "https://d3cd3hu9wl72jo.cloudfront.net/1.d/preview/a/8/a897b718_a07ff526_AirPods-3rd.jpg",
     price: 120,
     cat: "smartwatch",
@@ -101,6 +99,26 @@ const products = [
     price: 160,
     cat: "protector",
     color: "silver",
+  },
+    {
+    id: 11,
+    name: "Anker 633 Magnetic Battery",
+    brand: "Anker",
+    dic: "Features. Hi-Res Audio to Tickle your Ear HUAWEI FreeBuds 5i is Hi-Res Audio Wireless certificated, featuring a wider frequency response, full-link high-resolution sound for HD audio sources, and multiple EQs to match with a wide range of different styles, for a tailor-made listening experience.",
+    img: "https://cdn.shopify.com/s/files/1/0493/9834/9974/products/A1641011-Anker_633_Magnetic_Battery_2.png?v=1672388238",
+    price: 45,
+    cat: "charging",
+    color: "silver",
+  },
+    {
+    id: 12,
+    name: "Razer Kraken Pro V2",
+    brand: "Razzer",
+    dic: "Features. Hi-Res Audio to Tickle your Ear HUAWEI FreeBuds 5i is Hi-Res Audio Wireless certificated, featuring a wider frequency response, full-link high-resolution sound for HD audio sources, and multiple EQs to match with a wide range of different styles, for a tailor-made listening experience.",
+    img: "https://assets2.razerzone.com/images/pnx.assets/60ded9ab42e73d2f78db4ba59f032976/razer-kraken-v3-compatibility-500x500.png",
+    price: 110,
+    cat: "headset",
+    color: "black",
   },
 ];
 
