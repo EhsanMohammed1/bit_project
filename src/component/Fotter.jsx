@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/no-redundant-roles */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react'
 
@@ -26,7 +27,7 @@ const Fotter = () => {
                     <li className="mt-6">
                       <a
                         className="focus:outline-none focus:underline text-xs lg:text-sm leading-none hover:text-brand dark:hover:text-brand text-white"
-                        href="javascript:void(0)"
+                        href="j"
                       >
                         Home
                       </a>
@@ -34,7 +35,7 @@ const Fotter = () => {
                     <li className="mt-6">
                       <a
                         className="focus:outline-none focus:underline text-xs lg:text-sm leading-none hover:text-brand dark:hover:text-brand text-white"
-                        href="javascript:void(0)"
+                        href=""
                       >
                         Products
                       </a>
@@ -48,7 +49,7 @@ const Fotter = () => {
                     <li>
                       <a
                         className="focus:outline-none focus:underline text-xs lg:text-sm leading-none hover:text-brand dark:hover:text-brand text-white"
-                        href="javascript:void(0)"
+                        href=""
                       >
                         FAQ
                       </a>
@@ -56,7 +57,7 @@ const Fotter = () => {
                     <li className="mt-6">
                       <a
                         className="focus:outline-none focus:underline text-xs lg:text-sm leading-none hover:text-brand dark:hover:text-brand text-white"
-                        href="javascript:void(0)"
+                        href=""
                       >
                         Contacts
                       </a>
@@ -64,7 +65,7 @@ const Fotter = () => {
                     <li className="mt-6">
                       <a
                         className="focus:outline-none focus:underline text-xs lg:text-sm leading-none hover:text-brand dark:hover:text-brand text-white"
-                        href="javascript:void(0)"
+                        href=""
                       >
                         About
                       </a>
@@ -77,7 +78,7 @@ const Fotter = () => {
                   <ul>
                     <li>
                       <a
-                        href="javascript:void(0)"
+                        href=""
                         className="focus:underline focus:outline-none text-xs lg:text-sm leading-none hover:text-brand dark:hover:text-brand text-white"
                       >
                         Privacy policy
@@ -86,7 +87,7 @@ const Fotter = () => {
                     <li className="mt-6">
                       <a
                         className="focus:underline focus:outline-none text-xs lg:text-sm leading-none hover:text-brand dark:hover:text-brand  text-white"
-                        href="javascript:void(0)"
+                        href=""
                       >
                         Terms of service
                       </a>
@@ -95,7 +96,7 @@ const Fotter = () => {
                 </div>
                 <div className="w-full lg:w-1/2 px-6 flex flex-col justify-between">
                   <div className="flex items-center mb-6">
-                    <a aria-label="Github" href="javascript:void(0)">
+                    <a aria-label="Github" href="">
                       <div className="text-white cursor-pointer hover:text-brand dark:hover:text-brand">
                         <img
                           className="white:hidden"
@@ -111,7 +112,7 @@ const Fotter = () => {
                     </a>
                     <a
                       aria-label="Twitter"
-                      href="javascript:void(0)"
+                      href=""
                       className="ml-4"
                     >
                       <div className="text-gray-800 dark:text-gray-50 cursor-pointer hover:text-brand dark:hover:text-brand">
@@ -142,7 +143,7 @@ const Fotter = () => {
             tabIndex={0}
             role="link"
             aria-label="home link"
-            href="javascript:void(0)"
+            href=""
           >
             <img
               className="dark:hidden"

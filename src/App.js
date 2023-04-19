@@ -1,7 +1,9 @@
 import "./index.css";
-import { Routes, Route, re } from "react-router-dom";
-
+import { Routes, Route } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
 import Navbar from "./component/Navbar";
+import "react-toastify/dist/ReactToastify.css";
+
 //component
 import Home from "./Pages/Home";
 import Productspage from "./Pages/Productspage";
@@ -16,6 +18,7 @@ import Regeister from "./Pages/Regeister";
 function App() {
   return (
     <>
+      <ToastContainer />
       <Navbar />
       <Routes>
         <Route path="/" Component={Home} />

@@ -28,7 +28,7 @@ const Carousel = () => {
   }
   const nextSlide = () => {
 
-    const isLast = currentIndex === slides.length - 1;
+    const isLast = currentIndex === slides.length + - 1;
     const newIndex = isLast ? 0 : currentIndex + 1;
     setCurrentIndex(newIndex);
   }
