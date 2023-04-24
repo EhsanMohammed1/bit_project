@@ -19,8 +19,8 @@ const Checkout = () => {
     dispatch(addToCard(cardItem))
   }
 
-  card.cardItems?.map(cardItem => {
-    total = total + cardItem.price
+  card.cardItems.map(cardItem => {
+    total = card.cartTotalAmount;
 
   }
 
@@ -119,7 +119,7 @@ const Checkout = () => {
 
                 <p className="text-3xl font-semibold text-gray-900">
                   <span className="text-xl font-normal text-gray-500">USD</span>
-                  total
+                  {total}
 
                 </p>
               </div>
