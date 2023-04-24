@@ -44,22 +44,18 @@ const cardSlice = createSlice({
       });
     },
 
-
     decreasCard(state, action) {
-      const itemIndex = (state = state.cardItems.findIndex(
+      const itemIndex = state.cardItems.findIndex(
         (cardItem) => cardItem.id === action.payload.id
-      ));
+      );
 
       if (state.cardItems[itemIndex].cardQuantity > 1) {
         state.cardItems[itemIndex].cardQuantity -= 1;
 
-        toast.info(`${action.payload.name}cardQuantity`, {
+        toast.info(`${action.payload.name} card is decreased  `, {
           position: "top-left",
         });
-      } 
-      
-      
-      else if (state.cardItems[itemIndex].cardQuantity === 1) {
+      } else if (state.cardItems[itemIndex].cardQuantity === 1) {
         const nextCardItems = state.cardItems.filter(
           (cardItem) => cardItem.id !== action.payload.id
         );

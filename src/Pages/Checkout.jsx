@@ -112,10 +112,13 @@ const Checkout = () => {
               <div className="flow-root">
               </div>
               <div className="mt-6 flex items-center justify-between">
+
                 <p className="text-2xl font-medium text-gray-900">Total</p>
+
                 <p className="text-3xl font-semibold text-gray-900">
                   <span className="text-xl font-normal text-gray-500">USD</span>{" "}
                   {total}
+
                 </p>
               </div>
 
@@ -140,8 +143,17 @@ const Checkout = () => {
                     />
                   </svg>
                 </button>
+
               </div>
+              <button className="group inline-flex items-center justify-end rounded-md bg-violet-900 px-3 py-3 text-lg font-semibold text-white transition-all duration-200 ease-in-out focus:shadow hover:bg-violet-800"
+
+                type="button"
+              >
+                clear All
+
+              </button>
             </div>
+
           </div>
         </div>
       </div>
