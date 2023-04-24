@@ -142,7 +142,7 @@ const Checkout = () => {
                 </button>
 
               </div>
-              <button onClick={() => clearAllCards(cardItem)} className="group inline-flex items-center justify-end rounded-md bg-violet-900 px-3 py-3 text-lg font-semibold text-white transition-all duration-200 ease-in-out focus:shadow hover:bg-violet-800"
+              <button onClick={() => clearAllCards()} className="group inline-flex items-center justify-end rounded-md bg-violet-900 px-3 py-3 text-lg font-semibold text-white transition-all duration-200 ease-in-out focus:shadow hover:bg-violet-800"
 
                 type="button"
               >
