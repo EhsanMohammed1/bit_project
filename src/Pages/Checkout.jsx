@@ -1,7 +1,7 @@
 /* eslint-disable array-callback-return */
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { decreasCard, removeFromCard } from '../Redux/CardSlice';
+import { addToCard, decreasCard, removeFromCard } from '../Redux/CardSlice';
 const Checkout = () => {
 
   const card = useSelector((state) => state.card);
@@ -15,7 +15,9 @@ const Checkout = () => {
   const handleDecreseCard = (cardItem) => {
     dispatch(decreasCard(cardItem))
   }
-
+  const handleIncreseCard = (cardItem) => {
+    dispatch(addToCard(cardItem))
+  }
 
   card.cardItems?.map(cardItem => {
     total = total + cardItem.price
@@ -53,7 +55,7 @@ const Checkout = () => {
               <div className="mt-4 flex items-end justify-between sm:mt-0 sm:items-start sm:justify-end">
                 <p className="shrink-0 w-32 text-3xl font-semibold text-gray-900 sm:order-2 sm:ml-8 sm:text-right  text-center">
                   <span className='text-xl'>total </span>
-                  ${cardItem.price}
+                  ${cardItem.price * cardItem.cardQuantity}
                 </p>
 
                 <div className="sm:order-1">
@@ -62,9 +64,9 @@ const Checkout = () => {
                       -
                     </button>
                     <div className="flex w-full items-center justify-center bg-gray-100 px-4  uppercase transition font-bold text-2xl">
-                      1
+                      {cardItem.cardQuantity}
                     </div>
-                    <button className="flex items-center justify-center rounded-r-md bg-gray-200 px-4 transition hover:bg-violet-800 hover:text-white font-bold text-2xl">
+                    <button onClick={() => handleIncreseCard(cardItem)} className="flex items-center justify-center rounded-r-md bg-gray-200 px-4 transition hover:bg-violet-800 hover:text-white font-bold text-2xl">
                       +
                     </button>
                   </div>
@@ -116,8 +118,8 @@ const Checkout = () => {
                 <p className="text-2xl font-medium text-gray-900">Total</p>
 
                 <p className="text-3xl font-semibold text-gray-900">
-                  <span className="text-xl font-normal text-gray-500">USD</span>{" "}
-                  {total}
+                  <span className="text-xl font-normal text-gray-500">USD</span>
+                  total
 
                 </p>
               </div>

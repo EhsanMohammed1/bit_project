@@ -19,12 +19,12 @@ const cardSlice = createSlice({
       );
       if (itemIndex >= 0) {
         state.cardItems[itemIndex].cardQuantity += 1;
-        toast.error(`${action.payload.name}is Romved from Card`, {
+        toast.success(`${action.payload.name} is  Added to Card`, {
           position: "top-left",
         });
       } else {
         const tempProduct = { ...action.payload, cardQuantity: 1 };
-        toast.success(`${action.payload.name}is  Added to Card`, {
+        toast.error(`${action.payload.name}is Romved from Card`, {
           position: "top-left",
         });
         state.cardItems.push(tempProduct);
@@ -39,7 +39,7 @@ const cardSlice = createSlice({
       state.cardItems = nextCardItems;
 
       localStorage.setItem("cardItems", JSON.stringify(state.cardItems));
-      toast.error(`${action.payload.name}is Romved from Card`, {
+      toast.error(`${action.payload.name}is completely Romved from Card `, {
         position: "top-left",
       });
     },
@@ -52,7 +52,7 @@ const cardSlice = createSlice({
       if (state.cardItems[itemIndex].cardQuantity > 1) {
         state.cardItems[itemIndex].cardQuantity -= 1;
 
-        toast.info(`${action.payload.name} card is decreased  `, {
+        toast.error(`${action.payload.name} card is decreased  `, {
           position: "top-left",
         });
       } else if (state.cardItems[itemIndex].cardQuantity === 1) {
@@ -61,7 +61,7 @@ const cardSlice = createSlice({
         );
         state.cardItems = nextCardItems;
 
-        toast.error(`${action.payload.name}is Romved from Card`, {
+        toast.error(`${action.payload.name}is  Romved from Card`, {
           position: "top-left",
         });
       }
