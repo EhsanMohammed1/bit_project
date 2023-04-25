@@ -7,6 +7,7 @@ import AddToChekOutBt from './Button/AddToChekOutBt';
 import { useDispatch } from 'react-redux';
 import { addToCard } from '../Redux/CardSlice';
 import { useNavigate } from "react-router-dom";
+import { increment } from "../Redux/TotalSlice"
 
 const Items = () => {
 
@@ -14,11 +15,11 @@ const Items = () => {
 
 
   const dispach = useDispatch();
-  const Navigate = useNavigate();
 
   const handleAddToCard = (product) => {
-    Navigate("/checkout")
     dispach(addToCard(product));
+    dispach(increment(product.price));
+
   }
 
 

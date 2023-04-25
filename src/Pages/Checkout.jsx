@@ -1,22 +1,25 @@
 /* eslint-disable array-callback-return */
-import React from 'react'
+import React, { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { addToCard, decreasCard, removeFromCard } from '../Redux/CardSlice';
+import { increment, decrement } from "../Redux/TotalSlice"
 const Checkout = () => {
-
   const card = useSelector((state) => state.card);
-  let total = 0;
-
+  const total = useSelector((state) => state.total.value)
 
   const dispatch = useDispatch();
   const handleRemoveCard = (cardItem) => {
     dispatch(removeFromCard(cardItem))
   }
-  const handleDecreseCard = (cardItem) => {
+  const handleDecreseCard = (cardItem, all) => {
     dispatch(decreasCard(cardItem))
+    dispatch(decrement(all))
+
   }
-  const handleIncreseCard = (cardItem) => {
+  const handleIncreseCard = (cardItem, all) => {
     dispatch(addToCard(cardItem))
+    dispatch(increment(all))
+
   }
   const clearAllCards = (cardItem) => {
     dispatch((cardItem));
@@ -29,6 +32,7 @@ const Checkout = () => {
         <h1 className="text-2xl font-semibold text-gray-900">Your Cart</h1>
       </div>
       {card.cardItems?.map((cardItem) => {
+
         return <li className="mx-auto mt-4 max-w-6xl md:mt-12 bg-white shadow p-8 ">
           <div key={cardItem.id} className="shrink-1 w-full px-12">
             <img
@@ -55,13 +59,13 @@ const Checkout = () => {
 
                 <div className="sm:order-1">
                   <div className="mx-auto flex h-10 w-32 items-stretch text-gray-600 ">
-                    <button onClick={() => handleDecreseCard(cardItem)} className="flex items-center justify-center rounded-l-md bg-gray-200 px-4 transition hover:bg-violet-800 hover:text-white font-bold text-2xl">
+                    <button onClick={() => handleDecreseCard(cardItem, cardItem.price)} className="flex items-center justify-center rounded-l-md bg-gray-200 px-4 transition hover:bg-violet-800 hover:text-white font-bold text-2xl">
                       -
                     </button>
                     <div className="flex w-full items-center justify-center bg-gray-100 px-4  uppercase transition font-bold text-2xl">
                       {cardItem.cardQuantity}
                     </div>
-                    <button onClick={() => handleIncreseCard(cardItem)} className="flex items-center justify-center rounded-r-md bg-gray-200 px-4 transition hover:bg-violet-800 hover:text-white font-bold text-2xl">
+                    <button onClick={() => handleIncreseCard(cardItem, cardItem.price)} className="flex items-center justify-center rounded-r-md bg-gray-200 px-4 transition hover:bg-violet-800 hover:text-white font-bold text-2xl">
                       +
                     </button>
                   </div>
