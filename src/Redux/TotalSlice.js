@@ -14,7 +14,9 @@ export const totalSlice = createSlice({
     },
     refresh: (state) => {
       state.value = 0;
+      localStorage.setItem("cardItems", JSON.stringify(state.cardItems));
     },
+    
   },
 });
 

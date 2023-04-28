@@ -6,9 +6,7 @@ import { useGetallProductsQuery } from '../Redux/ProductApi'
 import AddToChekOutBt from './Button/AddToChekOutBt';
 import { useDispatch } from 'react-redux';
 import { addToCard } from '../Redux/CardSlice';
-import { useNavigate } from "react-router-dom";
 import { increment } from "../Redux/TotalSlice"
-
 const Items = () => {
 
   const { data, isError, isLoading } = useGetallProductsQuery();

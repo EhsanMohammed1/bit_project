@@ -1,7 +1,6 @@
 /* eslint-disable array-callback-return */
-import React, { useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { addToCard, decreasCard, removeFromCard } from '../Redux/CardSlice';
+import { addToCard, decreasCard, removeFromCard, clearAllCards } from '../Redux/CardSlice';
 import { increment, decrement } from "../Redux/TotalSlice"
 const Checkout = () => {
   const card = useSelector((state) => state.card);
@@ -15,14 +14,15 @@ const Checkout = () => {
     dispatch(decreasCard(cardItem))
     dispatch(decrement(all))
 
+
   }
   const handleIncreseCard = (cardItem, all) => {
     dispatch(addToCard(cardItem))
     dispatch(increment(all))
 
   }
-  const clearAllCards = (cardItem) => {
-    dispatch((cardItem));
+  const HandleClearCards = () => {
+    dispatch(clearAllCards());
   }
 
   return (
@@ -33,7 +33,7 @@ const Checkout = () => {
       </div>
       {card.cardItems?.map((cardItem) => {
 
-        return <li className="mx-auto mt-4 max-w-6xl md:mt-12 bg-white shadow p-8 ">
+        return <li className="mx-auto mt-4 max-w-6xl md:mt-12 bg-white shadow p-8  list-none">
           <div key={cardItem.id} className="shrink-1 w-full px-12">
             <img
               className="h-32 w-32 max-w-full rounded-lg"
@@ -146,7 +146,7 @@ const Checkout = () => {
                 </button>
 
               </div>
-              <button onClick={() => clearAllCards()} className="group inline-flex items-center justify-end rounded-md bg-violet-900 px-3 py-3 text-lg font-semibold text-white transition-all duration-200 ease-in-out focus:shadow hover:bg-violet-800"
+              <button onClick={() => HandleClearCards()} className="group inline-flex items-center justify-end rounded-md bg-violet-900 px-3 py-3 text-lg font-semibold text-white transition-all duration-200 ease-in-out focus:shadow hover:bg-violet-800"
 
                 type="button"
               >

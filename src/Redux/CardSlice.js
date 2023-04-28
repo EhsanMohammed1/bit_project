@@ -70,9 +70,19 @@ const cardSlice = createSlice({
 
       localStorage.setItem("cardItems", JSON.stringify(state.cardItems));
     },
+      clearAllCards(state,action){
+          state.cardItems=[];
+          toast.error(`All cards Are removed `, {
+            position: "top-left",
+          });  
+             localStorage.setItem("cardItems", JSON.stringify(state.cardItems));
+
+      },
+      
+        
   },
 });
 
-export const { addToCard, removeFromCard, decreasCard, addTotal } =
+export const { addToCard, removeFromCard, decreasCard, addTotal ,clearAllCards } =
   cardSlice.actions;
 export default cardSlice.reducer;
