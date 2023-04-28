@@ -6,7 +6,6 @@ import { useGetallProductsQuery } from '../Redux/ProductApi'
 import AddToChekOutBt from './Button/AddToChekOutBt';
 import { useDispatch } from 'react-redux';
 import { addToCard } from '../Redux/CardSlice';
-import { increment } from "../Redux/TotalSlice"
 const Items = () => {
 
   const { data, isError, isLoading } = useGetallProductsQuery();
@@ -16,7 +15,7 @@ const Items = () => {
 
   const handleAddToCard = (product) => {
     dispach(addToCard(product));
-    dispach(increment(product.price));
+
 
   }
 

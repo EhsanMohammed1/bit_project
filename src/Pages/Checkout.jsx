@@ -1,24 +1,25 @@
 /* eslint-disable array-callback-return */
 import { useSelector, useDispatch } from 'react-redux'
-import { addToCard, decreasCard, removeFromCard, clearAllCards } from '../Redux/CardSlice';
-import { increment, decrement } from "../Redux/TotalSlice"
+import { addToCard, decreasCard, removeFromCard, clearAllCards, getTotal } from '../Redux/CardSlice';
+import { useEffect } from 'react';
 const Checkout = () => {
   const card = useSelector((state) => state.card);
-  const total = useSelector((state) => state.total.value)
-
   const dispatch = useDispatch();
+  
+  useEffect(() => {
+    dispatch(getTotal());
+  }, [card, dispatch])
+
   const handleRemoveCard = (cardItem) => {
     dispatch(removeFromCard(cardItem))
   }
   const handleDecreseCard = (cardItem, all) => {
     dispatch(decreasCard(cardItem))
-    dispatch(decrement(all))
 
 
   }
   const handleIncreseCard = (cardItem, all) => {
     dispatch(addToCard(cardItem))
-    dispatch(increment(all))
 
   }
   const HandleClearCards = () => {
@@ -53,7 +54,7 @@ const Checkout = () => {
               </div>
               <div className="mt-4 flex items-end justify-between sm:mt-0 sm:items-start sm:justify-end">
                 <p className="shrink-0 w-32 text-3xl font-semibold text-gray-900 sm:order-2 sm:ml-8 sm:text-right  text-center">
-                  <span className='text-xl'>total </span>
+                  <span className=' text-xl text-gray-500'>total </span>
                   ${cardItem.price * cardItem.cardQuantity}
                 </p>
 
@@ -95,8 +96,8 @@ const Checkout = () => {
               </button>
             </div>
 
-            <p className="px-12 w-8 text-2xl font-semibold text-gray-900 sm:order-2 sm:ml-8 sm:text-right  text-center">
-              ${cardItem.price}
+            <p className="px-12 w-18  text-2xl font-semibold text-gray-900 sm:order-2 sm:ml-8 sm:text-left ">
+              <span className='text-xl text-gray-500'>Price </span> ${cardItem.price}
             </p>
 
           </div>
@@ -118,7 +119,7 @@ const Checkout = () => {
 
                 <p className="text-3xl font-semibold text-gray-900">
                   <span className="text-xl font-normal text-gray-500">USD</span>
-                  {total}
+                  {card.cardTotalAmount}
 
                 </p>
               </div>
@@ -146,13 +147,16 @@ const Checkout = () => {
                 </button>
 
               </div>
-              <button onClick={() => HandleClearCards()} className="group inline-flex items-center justify-end rounded-md bg-violet-900 px-3 py-3 text-lg font-semibold text-white transition-all duration-200 ease-in-out focus:shadow hover:bg-violet-800"
+              <div className='flex '>
 
-                type="button"
-              >
-                clear All
+                <button onClick={() => HandleClearCards()} className="items-center justify-ecnter rounded-md bg-violet-900 px-3 py-3 text-lg font-semibold text-white transition-all duration-200 ease-in-out focus:shadow hover:bg-violet-800"
 
-              </button>
+                  type="button"
+                >
+                  clear All
+
+                </button>
+              </div>
             </div>
 
           </div>
