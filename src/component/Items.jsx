@@ -60,20 +60,20 @@ const Items = () => {
           </div>
           <div className=' w-72 h-56'>
             <img
-              className="p-8  transition object-contain ease-in-out delay-250  duration-500 hover:border-violet-700 "
+              className="p-8 w-72 h-56  py-0 object-contain  delay-250 hover:-translate-y-1 hover:scale-110 transition ease-in-out delay-32 "
               src={product.img}
-              alt="product image"
+              alt={product.name}
             /></div>
           <div className="">
 
-            <h5 className="text-2xl  text-center font-semibold capitalize text-gray-900 dark:text-white">
+            <h5 className="text-2xl py-2  text-center font-semibold capitalize text-gray-900 dark:text-white">
               {product.brand}<br />
             </h5>
             <h2 className='text-center text-lg'>{product.name}</h2>
 
 
           </div>
-          <div className="flex items-center justify-between p-5  ">
+          <div className="flex items-center justify-between p-2 px-6 w-full  ">
             <span className="text-2xl font-bold text-gray-800 dark:text-white capitalize bg-violet-100 px-7 py-2 rounded-lg">
               {product.price}$
             </span>
