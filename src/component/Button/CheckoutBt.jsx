@@ -1,6 +1,8 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
+const CheckoutBt = () => {
 
-const checkoutBt = () => {
+  const { cardTotalQuantity } = useSelector((state) => state.card);
   return (
     <div className='flex px-3 text-white'>
       <svg
@@ -18,10 +20,10 @@ const checkoutBt = () => {
       </svg>
       <div className='bg-violet-500 w-6 h-6 rounded-2xl '>
 
-        <h1 className='text-white font-bold  rounded-3xl to text-center  ' >1</h1>
+        <h1 className='text-white font-bold  rounded-3xl to text-center  '> {cardTotalQuantity}</h1>
       </div>
     </div>
   )
 }
 
-export default checkoutBt
+export default CheckoutBt

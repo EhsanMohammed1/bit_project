@@ -48,23 +48,23 @@ const Items = () => {
         </div>
       </div>
     }
-
     {
       data &&
-      data.map((product) =>
-        <div className="w-full max-w-sm m-8 p-2 bg-white gap-4 border border-violet-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 ">
-          <div className='text-left'>
+      data?.map((product) =>
+        <div className="w-full flex flex-col items-center max-w-sm m-4 p-2 bg-white gap-4 border border-violet-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 ">
+          <div className=' self-start'>
             <button onClick={() => handleAddToCard(product)}>
 
               <AddToChekOutBt />
             </button>
           </div>
-          <img
-            className="p-8  transition ease-in-out delay-250  hover:-translate-y-2 hover:scale-110 duration-500 hover:border-violet-700 "
-            src={product.img}
-            alt="product image"
-          />
-          <div className="  ">
+          <div className=' w-72 h-56'>
+            <img
+              className="p-8  transition object-contain ease-in-out delay-250  duration-500 hover:border-violet-700 "
+              src={product.img}
+              alt="product image"
+            /></div>
+          <div className="">
 
             <h5 className="text-2xl  text-center font-semibold capitalize text-gray-900 dark:text-white">
               {product.brand}<br />
@@ -79,7 +79,7 @@ const Items = () => {
             </span>
 
             <NavLink
-              to="/product/:id"
+              to={`/product/${product.id}`}
               className="text-white text-l capitalize  bg-violet-700 hover:bg-violet-800 focus:ring-4 focus:outline-none focus:ring-violet-300 font-medium rounded-lg  px-7 py-3 text-center dark:bg-violet-600 dark:hover:bg-violet-700 dark:focus:ring-violet-800"
             >
               Details
@@ -99,7 +99,7 @@ const Items = () => {
     }
 
 
-  </section>
+  </section >
 
 
 

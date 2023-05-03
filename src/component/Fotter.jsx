@@ -115,9 +115,9 @@ const Fotter = () => {
                       href=""
                       className="ml-4"
                     >
-                      <div className="text-gray-800 dark:text-gray-50 cursor-pointer hover:text-brand dark:hover:text-brand">
+                      <div className=" text-white cursor-pointer hover:text-brand dark:hover:text-brand">
                         <img
-                          className="dark:hidden"
+                          className="text-white "
                           src="https://tuk-cdn.s3.amazonaws.com/can-uploader/footer_1-svg2.svg"
                           alt="Twitter"
                         />

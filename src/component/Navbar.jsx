@@ -1,13 +1,13 @@
 import React from "react";
 import "../index.css";
 import { NavLink } from "react-router-dom";
-
 // buttons
 import Loginbt from "./Button/LoginBt"
-import Checkout from "./Button/checkoutBt";
+import Checkout from "./Button/CheckoutBt";
 
 
 const navbar = () => {
+
   return (
     <nav
 
@@ -67,7 +67,10 @@ const navbar = () => {
 
         {/* heart svg */}
         <NavLink to="/checkout" >
+
+
           < Checkout />
+
         </NavLink>
 
         {/* usericon */}

@@ -80,20 +80,22 @@ const cardSlice = createSlice({
       },
       getTotal(state,action){
        let {total,quantity} = state.cardItems.reduce((cardTotal,cardItem)=>{
-          const {price ,cardQuantity}=cardItem;
-          const itemTotal=price*cardQuantity;
+         const {price ,cardQuantity}=cardItem;
+         const itemTotal=price*cardQuantity;
 
-        cardTotal.total+=itemTotal;
-        cardTotal.quantity-=itemTotal;
+      cardTotal.quantity += cardQuantity;
+      cardTotal.total += itemTotal;
+      
         return cardTotal;
         },{
           total:0,
           quantity:0,
         })
+        
         state.cardTotalAmount=total;
         state.cardTotalQuantity=quantity;
       }
-      
+ 
         
   },
 });
