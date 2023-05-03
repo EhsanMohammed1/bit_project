@@ -19,7 +19,7 @@ const cardSlice = createSlice({
       );
       if (itemIndex >= 0) {
         state.cardItems[itemIndex].cardQuantity += 1;
-        toast.error(`${action.payload.name} is  Romved from Card `, {
+        toast.info(`${action.payload.name} Is  Already Added `, {
           position: "top-left",
         });
       } else {
@@ -70,36 +70,42 @@ const cardSlice = createSlice({
 
       localStorage.setItem("cardItems", JSON.stringify(state.cardItems));
     },
-      clearAllCards(state,action){
-          state.cardItems=[];
-          toast.error(`All cards Are removed `, {
-            position: "top-left",
-          });  
-             localStorage.setItem("cardItems", JSON.stringify(state.cardItems));
+    clearAllCards(state, action) {
+      state.cardItems = [];
+      toast.error(`All cards Are removed `, {
+        position: "top-left",
+      });
+      localStorage.setItem("cardItems", JSON.stringify(state.cardItems));
+    },
+    getTotal(state, action) {
+      let { total, quantity } = state.cardItems.reduce(
+        (cardTotal, cardItem) => {
+          const { price, cardQuantity } = cardItem;
+          const itemTotal = price * cardQuantity;
 
-      },
-      getTotal(state,action){
-       let {total,quantity} = state.cardItems.reduce((cardTotal,cardItem)=>{
-         const {price ,cardQuantity}=cardItem;
-         const itemTotal=price*cardQuantity;
+          cardTotal.quantity += cardQuantity;
+          cardTotal.total += itemTotal;
 
-      cardTotal.quantity += cardQuantity;
-      cardTotal.total += itemTotal;
-      
-        return cardTotal;
-        },{
-          total:0,
-          quantity:0,
-        })
-        
-        state.cardTotalAmount=total;
-        state.cardTotalQuantity=quantity;
-      }
- 
-        
+          return cardTotal;
+        },
+        {
+          total: 0,
+          quantity: 0,
+        }
+      );
+
+      state.cardTotalAmount = total;
+      state.cardTotalQuantity = quantity;
+    },
   },
 });
 
-export const { addToCard, removeFromCard, decreasCard, addTotal ,clearAllCards,getTotal } =
-  cardSlice.actions;
+export const {
+  addToCard,
+  removeFromCard,
+  decreasCard,
+  addTotal,
+  clearAllCards,
+  getTotal,
+} = cardSlice.actions;
 export default cardSlice.reducer;

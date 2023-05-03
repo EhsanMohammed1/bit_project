@@ -51,8 +51,8 @@ const Items = () => {
     {
       data &&
       data?.map((product) =>
-        <div className="w-full flex flex-col items-center max-w-sm m-4 p-2 bg-white gap-4 border border-violet-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 ">
-          <div className=' self-start'>
+        <div className="w-full flex flex-col  items-center max-w-sm m-4 p-2 bg-white gap-4 border border-violet-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700 ">
+          <div className=' self-start '>
             <button onClick={() => handleAddToCard(product)}>
 
               <AddToChekOutBt />
