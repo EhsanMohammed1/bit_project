@@ -19,7 +19,7 @@ const cardSlice = createSlice({
       );
       if (itemIndex >= 0) {
         state.cardItems[itemIndex].cardQuantity += 1;
-        toast.info(`${action.payload.name} Is  Already Added `, {
+        toast.error(`${action.payload.name} is  Romved from Card `, {
           position: "top-left",
         });
       } else {

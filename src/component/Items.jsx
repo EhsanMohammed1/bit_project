@@ -58,12 +58,18 @@ const Items = () => {
               <AddToChekOutBt />
             </button>
           </div>
-          <div className=' w-72 h-56'>
+          <NavLink>
+
+          </NavLink>
+          <NavLink
+            to={`/product/${product.id}`}
+
+            className=' w-72 h-56'>
             <img
               className="p-8 w-72 h-56  py-0 object-contain  delay-250 hover:-translate-y-1 hover:scale-110 transition ease-in-out delay-32 "
               src={product.img}
               alt={product.name}
-            /></div>
+            /></NavLink>
           <div className="">
 
             <h5 className="text-2xl py-2  text-center font-semibold capitalize text-gray-900 dark:text-white">
@@ -78,12 +84,7 @@ const Items = () => {
               {product.price}$
             </span>
 
-            <NavLink
-              to={`/product/${product.id}`}
-              className="text-white text-l capitalize  bg-violet-700 hover:bg-violet-800 focus:ring-4 focus:outline-none focus:ring-violet-300 font-medium rounded-lg  px-7 py-3 text-center dark:bg-violet-600 dark:hover:bg-violet-700 dark:focus:ring-violet-800"
-            >
-              Details
-            </NavLink>
+
 
           </div>
         </div>
