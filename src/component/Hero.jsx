@@ -1,5 +1,4 @@
 import React from "react";
-// import Search from "../component/search";
 const Hero = () => {
   return (
 
@@ -12,11 +11,11 @@ const Hero = () => {
 
         </h1>
       </div>
-      <div className="lg:mt-0 px-20 lg:col-span-5 flex justify-center">
+      <div className=" px-20 lg:col-span-5 flex justify-center">
         <img
+          className="w-full max-w-md sm:max-w-lg md:max-w-xl lg:max-w-none"
           src="https://static.vecteezy.com/system/resources/previews/012/981/082/original/wireless-headphones-side-view-white-icon-on-a-transparent-background-3d-rendering-png.png"
           alt="hero"
-          className="w-full max-w-md sm:max-w-lg md:max-w-xl lg:max-w-none"
         />
       </div>
     </section>
