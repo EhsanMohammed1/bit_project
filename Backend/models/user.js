@@ -14,6 +14,6 @@ const userModules = new mongoose.Schema({
     required: true,
     unique: true,
     minlength: 3,
-    maxlength: 200,
+    maxlength: 1024,
   },
 });
