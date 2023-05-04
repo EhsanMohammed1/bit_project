@@ -3,10 +3,8 @@ import { IoBagOutline, IoBag } from "react-icons/io5";
 import { useState } from 'react';
 const AddToChekOutBt = () => {
 
-  // const [icon, setIcon] = useState(<IoBagOutline className='w-10 h-12 ' />);
   const [isChecked, setIsChecked] = useState(false);
-
-  const icon = isChecked ? <IoBagOutline className='w-10 h-12 ' /> : <IoBag className='w-10 h-12 ' />;
+  const icon = isChecked ? <IoBag className='w-10 h-12 ' /> : < IoBagOutline className='w-10 h-12 ' />;
   function toggleChecked() {
     setIsChecked(!isChecked);
   }

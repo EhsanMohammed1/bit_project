@@ -5,7 +5,7 @@ import { useEffect } from 'react';
 const Checkout = () => {
   const card = useSelector((state) => state.card);
   const dispatch = useDispatch();
-  
+
   useEffect(() => {
     dispatch(getTotal());
   }, [card, dispatch])
@@ -149,11 +149,11 @@ const Checkout = () => {
               </div>
               <div className='flex '>
 
-                <button onClick={() => HandleClearCards()} className="items-center justify-ecnter rounded-md bg-violet-900 px-3 py-3 text-lg font-semibold text-white transition-all duration-200 ease-in-out focus:shadow hover:bg-violet-800"
+                <button onClick={() => HandleClearCards()} className="underline text-lg tracking-wide underline-offset-4 "
 
                   type="button"
                 >
-                  clear All
+                  Clear All Cards
 
                 </button>
               </div>
