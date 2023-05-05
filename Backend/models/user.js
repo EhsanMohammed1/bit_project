@@ -17,3 +17,6 @@ const userModules = new mongoose.Schema({
     maxlength: 1024,
   },
 });
+
+const User = mongoose.model("User", userModules);
+exports.User = User;
