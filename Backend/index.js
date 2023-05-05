@@ -11,10 +11,10 @@ app.use(cors());
 app.use("/api/register", register);
 
 app.get("/", (req, res) => {
+  app.get("/products", (req, res) => {
+    res.send(products);
+  });
   res.send("welcome to our first online shopping");
-});
-app.get("/products", (req, res) => {
-  res.send(products);
 });
 
 const port = process.env.PORT || 7000;
