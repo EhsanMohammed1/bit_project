@@ -1,7 +1,8 @@
 const bcrypt = require("bcrypt");
 const Joi = require("joi");
 const express = require("express");
-const { User } = require("../models/user");
+const { User } = require("../models/use.js");
+const AuthToken = require("../utils/authJwt.js");
 
 const router = express.Router();
 router.post("/", async (req, res) => {
@@ -24,5 +25,7 @@ router.post("/", async (req, res) => {
   });
   const salt = await bcrypt.genSalt(10);
   user.password = await bcrypt.hash(user.password, salt);
-  await user.save();
+  user = await user.save();
+  const token = AuthToken(user);
+  res.send(token);
 });
