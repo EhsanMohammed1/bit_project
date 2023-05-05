@@ -2,11 +2,13 @@ const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
 const products = require("./porducts.js");
-
+const register = require("./routes/register.js");
 const app = express();
 require("dotenv").config();
+
 app.use(express.json());
 app.use(cors());
+app.use("/api/register", register);
 
 app.get("/", (req, res) => {
   res.send("welcome to our first online shopping");
