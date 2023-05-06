@@ -1,21 +1,25 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom';
-// import { useDispatch } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { useGetallProductsQuery } from '../Redux/ProductApi';
 import { useParams } from 'react-router-dom';
-// import { useGetProductByIdQuery } from '../Redux/ProductApi';
-
+import { addToCard } from '../Redux/CardSlice';
+import AddToChekOutBt from '../component/Button/AddToChekOutBt';
 
 const Singleitem = () => {
+  let { id } = useParams();
+  id = parseInt(id);
+  const dispatch = useDispatch();
+  const handleAddToCard = (product) => {
+    dispatch(addToCard(product));
+  }
+
   const [product, setProduct] = useState({})
   const { data: products } = useGetallProductsQuery();
 
 
-  let { id } = useParams();
-  id = parseInt(id);
 
-  // const prodetall = data?.filter(useid => useid.id === data.id);
   useEffect(() => {
     setProduct(products?.filter((p) => p.id === id));
 
@@ -77,6 +81,7 @@ const Singleitem = () => {
                     </svg>
                   </a>
                 </li>
+
                 <li>
                   <a
                     className="text-xl font-medium text-violet-500 hover:text-violet-600"
@@ -88,6 +93,7 @@ const Singleitem = () => {
               </ul>
             </div>
             <div className="w-full lg:w-1/2 px-4 mb-16 lg:mb-0">
+
               <div className="flex -mx-4 flex-wrap items-center justify-between lg:justify-start lg:items-start xl:items-center">
 
                 <div className="w-full sm:w-9/12 px-4 hover:-translate-y-1 hover:scale-110 transition ease-in-out delay-32">
@@ -99,10 +105,19 @@ const Singleitem = () => {
 
                   />
                 </div>
+
               </div>
+
             </div>
-            <div className="w-full lg:w-1/2 px-4">
-              <div className="max-w-md mb-6">
+
+            <div className="w-full lg:w-1/2 px-8">
+              <div className="max-w-md mb-4">
+                <div className="flex flex-wrap -mx-2">
+                  <div className=" md:w-1/2  p-3  md:mb-0" onClick={() => handleAddToCard(product)}>
+                    <AddToChekOutBt />
+                  </div>
+
+                </div>
                 <span className="text-xs text-gray-400 tracking-wider">
                   {product?.brand} {product?.id}
                 </span>
@@ -123,7 +138,7 @@ const Singleitem = () => {
               <div className="mb-6">
                 <h4 className="mb-3 font-heading font-medium">
                   <span>Color:</span>
-                  <span className="text-gray-400">{product[0]?.color}</span><br />
+                  <span className="text-gray-400 space-x-2">{product[0]?.color}</span><br />
                   <span>Brand:</span>
                   <span className="text-gray-400">{product[0]?.brand}</span>
 
@@ -131,18 +146,7 @@ const Singleitem = () => {
 
               </div>
 
-              <div className="flex flex-wrap -mx-2 mb-12">
-                <div className="w-full md:w-1/4 px-2 mb-2 md:mb-0">
-                  <a
-                    // onClick={() => dispatch((dispatch))}
-                    className="block py-4 px-2 leading-8 font-heading font-medium tracking-tighter text-xl text-white text-center bg-violet-500 focus:ring-2 focus:ring-violet-500 focus:ring-opacity-50 hover:bg-violet-600 rounded-lg"
-                    href="#"
-                  >
-                    Add to bag
-                  </a>
-                </div>
 
-              </div>
 
             </div>
           </div>

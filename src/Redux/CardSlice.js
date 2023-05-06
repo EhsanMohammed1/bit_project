@@ -19,12 +19,12 @@ const cardSlice = createSlice({
       );
       if (itemIndex >= 0) {
         state.cardItems[itemIndex].cardQuantity += 1;
-        toast.error(`${action.payload.name} is  Romved from Card `, {
+        toast.success(`${action.payload.name} is add from Card `, {
           position: "top-left",
         });
       } else {
         const tempProduct = { ...action.payload, cardQuantity: 1 };
-        toast.success(`${action.payload.name}is Add to Card`, {
+        toast.error(`${action.payload.name}is Removed to Card`, {
           position: "top-left",
         });
         state.cardItems.push(tempProduct);
