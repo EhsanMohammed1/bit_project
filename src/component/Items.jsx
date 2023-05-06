@@ -1,4 +1,3 @@
-/* eslint-disable jsx-a11y/img-redundant-alt */
 
 import React from 'react'
 import { NavLink } from 'react-router-dom'
@@ -11,6 +10,7 @@ const Items = () => {
   const { data, isError, isLoading } = useGetallProductsQuery();
 
 
+  console.log(data);
   const dispach = useDispatch();
 
   const handleAddToCard = (product) => {
@@ -18,7 +18,6 @@ const Items = () => {
 
 
   }
-
 
 
   return <section className='p-1 flex flex-wrap items-center justify-center'>

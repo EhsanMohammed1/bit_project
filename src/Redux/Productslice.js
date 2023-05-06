@@ -1,34 +1,38 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-const initialState = {
-  items: [],
-  status: null,
-};
-
 export const productFetch = createAsyncThunk(
-  "products/producteetch",
+  "products/productFetch",
   async () => {
-    const response = await axios.get("http://localhost:5000/products");
-    return response?.data;
+    try {
+      const response = await axios.get("http://localhost:5000/products");
+      return response.data;
+    } catch (error) {
+      console.log(error);
+    }
   }
 );
 
-const productSlice = createSlice({
+const productsSlice = createSlice({
   name: "products",
-  initialState,
+  initialState: {
+    items: [],
+    status: null,
+  },
   reducers: {},
-  extraReducers: {
-    [productFetch.pending]: (state, action) => {
-      state.status = "pendding";
-    },
-    [productFetch.fulfilled]: (state, action) => {
-      state.status = "success";
-      state.items = action.payload;
-    },
-    [productFetch.rejected]: (state, action) => {
-      state.status = "rejected";
-    },
+  extraReducers: (builder) => {
+    builder
+      .addCase(productFetch.pending, (state, action) => {
+        state.status = "pending";
+      })
+      .addCase(productFetch.fulfilled, (state, action) => {
+        state.items = action.payload;
+        state.status = "success";
+      })
+      .addCase(productFetch.rejected, (state, action) => {
+        state.status = "rejected";
+      });
   },
 });
-export default productSlice.reducer;
+
+export default productsSlice.reducer;

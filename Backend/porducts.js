@@ -1,4 +1,4 @@
- const products = [
+const products = [
   {
     id: 1,
     name: "Green",
@@ -100,7 +100,7 @@
     cat: "protector",
     color: "silver",
   },
-    {
+  {
     id: 11,
     name: "Anker 633 Magnetic Battery",
     brand: "Anker",
@@ -110,7 +110,7 @@
     cat: "charging",
     color: "silver",
   },
-    {
+  {
     id: 12,
     name: "Razer Kraken Pro V2",
     brand: "Razzer",
