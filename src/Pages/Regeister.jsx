@@ -1,8 +1,16 @@
 import React from 'react'
-
+import { useState } from 'react'
 const Regeister = () => {
+
+  const [user, setUser] = useState({
+    name: "",
+    email: "",
+    password: "",
+    retypepassword: ""
+  });
+  console.log("user", user);
   return (
-    <section className="bg-white dark:bg-gray-900">
+    <section className="bg-white dark:bg-gray-900 px-0 py-0">
       <div className="flex justify-center min-h-screen">
 
         <div className="flex items-center w-full max-w-3xl p-8 mx-auto lg:px-12 lg:w-3/5">
@@ -10,67 +18,49 @@ const Regeister = () => {
             <h1 className="text-4xl py-7 font-semibold tracking-wider text-gray-800 capitalize dark:text-white">
               Registration now.
             </h1>
-            <p className="mt-4 text-gray-500 dark:text-gray-400">
+            <p className="mt-4 text-gray-500 dark:text-gray-400 text-2xl">
               Let’s get you all set up so you can verify your personal account and
               begin setting up your profile.
             </p>
 
-            <form className="grid grid-cols-1 gap-6 mt-8 md:grid-cols-2">
+            <form className="grid grid-cols-1 gap-12 mt-8 md:grid-cols-2 text-xl" >
               <div>
-                <label className="block mb-2 text-sm text-gray-600 dark:text-gray-200">
-                  First Name
+                <label className="block mb-2  text-gray-600 dark:text-gray-200 text-xl">
+                  Name
                 </label>
-                <input
+                <input onChange={(e) => setUser({ ...user, name: e.target.value })}
                   type="text"
                   placeholder="John"
                   className="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-violet-400 dark:focus:border-violet-400 focus:ring-violet-400 focus:outline-none focus:ring focus:ring-opacity-40"
                 />
               </div>
+
+
               <div>
-                <label className="block mb-2 text-sm text-gray-600 dark:text-gray-200">
-                  Last name
-                </label>
-                <input
-                  type="text"
-                  placeholder="Snow"
-                  className="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-violet-400 dark:focus:border-violet-400 focus:ring-violet-400 focus:outline-none focus:ring focus:ring-opacity-40"
-                />
-              </div>
-              <div>
-                <label className="block mb-2 text-sm text-gray-600 dark:text-gray-200">
-                  Phone number
-                </label>
-                <input
-                  type="text"
-                  placeholder="XXX-XX-XXXX-XXX"
-                  className="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-violet-400 dark:focus:border-violet-400 focus:ring-violet-400 focus:outline-none focus:ring focus:ring-opacity-40"
-                />
-              </div>
-              <div>
-                <label className="block mb-2 text-sm text-gray-600 dark:text-gray-200">
+                <label className="block mb-2 text-xl text-gray-600 dark:text-gray-200">
                   Email address
                 </label>
-                <input
+                <input onChange={(e) => setUser({ ...user, name: e.target.value })}
                   type="email"
                   placeholder="johnsnow@example.com"
                   className="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-violet-400 dark:focus:border-violet-400 focus:ring-violet-400 focus:outline-none focus:ring focus:ring-opacity-40"
                 />
               </div>
               <div>
-                <label className="block mb-2 text-sm text-gray-600 dark:text-gray-200">
+                <label className="block mb-2 text-xl text-gray-600 dark:text-gray-200">
                   Password
                 </label>
-                <input
+                <input onChange={(e) => setUser({ ...user, name: e.target.value })}
                   type="password"
                   placeholder="Enter your password"
                   className="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-violet-400 dark:focus:border-violet-400 focus:ring-violet-400 focus:outline-none focus:ring focus:ring-opacity-40"
                 />
               </div>
               <div>
-                <label className="block mb-2 text-sm text-gray-600 dark:text-gray-200">
+                <label className="block mb-2 text-xl text-gray-600 dark:text-gray-200">
                   Confirm password
                 </label>
-                <input
+                <input onChange={(e) => setUser({ ...user, name: e.target.value })}
                   type="password"
                   placeholder="Enter your password"
                   className="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-violet-400 dark:focus:border-violet-400 focus:ring-violet-400 focus:outline-none focus:ring focus:ring-opacity-40"
