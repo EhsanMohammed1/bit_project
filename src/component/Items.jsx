@@ -12,7 +12,6 @@ const Items = () => {
 
   console.log(data);
   const dispach = useDispatch();
-
   const handleAddToCard = (product) => {
     dispach(addToCard(product));
 
