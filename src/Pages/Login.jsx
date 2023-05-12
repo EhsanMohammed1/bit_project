@@ -36,7 +36,7 @@ const Login = () => {
           >
             Forgot Password?
           </a>
-          <NavLink to="/regester" className="text-gray-500 hover:text-violet-500 focus:outline-none focus:underline transition duration-150 ease-in-out"
+          <NavLink to="/register" className="text-gray-500 hover:text-violet-500 focus:outline-none focus:underline transition duration-150 ease-in-out"
           >
             I don'n ave Account
           </NavLink>

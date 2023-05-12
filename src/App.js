@@ -29,7 +29,7 @@ function App() {
         <Route path="/login" Component={Login} />
         <Route path="*" Component={Notfound} />
         <Route path="/checkout" Component={Checkout} />
-        <Route path="/regester" Component={Regeister} />
+        <Route path="/register" Component={Regeister} />
       </Routes>
       <Fotter />
     </>

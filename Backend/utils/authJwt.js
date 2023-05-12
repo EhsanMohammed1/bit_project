@@ -5,7 +5,7 @@ const authJwt = (user) => {
   const token = jwt.sign(
     {
       _id: user._id,
-      nmae: user.name,
+      name: user.name,
       email: user.email,
       isadmin: user.isadmin,
     },

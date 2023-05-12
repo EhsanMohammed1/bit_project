@@ -1,19 +1,33 @@
 import React from 'react'
 import { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux';
+import { registerUser } from '../Redux/AuthSlice.js';
+
 const Regeister = () => {
+  const dispatch = useDispatch();
+  const auth = useSelector(state => state.auth);
+
 
   const [user, setUser] = useState({
     name: "",
     email: "",
     password: "",
-    retypepassword: ""
+
+
   });
+
+  console.log("auth", auth);
   console.log("user", user);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    dispatch(registerUser(user));
+
+  }
   return (
     <section className="bg-white dark:bg-gray-900 px-0 py-0">
       <div className="flex justify-center min-h-screen">
 
-        <div className="flex items-center w-full max-w-3xl p-8 mx-auto lg:px-12 lg:w-3/5">
+        <div className="flex items-center w-full max-w-3xl p-8 mx-auto lg:px-12 lg:w-4/5">
           <div className="w-full">
             <h1 className="text-4xl py-7 font-semibold tracking-wider text-gray-800 capitalize dark:text-white">
               Registration now.
@@ -23,7 +37,7 @@ const Regeister = () => {
               begin setting up your profile.
             </p>
 
-            <form className="grid grid-cols-1 gap-12 mt-8 md:grid-cols-2 text-xl" >
+            <form className="grid grid-cols-1 gap-12 mt-8 md:grid-cols-2 text-xl" onSubmit={handleSubmit} >
               <div>
                 <label className="block mb-2  text-gray-600 dark:text-gray-200 text-xl">
                   Name
@@ -56,16 +70,16 @@ const Regeister = () => {
                   className="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-violet-400 dark:focus:border-violet-400 focus:ring-violet-400 focus:outline-none focus:ring focus:ring-opacity-40"
                 />
               </div>
-              <div>
+              {/* <div>
                 <label className="block mb-2 text-xl text-gray-600 dark:text-gray-200">
                   Confirm password
                 </label>
                 <input onChange={(e) => setUser({ ...user, name: e.target.value })}
                   type="password"
                   placeholder="Enter your password"
-                  className="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-violet-400 dark:focus:border-violet-400 focus:ring-violet-400 focus:outline-none focus:ring focus:ring-opacity-40"
+                // className="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-violet-400 dark:focus:border-violet-400 focus:ring-violet-400 focus:outline-none focus:ring focus:ring-opacity-40"
                 />
-              </div>
+              </div> */}
               <button className="flex items-center justify-between w-44 px-6 py-4 text-sm tracking-wide text-white capitalize transition-colors duration-300 transform bg-violet-500 rounded-lg hover:bg-violet-400 focus:outline-none focus:ring focus:ring-violet-300 focus:ring-opacity-50">
                 <span className='text-xl'>Sign Up </span>
                 <svg
