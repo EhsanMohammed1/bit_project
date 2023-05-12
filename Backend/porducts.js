@@ -9,6 +9,7 @@ const products = [
     cat: "smartwatch",
     color: "green",
   },
+
   {
     id: 2,
     name: "Black",
@@ -19,6 +20,7 @@ const products = [
     cat: "smartwatch",
     color: "black",
   },
+
   {
     id: 3,
     name: "Pink",
@@ -29,6 +31,7 @@ const products = [
     cat: "smartwatch",
     color: "pink",
   },
+
   {
     id: 4,
     name: "Protector",
@@ -40,6 +43,7 @@ const products = [
     cat: "smartwatch",
     color: "white",
   },
+  
   {
     id: 5,
     name: "GT2 Pro",

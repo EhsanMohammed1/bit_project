@@ -1,8 +1,8 @@
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
-const register = require("./routes/register");
-const login = require("./routes/login");
+const register = require("./routes/register.js");
+const login = require("./routes/login.js");
 
 const products = require("./porducts.js");
 
@@ -25,7 +25,7 @@ app.get("/products", (req, res) => {
 });
 
 const url = process.env.BD_URL;
-const port = process.env.PORT || 9000;
+const port = process.env.PORT || 8011;
 
 app.listen(port, () => {
   console.log(`Server running on port: ${port}...`);

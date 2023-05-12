@@ -16,7 +16,7 @@ const initialState = {
 };
 
 export const registerUser = createAsyncThunk(
-  "auth/registerUser",
+  "/registerUser",
   async (user, { rejectWithValue }) => {
     try {
       const token = await axios.post(`${url}/register`, {
@@ -35,7 +35,7 @@ export const registerUser = createAsyncThunk(
 );
 
 export const loginUser = createAsyncThunk(
-  "auth/loginUser",
+  "/loginUser",
   async (values, { rejectWithValue }) => {
     try {
       const token = await axios.post(`${url}/login`, {
@@ -104,23 +104,22 @@ const authSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
-    builder.addCase(registerUser.pending, (state, action) => {
-      return { ...state, registerStatus: "pending" };
-    });
     builder.addCase(registerUser.fulfilled, (state, action) => {
       if (action.payload) {
         const user = jwtDecode(action.payload);
         return {
           ...state,
+          _id: user._id,
           token: action.payload,
           name: user.name,
           email: user.email,
-          _id: user._id,
           registerStatus: action.payload,
         };
       } else return state;
     });
-
+    builder.addCase(registerUser.pending, (state, action) => {
+      return { ...state, registerStatus: "pending" };
+    });
     builder.addCase(registerUser.rejected, (state, action) => {
       return {
         ...state,

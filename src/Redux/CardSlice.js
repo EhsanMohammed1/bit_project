@@ -19,16 +19,18 @@ const cardSlice = createSlice({
       );
       if (itemIndex >= 0) {
         state.cardItems[itemIndex].cardQuantity += 1;
-        toast.success(`${action.payload.name} is add from Card `, {
+        toast.error(`${action.payload.name} is Removed from Card `, {
           position: "top-left",
         });
       } else {
         const tempProduct = { ...action.payload, cardQuantity: 1 };
-        toast.error(`${action.payload.name}is Removed to Card`, {
+        toast.success(`${action.payload.name}is add to Card`, {
           position: "top-left",
         });
         state.cardItems.push(tempProduct);
       }
+      state.cardTotalQuantity += 1;
+
       localStorage.setItem("cardItems", JSON.stringify(state.cardItems));
     },
 
@@ -39,7 +41,7 @@ const cardSlice = createSlice({
       state.cardItems = nextCardItems;
 
       localStorage.setItem("cardItems", JSON.stringify(state.cardItems));
-      toast.error(`${action.payload.name}is completely Romved from Card `, {
+      toast.success(`${action.payload.name}is completely Romved from Card `, {
         position: "top-left",
       });
     },
@@ -72,7 +74,7 @@ const cardSlice = createSlice({
     },
     clearAllCards(state, action) {
       state.cardItems = [];
-      toast.error(`All cards Are removed `, {
+      toast.success(`All cards Are removed `, {
         position: "top-left",
       });
       localStorage.setItem("cardItems", JSON.stringify(state.cardItems));
