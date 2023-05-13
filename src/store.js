@@ -1,5 +1,5 @@
 import { configureStore } from "@reduxjs/toolkit";
-import ProductReducer, { productFetch } from "./Redux/Productslice";
+import ProductReducer from "./Redux/Productslice";
 import { ProductsApi } from "./Redux/ProductApi";
 import CardReducer, { getTotal } from "./Redux/CardSlice";
 import AuthReducer from "./Redux/AuthSlice";
@@ -15,5 +15,4 @@ export const store = configureStore({
   middleware: (getDefaultMiddleware) =>
     getDefaultMiddleware().concat(ProductsApi.middleware),
 });
-// store.dispatch(productFetch());
 store.dispatch(getTotal());

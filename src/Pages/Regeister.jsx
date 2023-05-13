@@ -2,10 +2,14 @@ import React from 'react'
 import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { registerUser } from '../Redux/AuthSlice.js';
+import PasswordStrengthBar from 'react-password-strength-bar';
+
+
 
 const Regeister = () => {
   const dispatch = useDispatch();
   const auth = useSelector(state => state.auth);
+
 
   const [errors, setErrors] = useState([]); // ["passwords didn't match"
   const [user, setUser] = useState({
@@ -29,6 +33,9 @@ const Regeister = () => {
       return;
     }
   }
+
+
+
   return (
     <section className="bg-white dark:bg-gray-900 px-0 py-0">
       <div className="flex justify-center min-h-screen">
@@ -54,8 +61,6 @@ const Regeister = () => {
                   className="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-violet-400 dark:focus:border-violet-400 focus:ring-violet-400 focus:outline-none focus:ring focus:ring-opacity-40"
                 />
               </div>
-
-
               <div>
                 <label className="block mb-2 text-xl text-gray-600 dark:text-gray-200">
                   Email address
@@ -76,9 +81,12 @@ const Regeister = () => {
                   placeholder="Enter your password"
                   className="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-violet-400 dark:focus:border-violet-400 focus:ring-violet-400 focus:outline-none focus:ring focus:ring-opacity-40"
                 />
-               
+                <PasswordStrengthBar
+                  password={user.password}
+                  className="   py-4 "
 
-               
+                />
+
               </div>
               <div>
                 <label className="block mb-2 text-xl text-gray-600 dark:text-gray-200">
@@ -89,6 +97,12 @@ const Regeister = () => {
                   placeholder="Enter your password"
 
                   className="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-violet-400 dark:focus:border-violet-400 focus:ring-violet-400 focus:outline-none focus:ring focus:ring-opacity-40"
+                />
+                <PasswordStrengthBar
+                  password={user.confirmPassword}
+                  className="   py-4 "
+
+
                 />
               </div>
               <button className="flex items-center justify-between w-44 px-6 py-4 text-sm tracking-wide text-white capitalize transition-colors duration-300 transform bg-violet-500 rounded-lg hover:bg-violet-400 focus:outline-none focus:ring focus:ring-violet-300 focus:ring-opacity-50">
