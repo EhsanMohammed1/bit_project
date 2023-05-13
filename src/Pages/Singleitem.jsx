@@ -11,8 +11,8 @@ const Singleitem = () => {
   let { id } = useParams();
   id = parseInt(id);
   const dispatch = useDispatch();
-  const handleAddToCard = (product) => {
-    dispatch(addToCard(product));
+  const handleAddToCard = () => {
+    dispatch(addToCard(product[0]));
   }
 
   const [product, setProduct] = useState({})
