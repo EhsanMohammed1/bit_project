@@ -113,8 +113,7 @@ const Singleitem = () => {
             <div className="w-full lg:w-1/2 px-8">
               <div className="max-w-md mb-4">
                 <div className="flex flex-wrap -mx-2">
-                  <div className=" md:w-1/2  p-3  md:mb-0" onClick={() => handleAddToCard(product)}>
-                    <AddToChekOutBt />
+                  <div className=" md:w-1/2  p-3  md:mb-0" >
                   </div>
 
                 </div>
@@ -136,7 +135,7 @@ const Singleitem = () => {
               </div>
 
               <div className="mb-6">
-                <h4 className="mb-3 font-heading font-medium">
+                <h4 className="mb-3 font-heading font-medium ">
                   <span>Color:</span>
                   <span className="text-gray-400 space-x-2">{product[0]?.color}</span><br />
                   <span>Brand:</span>
@@ -144,6 +143,10 @@ const Singleitem = () => {
 
                 </h4>
 
+              </div>
+              <div className='flex justify-end' onClick={() => handleAddToCard(product)}>
+
+                <AddToChekOutBt />
               </div>
 
 
