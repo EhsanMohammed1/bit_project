@@ -2,7 +2,6 @@ import React from 'react'
 import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { registerUser } from '../Redux/AuthSlice.js';
-import Strometer from 'react-password-strometer';
 
 const Regeister = () => {
   const dispatch = useDispatch();
@@ -77,9 +76,9 @@ const Regeister = () => {
                   placeholder="Enter your password"
                   className="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-violet-400 dark:focus:border-violet-400 focus:ring-violet-400 focus:outline-none focus:ring focus:ring-opacity-40"
                 />
-                {errors.length > 0 && <Strometer password={user.password} />}
-                <Strometer password={user.password} />
-                { }
+               
+
+               
               </div>
               <div>
                 <label className="block mb-2 text-xl text-gray-600 dark:text-gray-200">
