@@ -37,8 +37,8 @@ const Regeister = () => {
 
 
   return (
-    <section className="bg-white dark:bg-gray-900 px-0 py-0">
-      <div className="flex justify-center min-h-screen">
+    <section className="bg-white dark:bg-gray-900 p-2 ">
+      <div className="flex justify-center max-h-screen py-10">
 
         <div className="flex items-center w-full max-w-3xl p-8 mx-auto lg:px-12 lg:w-4/5">
           <div className="w-full">
@@ -88,7 +88,7 @@ const Regeister = () => {
                 />
 
               </div>
-              <div>
+              <div className='p-0'>
                 <label className="block mb-2 text-xl text-gray-600 dark:text-gray-200">
                   Confirm password
                 </label>
@@ -102,11 +102,10 @@ const Regeister = () => {
                   password={user.confirmPassword}
                   className="   py-4 "
 
-
                 />
               </div>
-              <button className="flex items-center justify-between w-44 px-6 py-4 text-sm tracking-wide text-white capitalize transition-colors duration-300 transform bg-violet-500 rounded-lg hover:bg-violet-400 focus:outline-none focus:ring focus:ring-violet-300 focus:ring-opacity-50">
-                <span className='text-xl'>Sign Up </span>
+              <button className="flex items-center justify-between w-44 px-4 py-4 text-sm tracking-wide text-white capitalize transition-colors duration-300 transform bg-violet-500 rounded-lg hover:bg-violet-400 focus:outline-none focus:ring focus:ring-violet-300 focus:ring-opacity-50">
+                <span className='text-xl '>Sign Up </span>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="w-5 h-5 rtl:-scale-x-100"
