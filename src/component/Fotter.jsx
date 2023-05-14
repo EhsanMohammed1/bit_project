@@ -98,23 +98,25 @@ const Fotter = () => {
               </div>
               <div className="w-full lg:w-1/2 px-6 flex flex-col justify-between">
                 <div className="flex items-center mb-6">
-                  <a aria-label="linkedin" href="">
-                    <div className="text-white cursor-pointer hover:text-brand dark:hover:text-brand">
+                  <a aria-label="linkedin" target='blank' href="https://www.linkedin.com/in/ehsan-muhammad-65680312a">
+                    <div className="text-white cursor-pointer hover:text-brand dark:hover:text-brand"
+                    >
                       <AiFillLinkedin className='text-4xl hover:text-violet-400' />
                     </div>
                   </a>
 
                   <a
-                    aria-label="Twitter"
-                    href=""
+                    aria-label="facebook"
+                    href="https://www.facebook.com/ehsan.mhamad.5/"
                     className="ml-4"
+                    target='blank'
                   >
                     <div className=" text-white cursor-pointer hover:text-brand dark:hover:text-brand">
                       <AiFillFacebook className='text-4xl hover:text-violet-400' />
                     </div>
                   </a>
 
-                  <a aria-label="AiFillGithub" href="">
+                  <a aria-label="AiFillGithub" target='blank' href="https://github.com/wecho12">
                     <div className="text-white cursor-pointer hover:text-brand dark:hover:text-brand ml-4">
                       <AiFillGithub className='text-4xl hover:text-violet-400' />
                     </div>

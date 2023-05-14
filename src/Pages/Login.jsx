@@ -3,9 +3,9 @@ import React from 'react'
 import { NavLink } from 'react-router-dom'
 const Login = () => {
   return (
-    <div className="max-w-lg mx-auto mt-24 p-8">
+    <div className="max-w-lg  mx-auto mt-24 p-8">
       <form className="p-4">
-        <div className="mb-8">
+        <div className="mb-8 ">
           <label htmlFor="email" className="block text-gray-700 font-bold mb-2 text-xl ">
             Email
           </label>
