@@ -4,7 +4,7 @@ const LoginBt = () => {
   return (
     <div>
       <svg
-        class="h-10 w-10 text-white px-1"
+        class="h-10 w-10 text-white px-1  hover:text-violet-400"
         viewBox="0 0 24 24"
         fill="none"
         stroke="currentColor"

@@ -3,15 +3,16 @@ import "../index.css";
 import { NavLink } from "react-router-dom";
 import { logoutUser, loginUser } from "../Redux/AuthSlice";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
 // buttons
 import Loginbt from "./Button/LoginBt"
 import Checkout from "./Button/CheckoutBt";
 import { useSelector } from "react-redux";
 import { RiLogoutBoxRLine } from "react-icons/ri";
 
-
 const Navbar = () => {
   const Auth = useSelector((state) => state.auth)
+  const dispatch = useDispatch();
   return (
     <nav
 
@@ -48,19 +49,19 @@ const Navbar = () => {
       <div className="hidden lg:flex lg:gap-x-12">
         <NavLink
           to="/"
-          className="text-lg font-ubuntu leading-6text-white font-bold text-white"
+          className="text-lg font-ubuntu leading-6text-white font-bold text-white  hover:text-violet-300"
         >
           Home
         </NavLink>
-        <NavLink to="/product" className="text-lg font-semibold leading-6 text-white">
+        <NavLink to="/product" className="text-lg font-semibold leading-6 text-white   hover:text-violet-300">
           Product
         </NavLink>
 
-        <NavLink to="/about" className="text-lg font-semibold leading-6 text-white">
+        <NavLink to="/about" className="text-lg font-semibold leading-6 text-white  hover:text-violet-300">
           About
         </NavLink>
 
-        <NavLink to="/contact" className="text-lg font-semibold leading-6 text-white">
+        <NavLink to="/contact" className="text-lg font-semibold leading-6 text-white  hover:text-violet-300">
           Contact
         </NavLink>
       </div>
@@ -86,7 +87,9 @@ const Navbar = () => {
         {
           Auth._id ?
 
-            <RiLogoutBoxRLine className="h-10 w-10 text-white px-1" />
+            <RiLogoutBoxRLine className="h-10 w-10 text-white px-1 cursor-pointer hover:text-violet-400" onClick={() => {
+              dispatch(logoutUser())
+            }} />
 
             : <NavLink to="/login">
               < Loginbt />
