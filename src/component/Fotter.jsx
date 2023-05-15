@@ -1,5 +1,3 @@
-/* eslint-disable react/jsx-no-comment-textnodes */
-/* eslint-disable jsx-a11y/anchor-is-valid */
 
 import { AiFillLinkedin, AiFillFacebook, AiFillGithub } from 'react-icons/ai'
 import React from 'react'
@@ -7,24 +5,19 @@ import React from 'react'
 const Fotter = () => {
   return (
 
-    <footer className="  bg-violet-900 ">
+    <footer className="  bg-violet-900 grid ">
       <div
         tabIndex={0}
         aria-label="footer"
-        className="focus:outline-none border-t border-b border-gray-200 dark:border-violet-700 py-16  "
+        className="focus:outline-none border-t border-b border-gray-200 dark:border-violet-700 py-16 h-full "
       >
-        <div className="mx-auto container px-4 xl:px-12 2xl:px-4 ">
+        <div className="mx-auto container px-4  ">
           <div className="lg:flex">
-            <div className="w-full lg:w-1/2 mb-16 lg:mb-0 flex">
-              <div className="w-full lg:w-1/2 px-6">
+            <div className="w-full lg:w-2/2  lg:mb-0 ">
+              <div className="w-full lg:w-1/3 px-6">
                 <ul>
                   <li>
-                    <a
-                      className="focus:outline-none focus:underline  text-2xl lg:text-xl leading-none hover:text-brand dark:hover:text-brand text-white"
-                      href=""
-                    >
-                      Components
-                    </a>
+
                   </li>
                   <li className="mt-6">
                     <a
@@ -49,12 +42,7 @@ const Fotter = () => {
               <div className="w-full lg:w-1/2 px-6">
                 <ul>
                   <li>
-                    <a
-                      className="focus:outline-none focus:underline text-xs lg:text-xl leading-none hover:text-brand dark:hover:text-brand text-white"
-                      href=""
-                    >
-                      FAQ
-                    </a>
+
                   </li>
                   <li className="mt-6">
                     <a
@@ -75,8 +63,8 @@ const Fotter = () => {
                 </ul>
               </div>
             </div>
-            <div className="w-full lg:w-1/2 flex">
-              <div className="w-full lg:w-1/2 px-6">
+            <div className="w-full lg:w-2/2 flex">
+              <div className="w-full lg:w-2/2 px-6">
                 <ul>
                   <li>
                     <a
@@ -93,9 +81,11 @@ const Fotter = () => {
                     >
                       Terms of service
                     </a>
+
                   </li>
                 </ul>
               </div>
+
               <div className="w-full lg:w-1/2 px-6 flex flex-col justify-between">
                 <div className="flex items-center mb-6">
                   <a aria-label="linkedin" target='blank' href="https://www.linkedin.com/in/ehsan-muhammad-65680312a">
@@ -138,7 +128,7 @@ const Fotter = () => {
 
         >
           <img
-            className="dark:hidden text-white h-8 w-28 sm:h-10 "
+            className="dark:hidden text-white h-2 w-24 sm:h-10 "
             src="https://companieslogo.com/img/orig/EPAM-3c018a11.png?t=1660577598"
             alt=" logo"
           />

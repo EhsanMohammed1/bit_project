@@ -86,7 +86,7 @@ const Navbar = () => {
 
             <RiLogoutBoxRLine className="h-10 w-10 text-white px-1 cursor-pointer hover:text-violet-400" onClick={() => {
               dispatch(logoutUser())
-              toast.warning(`You Loged Out !`, { positon: "TOP-LEFT", autoClose: 4000 })
+              toast.warning(`You Loged Out !`, { position: "top-left", autoClose: 4000 })
             }} />
 
             : <NavLink to="/login">

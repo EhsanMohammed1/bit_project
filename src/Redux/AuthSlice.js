@@ -88,7 +88,7 @@ const authSlice = createSlice({
       } else return { ...state, userLoaded: true };
     },
     logoutUser(state, action) {
-      localStorage.removeItem("token");
+      localStorage.removeItem("token", "card");
 
       return {
         ...state,
