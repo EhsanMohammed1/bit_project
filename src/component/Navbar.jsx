@@ -1,14 +1,17 @@
 import React from "react";
 import "../index.css";
 import { NavLink } from "react-router-dom";
-import { logoutUser } from "../Redux/AuthSlice";
+import { logoutUser, loginUser } from "../Redux/AuthSlice";
+import { Link } from "react-router-dom";
 // buttons
 import Loginbt from "./Button/LoginBt"
 import Checkout from "./Button/CheckoutBt";
+import { useSelector } from "react-redux";
+import { RiLogoutBoxRLine } from "react-icons/ri";
 
 
-
-const navbar = () => {
+const Navbar = () => {
+  const Auth = useSelector((state) => state.auth)
   return (
     <nav
 
@@ -21,7 +24,7 @@ const navbar = () => {
           <h1 className="text-xl px-2 py-1 font-bold text-white">Accessores</h1>
         </NavLink>
       </div>
-      <div className="flex lg:hidden">
+      <div className="flex lg:hidden" >
         <button
           type="button"
           className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-white"
@@ -75,10 +78,20 @@ const navbar = () => {
         </NavLink>
 
         {/* usericon */}
-        <NavLink to="/login">
+        {/* <NavLink to="/login">
           < Loginbt />
-        </NavLink>
+        </NavLink> */}
 
+
+        {
+          Auth._id ?
+
+            <RiLogoutBoxRLine className="h-10 w-10 text-white px-1" />
+
+            : <NavLink to="/login">
+              < Loginbt />
+            </NavLink>
+        }
 
 
       </div>
@@ -86,4 +99,4 @@ const navbar = () => {
   );
 };
 
-export default navbar;
+export default Navbar;

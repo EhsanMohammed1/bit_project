@@ -1,14 +1,24 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { registerUser } from '../Redux/AuthSlice.js';
 import PasswordStrengthBar from 'react-password-strength-bar';
-
+import { useNavigate } from 'react-router';
 
 
 const Regeister = () => {
   const dispatch = useDispatch();
   const auth = useSelector(state => state.auth);
+  const navigate = useNavigate()
+
+  useEffect(() => {
+    if (auth._id) {
+      navigate('/product')
+    }
+
+
+
+  }, [auth._id, navigate])
 
 
   const [errors, setErrors] = useState([]);
@@ -52,8 +62,8 @@ const Regeister = () => {
             </p>
 
 
-            {auth.registerStatus === "rejected" ? <p className='text-red-900 text-2xl pt-4'>{auth.registerError}</p> : null}
-            {errors.length > 0 ? <p className='text-red-900 text-2xl pt-4'>{errors[0]}</p> : null}
+            {/* {auth.registerStatus === "rejected" ? <p className='text-red-900 text-2xl pt-4'>{auth.registerError}</p> : null}
+            {errors.length > 0 ? <p className='text-red-900 text-2xl pt-4'>{errors[0]}</p> : null} */}
 
 
             <form className="grid grid-cols-1 gap-12 mt-8 md:grid-cols-2 text-xl" onSubmit={handleSubmit} >
