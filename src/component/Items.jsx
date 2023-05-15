@@ -5,6 +5,8 @@ import { useGetallProductsQuery } from '../Redux/ProductApi'
 import AddToChekOutBt from './Button/AddToChekOutBt';
 import { useDispatch } from 'react-redux';
 import { addToCard } from '../Redux/CardSlice';
+
+
 const Items = () => {
 
   const { data, isError, isLoading } = useGetallProductsQuery();
@@ -14,10 +16,7 @@ const Items = () => {
   const dispach = useDispatch();
   const handleAddToCard = (product) => {
     dispach(addToCard(product));
-
-
   }
-
 
   return <section className='p-1 flex flex-wrap items-center justify-center'>
     {
