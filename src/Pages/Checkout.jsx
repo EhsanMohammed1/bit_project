@@ -131,7 +131,7 @@ const Checkout = () => {
                 </p>
               </div>
 
-              <div className="mt-6 text-center">
+              <div className="mt-6 text-center ">
                 {auth._id ? <button
                   type="button"
                   className="group inline-flex items-center justify-end rounded-md bg-violet-900 px-6 py-4 text-lg font-semibold text-white transition-all duration-200 ease-in-out focus:shadow hover:bg-violet-800"
@@ -153,7 +153,7 @@ const Checkout = () => {
                   </svg>
                 </button> : <button onClick={() => navigate('/login')}
                   type="button"
-                  className="group inline-flex items-center justify-end rounded-md bg-violet-900 px-6 py-4 text-lg font-semibold text-white transition-all duration-200 ease-in-out focus:shadow hover:bg-violet-800"
+                  className="group inline-flex items-center justify-end rounded-md bg-violet-700 px-6 py-4 text-lg font-semibold text-white transition-all duration-200 ease-in-out focus:shadow hover:bg-violet-800"
                 >
                   please login to Cheak out
                   <svg
@@ -173,10 +173,7 @@ const Checkout = () => {
                 </button>}
 
 
-              </div>
-              <div className='flex '>
-
-                <button onClick={() => HandleClearCards()} className="underline text-lg tracking-wide underline-offset-4 "
+                <button onClick={() => HandleClearCards()} className="mx-8  tracking-wide underline-offset-4 rounded-md bg-violet-200 px-6 py-4 text-lg font-semibold text-gray-900 transition-all duration-200 ease-in-out focus:shadow hover:bg-violet-300"
 
                   type="button"
                 >
@@ -184,6 +181,7 @@ const Checkout = () => {
 
                 </button>
               </div>
+
             </div>
 
           </div>

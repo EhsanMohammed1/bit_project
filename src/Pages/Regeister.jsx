@@ -38,12 +38,12 @@ const Regeister = () => {
     e.preventDefault();
     dispatch(registerUser(user));
 
-    if (user.confirmPassword !== user.password) {
-      setErrors([...errors, "passwords didn't match"]);
-      return;
-    }
   }
 
+  if (user.confirmPassword !== user.password) {
+    setErrors([...errors, "passwords didn't match"]);
+    return;
+  }
 
 
   return (
@@ -62,8 +62,8 @@ const Regeister = () => {
             </p>
 
 
-            {/* {auth.registerStatus === "rejected" ? <p className='text-red-900 text-2xl pt-4'>{auth.registerError}</p> : null}
-            {errors.length > 0 ? <p className='text-red-900 text-2xl pt-4'>{errors[0]}</p> : null} */}
+            {auth.registerStatus === "rejected" ? <p className='text-red-900 text-2xl pt-4'>{auth.registerError}</p> : null}
+            {errors.length > 0 ? <p className='text-red-900 text-2xl pt-4'>{errors[0]}</p> : null}
 
 
             <form className="grid grid-cols-1 gap-12 mt-8 md:grid-cols-2 text-xl" onSubmit={handleSubmit} >
