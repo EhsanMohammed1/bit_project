@@ -1,14 +1,15 @@
 import React from "react";
 import "../index.css";
 import { NavLink } from "react-router-dom";
-import { logoutUser, loginUser } from "../Redux/AuthSlice";
-import { Link } from "react-router-dom";
+import { logoutUser } from "../Redux/AuthSlice";
 import { useDispatch } from "react-redux";
+import { toast } from "react-toastify"
+import { RiLogoutBoxRLine } from "react-icons/ri";
+import { useSelector } from "react-redux";
 // buttons
 import Loginbt from "./Button/LoginBt"
 import Checkout from "./Button/CheckoutBt";
-import { useSelector } from "react-redux";
-import { RiLogoutBoxRLine } from "react-icons/ri";
+
 
 const Navbar = () => {
   const Auth = useSelector((state) => state.auth)
@@ -78,10 +79,6 @@ const Navbar = () => {
 
         </NavLink>
 
-        {/* usericon */}
-        {/* <NavLink to="/login">
-          < Loginbt />
-        </NavLink> */}
 
 
         {
@@ -89,6 +86,7 @@ const Navbar = () => {
 
             <RiLogoutBoxRLine className="h-10 w-10 text-white px-1 cursor-pointer hover:text-violet-400" onClick={() => {
               dispatch(logoutUser())
+              toast.warning(`You Loged Out !`, { positon: "TOP-RIGHT", autoClose: 4000 })
             }} />
 
             : <NavLink to="/login">
