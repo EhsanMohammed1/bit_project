@@ -117,9 +117,11 @@ const authSlice = createSlice({
         };
       } else return state;
     });
+
     builder.addCase(registerUser.pending, (state, action) => {
       return { ...state, registerStatus: "pending" };
     });
+
     builder.addCase(registerUser.rejected, (state, action) => {
       return {
         ...state,

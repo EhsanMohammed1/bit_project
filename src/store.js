@@ -2,7 +2,7 @@ import { configureStore } from "@reduxjs/toolkit";
 import ProductReducer from "./Redux/Productslice";
 import { ProductsApi } from "./Redux/ProductApi";
 import CardReducer, { getTotal } from "./Redux/CardSlice";
-import AuthReducer from "./Redux/AuthSlice";
+import AuthReducer, { loadUser } from "./Redux/AuthSlice";
 
 export const store = configureStore({
   reducer: {
@@ -16,3 +16,4 @@ export const store = configureStore({
     getDefaultMiddleware().concat(ProductsApi.middleware),
 });
 store.dispatch(getTotal());
+store.dispatch(loadUser(null));

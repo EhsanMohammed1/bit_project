@@ -11,7 +11,7 @@ const Regeister = () => {
   const auth = useSelector(state => state.auth);
 
 
-  const [errors, setErrors] = useState([]); // ["passwords didn't match"
+  const [errors, setErrors] = useState([]);
   const [user, setUser] = useState({
     name: "",
     email: "",
@@ -38,6 +38,7 @@ const Regeister = () => {
 
   return (
     <section className="bg-white dark:bg-gray-900 p-2 ">
+
       <div className="flex justify-center max-h-screen py-10">
 
         <div className="flex items-center w-full max-w-3xl p-8 mx-auto lg:px-12 lg:w-4/5">
@@ -49,7 +50,12 @@ const Regeister = () => {
               Let’s get you all set up so you can verify your personal account and
               begin setting up your profile.
             </p>
-            {errors}
+
+
+            {auth.registerStatus === "rejected" ? <p className='text-red-900 text-2xl pt-4'>{auth.registerError}</p> : null}
+            {errors.length > 0 ? <p className='text-red-900 text-2xl pt-4'>{errors[0]}</p> : null}
+
+
             <form className="grid grid-cols-1 gap-12 mt-8 md:grid-cols-2 text-xl" onSubmit={handleSubmit} >
               <div>
                 <label className="block mb-2  text-gray-600 dark:text-gray-200 text-xl">
@@ -104,8 +110,9 @@ const Regeister = () => {
 
                 />
               </div>
+
               <button className="flex items-center justify-between w-44 px-4 py-4 text-sm tracking-wide text-white capitalize transition-colors duration-300 transform bg-violet-500 rounded-lg hover:bg-violet-400 focus:outline-none focus:ring focus:ring-violet-300 focus:ring-opacity-50">
-                <span className='text-xl '>Sign Up </span>
+                <span className='text-xl '>{auth.registerStatus === "pendding" ? "Submitting" : "Sign Up"}</span>
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="w-5 h-5 rtl:-scale-x-100"
@@ -120,6 +127,7 @@ const Regeister = () => {
                 </svg>
               </button>
             </form>
+
           </div>
         </div>
       </div>

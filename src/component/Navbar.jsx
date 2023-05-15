@@ -1,13 +1,14 @@
 import React from "react";
 import "../index.css";
 import { NavLink } from "react-router-dom";
+import { logoutUser } from "../Redux/AuthSlice";
 // buttons
 import Loginbt from "./Button/LoginBt"
 import Checkout from "./Button/CheckoutBt";
 
 
-const navbar = () => {
 
+const navbar = () => {
   return (
     <nav
 
