@@ -17,8 +17,9 @@ const Regeister = () => {
     }
 
 
+  },
+    [auth._id, navigate])
 
-  }, [auth._id, navigate])
 
 
   const [errors, setErrors] = useState([]);
@@ -32,6 +33,9 @@ const Regeister = () => {
   });
 
   console.log("auth", auth);
+
+
+
   const handleSubmit = (e) => {
     console.log("user", user);
 
@@ -40,10 +44,7 @@ const Regeister = () => {
 
   }
 
-  if (user.confirmPassword !== user.password) {
-    setErrors([...errors, "passwords didn't match"]);
-    return;
-  }
+
 
 
   return (
