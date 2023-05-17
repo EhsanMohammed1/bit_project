@@ -19,6 +19,7 @@ import Regeister from "./Pages/Regeister";
 import Dashbord from "./component/admin/Dashbord";
 import Products from "./component/admin/Products";
 import Summery from "./component/admin/Summery";
+import Createproduct from "./component/admin/Createproduct";
 function App() {
   return (
     <>
@@ -36,7 +37,10 @@ function App() {
         <Route path="/register" Component={Regeister} />
 
         <Route path="/admin" Component={Dashbord}>
-          <Route path="products" Component={Products} />
+          <Route path="products" Component={Products}>
+            <Route path="create-product" Component={Createproduct} />
+          </Route>
+
           <Route path="summery" Component={Summery} />
         </Route>
       </Routes>

@@ -1,5 +1,6 @@
 import React from 'react'
 import { NavLink, Outlet } from 'react-router-dom'
+import { BsBagFill, BsClipboardFill } from 'react-icons/bs'
 const Dashbord = () => {
   return (
 
@@ -18,6 +19,8 @@ const Dashbord = () => {
             >
               <span className="inline-flex items-center justify-center h-12 w-12 text-lg text-gray-400">
                 <i className="bx bx-home" />
+
+                <BsClipboardFill />
               </span>
               <span className="text-xl font-medium">Summery</span>
             </NavLink>
@@ -29,6 +32,7 @@ const Dashbord = () => {
             >
               <span className="inline-flex items-center justify-center h-12 w-12 text-lg text-gray-400">
                 <i className="bx bx-home" />
+                <BsBagFill />
               </span>
               <span className="text-xl font-medium">products</span>
 
