@@ -15,6 +15,10 @@ import Checkout from "./Pages/Checkout";
 import Singleitem from "./Pages/Singleitem";
 import Notfound from "./Pages/Notfound";
 import Regeister from "./Pages/Regeister";
+//admin
+import Dashbord from "./component/admin/Dashbord";
+import Products from "./component/admin/Products";
+import Summery from "./component/admin/Summery";
 function App() {
   return (
     <>
@@ -30,6 +34,11 @@ function App() {
         <Route path="*" Component={Notfound} />
         <Route path="/checkout" Component={Checkout} />
         <Route path="/register" Component={Regeister} />
+
+        <Route path="/admin" Component={Dashbord}>
+          <Route path="products" Component={Products} />
+          <Route path="summery" Component={Summery} />
+        </Route>
       </Routes>
       <Fotter />
     </>
