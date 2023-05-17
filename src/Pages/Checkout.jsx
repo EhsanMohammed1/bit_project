@@ -35,7 +35,7 @@ const Checkout = () => {
 
   return (
 
-    <section className="h-full bg-gray-100  sm:py-16 lg:py-20">
+    <section className="h-full bg-gray-100  sm:py-16 lg:py-36">
       <div className="flex items-center justify-center">
         <h1 className="text-2xl font-semibold text-gray-900">Your Cart</h1>
       </div>

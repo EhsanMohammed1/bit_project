@@ -19,9 +19,12 @@ const cardSlice = createSlice({
       );
       if (itemIndex >= 0) {
         state.cardItems[itemIndex].cardQuantity += 1;
-        toast.error(`${action.payload.name} is Removed from Card `, {
-          position: "top-left",
-        });
+        toast.success(
+          `${action.payload.name} card is added to cheackout list `,
+          {
+            position: "top-left",
+          }
+        );
       } else {
         const tempProduct = { ...action.payload, cardQuantity: 1 };
         toast.success(`${action.payload.name}is add to Card`, {
@@ -56,7 +59,7 @@ const cardSlice = createSlice({
       if (state.cardItems[itemIndex].cardQuantity > 1) {
         state.cardItems[itemIndex].cardQuantity -= 1;
 
-        toast.error(`${action.payload.name} card is decreased  `, {
+        toast.error(`${action.payload.name} cardQuantity is decreased  `, {
           position: "top-left",
         });
       } else if (state.cardItems[itemIndex].cardQuantity === 1) {
@@ -65,7 +68,7 @@ const cardSlice = createSlice({
         );
         state.cardItems = nextCardItems;
 
-        toast.error(`${action.payload.name}is  Romved from Card`, {
+        toast.error(`${action.payload.name} cardQuantity is incrised`, {
           position: "top-left",
         });
       }
@@ -74,7 +77,7 @@ const cardSlice = createSlice({
     },
     clearAllCards(state, action) {
       state.cardItems = [];
-      toast.success(`All cards Are removed `, {
+      toast.error(`All cards Are removed `, {
         position: "top-left",
       });
       localStorage.setItem("cardItems", JSON.stringify(state.cardItems));

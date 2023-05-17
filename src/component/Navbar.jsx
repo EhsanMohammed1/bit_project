@@ -14,6 +14,7 @@ import Checkout from "./Button/CheckoutBt";
 const Navbar = () => {
   const Auth = useSelector((state) => state.auth)
   const dispatch = useDispatch();
+
   return (
     <nav
 
@@ -23,7 +24,7 @@ const Navbar = () => {
       <div className="flex lg:flex-1">
         <NavLink to="/" className="-m-1.5 p-1.5 flex justify-center align-center">
           <img className="h-8 w-auto" src="" alt="" />
-          <h1 className="text-xl px-2 py-1 font-bold text-white">Accessores</h1>
+          <h1 className="text-2xl px-2 py-1 font-bold text-white">Accessores</h1>
         </NavLink>
       </div>
       <div className="flex lg:hidden" >
@@ -50,19 +51,19 @@ const Navbar = () => {
       <div className="hidden lg:flex lg:gap-x-12">
         <NavLink
           to="/"
-          className="text-lg font-ubuntu leading-6text-white font-bold text-white  hover:text-violet-300"
+          className="text-xl font-ubuntu leading-6text-white font-bold text-white  hover:text-violet-300"
         >
           Home
         </NavLink>
-        <NavLink to="/product" className="text-lg font-semibold leading-6 text-white   hover:text-violet-300">
+        <NavLink to="/product" className="text-xl font-semibold leading-6 text-white   hover:text-violet-300">
           Product
         </NavLink>
 
-        <NavLink to="/about" className="text-lg font-semibold leading-6 text-white  hover:text-violet-300">
+        <NavLink to="/about" className="text-xl font-semibold leading-6 text-white  hover:text-violet-300">
           About
         </NavLink>
 
-        <NavLink to="/contact" className="text-lg font-semibold leading-6 text-white  hover:text-violet-300">
+        <NavLink to="/contact" className="text-xl font-semibold leading-6 text-white  hover:text-violet-300">
           Contact
         </NavLink>
       </div>
@@ -86,6 +87,7 @@ const Navbar = () => {
 
             <RiLogoutBoxRLine className="h-10 w-10 text-white px-1 cursor-pointer hover:text-violet-400" onClick={() => {
               dispatch(logoutUser())
+
               toast.warning(`You Loged Out !`, { position: "top-left", autoClose: 4000 })
             }} />
 

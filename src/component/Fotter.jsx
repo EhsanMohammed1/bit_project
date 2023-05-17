@@ -1,7 +1,7 @@
 
 import { AiFillLinkedin, AiFillFacebook, AiFillGithub } from 'react-icons/ai'
 import React from 'react'
-
+import { NavLink } from 'react-router-dom'
 const Fotter = () => {
   return (
 
@@ -20,20 +20,24 @@ const Fotter = () => {
 
                   </li>
                   <li className="mt-6">
-                    <a
-                      className="focus:outline-none focus:underline text-xs lg:text-xl leading-none hover:text-brand dark:hover:text-brand text-white"
-                      href="j"
+                    <NavLink
+
+                      to="/" className="focus:outline-none  text-xs lg:text-xl leading-none hover:text-brand dark:hover:text-brand text-white"
                     >
+
                       Home
-                    </a>
+
+                    </NavLink>
                   </li>
                   <li className="mt-6">
-                    <a
-                      className="focus:outline-none focus:underline text-xs lg:text-xl leading-none hover:text-brand dark:hover:text-brand text-white"
-                      href=""
+                    <NavLink
+
+                      to="/product" className="focus:outline-none  text-xs lg:text-xl leading-none hover:text-brand dark:hover:text-brand text-white"
                     >
+
                       Products
-                    </a>
+
+                    </NavLink>
                   </li>
 
 
@@ -45,20 +49,20 @@ const Fotter = () => {
 
                   </li>
                   <li className="mt-6">
-                    <a
-                      className="focus:outline-none focus:underline text-xs lg:text-xl leading-none hover:text-brand dark:hover:text-brand text-white"
+                    <NavLink to="/contact"
+                      className="focus:outline-none  text-xs lg:text-xl leading-none hover:text-brand dark:hover:text-brand text-white"
                       href=""
                     >
                       Contacts
-                    </a>
+                    </NavLink>
                   </li>
                   <li className="mt-6">
-                    <a
-                      className="focus:outline-none focus:underline text-xs lg:text-xl leading-none hover:text-brand dark:hover:text-brand text-white"
+                    <NavLink to="/about"
+                      className="focus:outline-none  text-xs lg:text-xl leading-none hover:text-brand dark:hover:text-brand text-white"
                       href=""
                     >
                       About
-                    </a>
+                    </NavLink>
                   </li>
                 </ul>
               </div>
@@ -67,20 +71,19 @@ const Fotter = () => {
               <div className="w-full lg:w-2/2 px-6">
                 <ul>
                   <li>
-                    <a
-                      href=""
-                      className="focus:underline focus:outline-none text-xs lg:text-xl leading-none hover:text-brand dark:hover:text-brand text-white"
+                    <NavLink
+                      to="/"
+                      className="focus:outline-none  text-xs lg:text-xl leading-none hover:text-brand dark:hover:text-brand text-white"
                     >
                       Privacy policy
-                    </a>
+                    </NavLink>
                   </li>
                   <li className="mt-6">
-                    <a
-                      className="focus:underline focus:outline-none text-xs lg:text-xl leading-none hover:text-brand dark:hover:text-brand  text-white"
-                      href=""
+                    <NavLink
+                      className="focus:outline-none  text-xs lg:text-xl leading-none hover:text-brand dark:hover:text-brand text-white" to="/"
                     >
                       Terms of service
-                    </a>
+                    </NavLink>
 
                   </li>
                 </ul>
@@ -120,7 +123,7 @@ const Fotter = () => {
         </div>
       </div >
       <div className="py-16 flex flex-col justify-center items-center ">
-        <a
+        <navlink to="/"
           className="focus:outline-none"
           tabIndex={0}
           role="link"
@@ -133,7 +136,7 @@ const Fotter = () => {
             alt=" logo"
           />
 
-        </a>
+        </navlink>
         <p
           tabIndex={0}
           className="focus:outline-none mt-6 text-xs lg:text-sm leading-none text-white"
