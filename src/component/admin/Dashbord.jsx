@@ -9,15 +9,15 @@ const Dashbord = () => {
     <div className="min-h-screen flex flex-row bg-violet-100">
       <div className="flex flex-col w-56 bg-violet-900  overflow-hidden">
         <div className="flex items-center justify-center h-20 shadow-md">
-          <h1 className="text-2xl  text-white">Dashbord</h1>
+          <h1 className="text-2xl  text-white uppercase">Dashbord</h1>
         </div>
         <ul className="flex flex-col py-4">
           <li>
             <NavLink
               to="/admin/summery"
-              className="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200 text-gray-500 hover:text-gray-800"
+              className="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200 text-white hover:text-gray-500"
             >
-              <span className="inline-flex items-center justify-center h-12 w-12 text-lg text-gray-400">
+              <span className="inline-flex items-center justify-center h-14 w-14 text-lg ">
                 <i className="bx bx-home" />
 
                 <BsClipboardFill />
@@ -28,9 +28,9 @@ const Dashbord = () => {
           <li>
             <NavLink
               to="/admin/products"
-              className="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200 text-gray-500 hover:text-gray-800"
+              className="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200 text-white hover:text-gray-500"
             >
-              <span className="inline-flex items-center justify-center h-12 w-12 text-lg text-gray-400">
+              <span className="inline-flex items-center justify-center h-14 w-14 text-lg text-white ">
                 <i className="bx bx-home" />
                 <BsBagFill />
               </span>
