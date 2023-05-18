@@ -41,9 +41,9 @@ const Dashbord = () => {
 
         </ul>
       </div>
-      <div className='p-10'>
-
+      <div className='p-10 w-full'>
         <Outlet />
+
       </div>
 
     </div>
