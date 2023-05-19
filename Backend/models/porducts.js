@@ -7,9 +7,9 @@ const productSchema = mongoose.Schema({
   img: { type: Object, required: true },
   price: { type: Object, required: true },
   cat: { type: String, required: true },
-  color:{type:String,required:true}
+  color: { type: Buffer, contentType: String, required: true },
 });
 
-const productModel=mongoose.model("product",productSchema)
+const Product = mongoose.model("Product", productSchema);
 
-export default productModel
+export default Product;

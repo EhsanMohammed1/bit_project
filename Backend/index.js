@@ -1,10 +1,14 @@
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
+
+
 const register = require("./routes/register.js");
 const login = require("./routes/login.js");
-
 const products = require("./porducts.js");
+
+
+
 
 const app = express();
 
@@ -19,6 +23,8 @@ app.use("/api/login", login);
 app.get("/", (req, res) => {
   res.send("Welcome our to online shop API...");
 });
+
+
 
 app.get("/products", (req, res) => {
   res.send(products);

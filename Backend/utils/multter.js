@@ -1,6 +1,8 @@
 const multer = require("multer");
 const sharp = require("sharp");
 
+const Product = require("../models/porducts.js");
+
 const multerStorage = multer.memoryStorage();
 const fileFilter = (req, file, cb) => {
   if (file.mimetype.startsWith("image")) {
@@ -14,7 +16,6 @@ const upload = multer({ storage: multerStorage, fileFilter: fileFilter });
 
 export const uploadSingle = upload.single("photo");
 
-export const uploadMulti = upload.array("photos", 5);
 
 export const resizeImage = async (req, res, next) => {
   if (!req.file) {
