@@ -3,8 +3,6 @@ const { auth, isUser, isAdmin } = require("../middleware/auth.js");
 const multer = require("multer");
 const router = require("express").Router();
 
-
-
 //CREATE
 
 const storage = multer.diskStorage({
@@ -24,8 +22,10 @@ router.post("/", upload.single("image"), async (req, res) => {
 
   try {
     if (req.file) {
-      const uploadedResponse = await multer.uploader.upload(req.file.path, {
-        upload_preset: "products",
+      const uploadedResponse = await multer.diskStorage(req.file.path, {
+        destination: function (req, file, cb) {
+          cb(null, "uploads/");
+        },
       });
 
       if (uploadedResponse) {
@@ -51,7 +51,7 @@ router.post("/", upload.single("image"), async (req, res) => {
 
 //DELETE
 
-router.delete("/:id", isAdmin, async (req, res) => {
+router.delete("/:id", async (req, res) => {
   try {
     await Product.findByIdAndDelete(req.params.id);
     res.status(200).send("Product has been deleted...");
