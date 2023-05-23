@@ -1,28 +1,42 @@
-const { Product } = require("../models/Products.js");
-const { isAdmin } = require("../middleware/auth.js");
-
-const multer = require("../utils/multer.js");
-
+const { Product } = require("../models/porducts.js");
+const { auth, isUser, isAdmin } = require("../middleware/auth.js");
+const multer = require("multer");
 const router = require("express").Router();
+
+
 
 //CREATE
 
-router.post("/", isAdmin, async (req, res) => {
-  const { name, brand, desc, price, image } = req.body;
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, "uploads/"); // Specify the destination folder for uploaded files
+  },
+  filename: function (req, file, cb) {
+    cb(null, Date.now() + "-" + file.originalname); // Generate unique filenames
+  },
+});
+
+// Create Multer upload instance
+const upload = multer({ storage });
+
+router.post("/", upload.single("image"), async (req, res) => {
+  const { name, brand, dic, price, cat, color } = req.body;
 
   try {
-    if (image) {
-      const uploadedResponse = await multer.uploader.upload(image, {
-        upload_preset: "online-shop",
+    if (req.file) {
+      const uploadedResponse = await multer.uploader.upload(req.file.path, {
+        upload_preset: "products",
       });
 
       if (uploadedResponse) {
         const product = new Product({
           name,
           brand,
-          desc,
+          dic,
           price,
-          image: uploadedResponse,
+          cat,
+          color,
+          img: uploadedResponse,
         });
 
         const savedProduct = await product.save();

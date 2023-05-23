@@ -9,7 +9,7 @@ import { useSelector } from "react-redux";
 // buttons
 import Loginbt from "./Button/LoginBt"
 import Checkout from "./Button/CheckoutBt";
-
+import Test from "./Button/Test";
 
 const Navbar = () => {
   const Auth = useSelector((state) => state.auth)
@@ -21,7 +21,7 @@ const Navbar = () => {
       className="flex items-center w-full justify-between p-6 lg:px-28 bg-violet-900 "
       aria-label="Global"
     >
-      <div className="flex lg:flex-1">
+      <div className="flex lg:flex-1 ">
         <NavLink to="/" className="-m-1.5 p-1.5 flex justify-center align-center">
           <img className="h-8 w-auto" src="" alt="" />
           <h1 className="text-2xl px-2 py-1 font-bold text-white">Accessores</h1>
@@ -30,7 +30,7 @@ const Navbar = () => {
       <div className="flex lg:hidden" >
         <button
           type="button"
-          className="-m-2.5 inline-flex items-center justify-center rounded-md p-2.5 text-white"
+          className="-m-2.5  inline-flex items-center justify-center rounded-md p-2.5 text-white"
         >
           <svg
             className="h-6 w-6"
@@ -96,7 +96,7 @@ const Navbar = () => {
             </NavLink>
         }
 
-
+        {/* <Test /> */}
       </div>
     </nav>
   );

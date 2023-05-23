@@ -2,13 +2,10 @@ const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
 
-
 const register = require("./routes/register.js");
 const login = require("./routes/login.js");
 const products = require("./porducts.js");
-
-
-
+const productRouter = require("./routes/product.js");
 
 const app = express();
 
@@ -19,12 +16,11 @@ app.use(cors());
 
 app.use("/api/register", register);
 app.use("/api/login", login);
+app.use("/api/products", productRouter);
 
 app.get("/", (req, res) => {
   res.send("Welcome our to online shop API...");
 });
-
-
 
 app.get("/products", (req, res) => {
   res.send(products);
