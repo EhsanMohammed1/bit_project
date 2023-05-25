@@ -4,11 +4,11 @@ const multer = require("multer");
 const router = require("express").Router();
 
 //CREATE
-
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, "uploads/"); // Specify the destination folder for uploaded files
   },
+
   filename: function (req, file, cb) {
     cb(null, Date.now() + "-" + file.originalname); // Generate unique filenames
   },
@@ -17,14 +17,14 @@ const storage = multer.diskStorage({
 // Create Multer upload instance
 const upload = multer({ storage });
 
-router.post("/", upload.single("image"), async (req, res) => {
+router.post("/", upload.single("img"), async (req, res) => {
   const { name, brand, dic, price, cat, color } = req.body;
 
   try {
     if (req.file) {
       const uploadedResponse = await multer.diskStorage(req.file.path, {
         destination: function (req, file, cb) {
-          cb(null, "uploads/");
+          cb(null, "uploads");
         },
       });
 
@@ -51,7 +51,7 @@ router.post("/", upload.single("image"), async (req, res) => {
 
 //DELETE
 
-router.delete("/:id", async (req, res) => {
+router.delete("/:id", isAdmin, async (req, res) => {
   try {
     await Product.findByIdAndDelete(req.params.id);
     res.status(200).send("Product has been deleted...");
@@ -83,7 +83,7 @@ router.get("/", async (req, res) => {
 
 //GET PRODUCT
 
-router.get("/find/:id", async (req, res) => {
+router.get("/:id", async (req, res) => {
   try {
     const product = await Product.findById(req.params.id);
     res.status(200).send(product);

@@ -134,10 +134,6 @@ const Createproduct = () => {
       </div>
     </>
 
-
-
-
-
   )
 }
 
