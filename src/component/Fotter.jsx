@@ -1,5 +1,6 @@
 
 import { AiFillLinkedin, AiFillFacebook, AiFillGithub } from 'react-icons/ai'
+import { SiTiktok } from "react-icons/si"
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 const Fotter = () => {
@@ -112,6 +113,11 @@ const Fotter = () => {
                   <a aria-label="AiFillGithub" target='blank' href="https://github.com/wecho12">
                     <div className="text-white cursor-pointer hover:text-brand dark:hover:text-brand ml-4">
                       <AiFillGithub className='text-4xl hover:text-violet-400' />
+                    </div>
+                  </a>
+                  <a aria-label="AiFillGithub" target='blank' href="https://www.tiktok.com/@ealocked">
+                    <div className="text-white cursor-pointer hover:text-brand dark:hover:text-brand ml-4">
+                      <SiTiktok className='text-4xl hover:text-violet-400' />
                     </div>
                   </a>
                 </div>
