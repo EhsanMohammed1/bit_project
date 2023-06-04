@@ -42,11 +42,13 @@ const Carousel = () => {
 
     return () => clearInterval(interval);
   }, []);
+
+  
   return (
 
     <section className='w-[1850px] h-[720px] py-8 w- m-auto  px-4 relative group' >
       <div className='flex p-5 justify-center'>
-        <h1 className='text-black underline text-2xl font-extrabold '>OFFERS</h1>
+        <h1 className='text-black underline text-2xl font-extrabold '>OFFERS </h1>
       </div>
       <div style={{ backgroundImage: `url(${slides[currentIndex].url})` }} className='w-full h-full  bg-center bg-cover duration-500'>
       </div>

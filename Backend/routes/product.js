@@ -6,46 +6,56 @@ const router = require("express").Router();
 //CREATE
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-    cb(null, "uploads/"); // Specify the destination folder for uploaded files
+    cb(null, "uploads");
   },
-
   filename: function (req, file, cb) {
-    cb(null, Date.now() + "-" + file.originalname); // Generate unique filenames
+    cb(null, Date.now() + "-" + file.originalname);
   },
 });
 
-// Create Multer upload instance
-const upload = multer({ storage });
+const upload = multer({ storage: storage });
 
 router.post("/", upload.single("img"), async (req, res) => {
-  const { name, brand, dic, price, cat, color } = req.body;
-
   try {
-    if (req.file) {
-      const uploadedResponse = await multer.diskStorage(req.file.path, {
-        destination: function (req, file, cb) {
-          cb(null, "uploads");
+    const { name, brand, dic, price, cat, color } = req.body;
+    const img = req.file;
+
+    if (img) {
+      const product = new Product({
+        name,
+        brand,
+        dic,
+        price,
+        cat,
+        color,
+        img: {
+          filename: img.filename,
+          path: img.path,
+          mimetype: img.mimetype,
         },
       });
 
-      if (uploadedResponse) {
-        const product = new Product({
-          name,
-          brand,
-          dic,
-          price,
-          cat,
-          color,
-          img: uploadedResponse,
-        });
+      // Move the uploaded file to local storage
+      const fs = require("fs");
+      const sourcePath = req.path;
+      const destinationPath = `uploads/${img.filename}`;
 
-        const savedProduct = await product.save();
-        res.status(200).send(savedProduct);
-      }
+      fs.rename(sourcePath, destinationPath, async () => {
+        try {
+          const savedProduct = await product.save();
+          res.status(200).send(savedProduct);
+        } catch (error) {
+          console.log(error);
+          fs.unlink(destinationPath, () => {
+            res.status(500).send({ error: "Error saving the product" });
+          });
+        }
+      });
+    } else {
+      res.status(400).send({ error: "No image file provided" });
     }
   } catch (error) {
-    console.log(error);
-    res.status(500).send(error);
+    res.status(500).send({ error: "Internal server error" });
   }
 });
 

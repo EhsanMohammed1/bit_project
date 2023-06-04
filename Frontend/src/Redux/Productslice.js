@@ -9,6 +9,7 @@ const initialState = {
   createStatus: null,
 };
 
+//products fetch
 export const productsFetch = createAsyncThunk(
   "products/productsFetch",
   async () => {
@@ -22,13 +23,40 @@ export const productsFetch = createAsyncThunk(
   }
 );
 
+//create product
 export const productsCreate = createAsyncThunk(
   "products/productsCreate",
   async (values) => {
+    //  name,
+    //     brand,
+    //     price,
+    //     cat,
+    //     color,
+    //     dic,
+    //     img: productimage
     try {
-      const response = await axios.post(`${url}/products`, values);
+      console.log(values);
+      let formData = new FormData();
+      formData.append("name", values.name);
+      formData.append("price", values.price);
+      formData.append("cat", values.cat);
+      formData.append("color", values.color);
+      formData.append("dic", values.dic);
+      formData.append("brand", values.brand);
+      formData.append("img", values.img);
 
-      return response.data;
+      // const response = await axios.post(`${url}/products`, values,{
+
+      // });
+
+      const response = await axios({
+        method: "post",
+        url: `${url}/products`,
+        data: formData,
+        headers: { "Content-Type": "multipart/form-data" },
+      });
+      
+      return response.values;
     } catch (error) {
       console.log(error);
       toast.error(error.response?.data);
@@ -36,6 +64,7 @@ export const productsCreate = createAsyncThunk(
   }
 );
 
+//create Slice
 const productsSlice = createSlice({
   name: "products",
   initialState,
@@ -57,7 +86,7 @@ const productsSlice = createSlice({
     [productsCreate.fulfilled]: (state, action) => {
       state.items.push(action.payload);
       state.createStatus = "success";
-      toast.success("Product Created!");
+      // toast.success("Product Created!");
     },
     [productsCreate.rejected]: (state, action) => {
       state.createStatus = "rejected";

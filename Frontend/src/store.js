@@ -10,6 +10,7 @@ export const store = configureStore({
     card: CardReducer,
     auth: AuthReducer,
     [ProductsApi.reducerPath]: ProductsApi.reducer,
+    
   },
 
   middleware: (getDefaultMiddleware) =>
