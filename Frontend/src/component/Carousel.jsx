@@ -43,7 +43,7 @@ const Carousel = () => {
     return () => clearInterval(interval);
   }, []);
 
-  
+
   return (
 
     <section className='w-[1850px] h-[720px] py-8 w- m-auto  px-4 relative group' >

@@ -1,6 +1,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-import { url } from "./api.js";
+import { setHeaders, url } from "./api.js";
 import { toast } from "react-toastify";
 
 const initialState = {
@@ -15,7 +15,6 @@ export const productsFetch = createAsyncThunk(
   async () => {
     try {
       const response = await axios.get(`${url}/products`);
-
       return response.data;
     } catch (error) {
       console.log(error);
@@ -27,13 +26,6 @@ export const productsFetch = createAsyncThunk(
 export const productsCreate = createAsyncThunk(
   "products/productsCreate",
   async (values) => {
-    //  name,
-    //     brand,
-    //     price,
-    //     cat,
-    //     color,
-    //     dic,
-    //     img: productimage
     try {
       console.log(values);
       let formData = new FormData();
@@ -45,17 +37,16 @@ export const productsCreate = createAsyncThunk(
       formData.append("brand", values.brand);
       formData.append("img", values.img);
 
-      // const response = await axios.post(`${url}/products`, values,{
-
-      // });
-
       const response = await axios({
         method: "post",
         url: `${url}/products`,
         data: formData,
-        headers: { "Content-Type": "multipart/form-data" },
+        headers: {
+          "Content-Type": "multipart/form-data",
+          "x-auth-token": localStorage.getItem("token")
+        },
       });
-      
+
       return response.values;
     } catch (error) {
       console.log(error);
@@ -80,13 +71,14 @@ const productsSlice = createSlice({
     [productsFetch.rejected]: (state, action) => {
       state.status = "rejected";
     },
+
     [productsCreate.pending]: (state, action) => {
       state.createStatus = "pending";
     },
     [productsCreate.fulfilled]: (state, action) => {
-      state.items.push(action.payload);
       state.createStatus = "success";
-      // toast.success("Product Created!");
+      state.items.push(action.payload);
+      toast.success("Product Created!");
     },
     [productsCreate.rejected]: (state, action) => {
       state.createStatus = "rejected";

@@ -1,33 +1,24 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
-import React, { useEffect } from 'react'
+import React from 'react'
 import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { loginUser } from '../Redux/AuthSlice.js';
 import PasswordStrengthBar from 'react-password-strength-bar';
 import { useNavigate } from 'react-router';
 import { NavLink } from 'react-router-dom';
-// import { toast } from 'react-toastify';
+
 const Login = () => {
 
   const dispatch = useDispatch();
   const auth = useSelector(state => state.auth);
   const navigate = useNavigate()
 
-  useEffect(() => {
-    if (auth._id) {
-      navigate('/product')
-    }
 
-
-
-  }, [auth._id, navigate])
 
 
   const [user, setUser] = useState({
     email: "",
     password: "",
-
-
   });
 
   console.log("auth", auth);
@@ -36,15 +27,15 @@ const Login = () => {
 
     console.log("user", user);
 
+    if (auth.isAdmin) {
+      navigate('/admin')
+    } else {
+      navigate('/product')
+    }
     e.preventDefault();
     dispatch(loginUser(user));
 
-
   }
-  // const toastify = () => {
-  //   toast.success("Login Successfully", { position: "top-left", autoClose: 4000 })
-
-  // }
 
   return (
     <div className="max-w-lg  mx-auto mt-24 p-8">

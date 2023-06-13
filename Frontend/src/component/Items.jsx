@@ -1,26 +1,33 @@
 
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-import { useGetallProductsQuery } from '../Redux/ProductApi'
+// import { useGetallProductsQuery } from '../Redux/ProductApi'
 import AddToChekOutBt from './Button/AddToChekOutBt';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { addToCard } from '../Redux/CardSlice';
-
+import { useNavigate } from 'react-router-dom';
 
 const Items = () => {
 
-  const { data, isError, isLoading } = useGetallProductsQuery();
-
-
+  const { items: data, status } = useSelector((state) => state.products);
   console.log(data);
   const dispach = useDispatch();
+
+
+  //!!!!!
+  const auth = useSelector(state => state.auth);
+  const navigate = useNavigate();
+  if (auth.isAdmin) {
+    navigate('/admin')
+  }
+
   const handleAddToCard = (product) => {
     dispach(addToCard(product));
   }
 
   return <section className='p-1 flex flex-wrap items-center justify-center'>
     {
-      isLoading &&
+      status === "pending" &&
       <div className='text-5xl text-violet-900 p-40'>
 
         <div class="text-left">
@@ -37,7 +44,7 @@ const Items = () => {
     }
 
     {
-      isError &&
+      status === "error" &&
       <div className='text-5xl text-violet-900 p-20'>
         <div class=" border-t border-b border-violet-500 text-gray-700 px-4 py-3" role="alert">
           <p class="font-bold">An Error Happned !</p>
@@ -48,7 +55,7 @@ const Items = () => {
     {
       data &&
       data?.map((product) =>
-        <div className="w-full flex flex-col  items-center max-w-sm m-4 p-2 bg-white gap-4 border rounded-2xl  shadow-xl dark:bg-gray-500 dark:border-violet-700  border-transparent hover:border-violet-500 transition duration-300 border-violet-200  ">
+        <div key={product._id} className="w-full flex flex-col  items-center max-w-sm m-4 p-2 bg-white gap-4 border rounded-2xl  shadow-xl dark:bg-gray-500 dark:border-violet-700  border-transparent hover:border-violet-500 transition duration-300 border-violet-200  ">
           <div className=' self-end '>
             <button onClick={() => handleAddToCard(product)}>
 
@@ -59,12 +66,12 @@ const Items = () => {
 
           </NavLink>
           <NavLink
-            to={`/product/${product.id}`}
+            to={`/product/${product._id}`}
 
             className=' w-72 h-56'>
             <img
               className="p-8 w-72 h-56  py-0 object-contain  delay-250 hover:-translate-y-1 hover:scale-110 transition ease-in-out delay-32 "
-              src={product.img}
+              src={"http://localhost:5000/public/" + product.img?.path}
               alt={product.name}
             /></NavLink>
           <div className="">

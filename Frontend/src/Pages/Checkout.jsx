@@ -42,10 +42,10 @@ const Checkout = () => {
       {card.cardItems?.map((cardItem) => {
 
         return <li className="mx-auto mt-4 max-w-6xl md:mt-12 bg-white shadow p-8  list-none">
-          <div key={cardItem.id} className="shrink-1 w-full px-12">
+          <div key={cardItem._id} className="shrink-1 w-full px-12">
             <img
               className="h-32 w-32 max-w-full rounded-lg"
-              src={cardItem.img}
+              src={cardItem.img?.path}
               alt={cardItem.name}
             />
           </div>

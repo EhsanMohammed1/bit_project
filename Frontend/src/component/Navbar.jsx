@@ -56,7 +56,7 @@ const Navbar = () => {
           Home
         </NavLink>
         <NavLink to="/product" className="text-xl font-semibold leading-6 text-white   hover:text-violet-300">
-          Product
+          Shop
         </NavLink>
 
         <NavLink to="/about" className="text-xl font-semibold leading-6 text-white  hover:text-violet-300">

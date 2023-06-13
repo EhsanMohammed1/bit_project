@@ -1,7 +1,17 @@
 import React from 'react'
 import { NavLink, Outlet } from 'react-router-dom'
 import { BsBagFill, BsClipboardFill } from 'react-icons/bs'
+import { useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 const Dashbord = () => {
+
+
+  //!!!!!!
+  const auth = useSelector(state => state.auth);
+  const navigate = useNavigate();
+  if (!auth.isAdmin) {
+    navigate('/product')
+  }
   return (
 
 

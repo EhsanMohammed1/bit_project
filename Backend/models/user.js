@@ -16,7 +16,8 @@ const userModules = new mongoose.Schema({
     minlength: 3,
     maxlength: 1024,
   },
-  img: { type: String, required: true },
+  img: { type: String, required: false },
+  isAdmin: { type: Boolean, default: false },
 });
 
 const User = mongoose.model("User", userModules);

@@ -1,34 +1,35 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React, { useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { useGetallProductsQuery } from '../Redux/ProductApi';
+import { useDispatch, useSelector } from 'react-redux';
+// import { useGetallProductsQuery } from '../Redux/ProductApi';
 import { useParams } from 'react-router-dom';
 import { addToCard } from '../Redux/CardSlice';
 import AddToChekOutBt from '../component/Button/AddToChekOutBt';
 
 const Singleitem = () => {
   let { id } = useParams();
-  id = parseInt(id);
+  id = parseInt(id)
+
+  console.log("id param", id);
   const dispatch = useDispatch();
+
+  const { items: product } = useSelector((state) => state.products);
   const handleAddToCard = () => {
     dispatch(addToCard(product[0]));
-  }
+  };
 
-  const [product, setProduct] = useState({})
-  const { data: products } = useGetallProductsQuery();
-
-
+  const [, setFilteredProducts] = useState([]);
 
   useEffect(() => {
-    setProduct(products?.filter((p) => p.id === id));
-
-  }, [products, id])
-  console.log(product);
+    const filteredProducts = product.filter((p) => p._id === id);
+    console.log(filteredProducts)
+    setFilteredProducts(filteredProducts);
+  }, [product, id]);
 
   return (
     <div>
-      <section className="pt-12 pb-24 bg-blueGray-100 rounded-b-10xl overflow-hidden">
+      <section key={product._id} className="pt-12 pb-24 bg-blueGray-100 rounded-b-10xl overflow-hidden">
         <div className="container px-4 mx-auto">
           <div className="flex flex-wrap -mx-4">
             <div className="w-full px-4">
@@ -36,7 +37,6 @@ const Singleitem = () => {
                 <li className="mr-6">
                   <a
                     className="flex items-center text-xl font-medium text-gray-400 hover:text-gray-500"
-                    href="#"
                   >
                     <NavLink to="/">
                       <span>Home</span>
@@ -99,7 +99,7 @@ const Singleitem = () => {
                 <div className="w-full sm:w-9/12 px-4 hover:-translate-y-1 hover:scale-110 transition ease-in-out delay-32">
                   <img
                     className="mb-5"
-                    src={product[0]?.img}
+                    src={product[0]?.img.path}
                     alt={product[0]?.name}
 
 

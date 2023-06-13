@@ -15,7 +15,7 @@ const cardSlice = createSlice({
   reducers: {
     addToCard(state, action) {
       const itemIndex = state.cardItems.findIndex(
-        (item) => item.id === action.payload.id
+        (item) => item._id === action.payload._id
       );
       if (itemIndex >= 0) {
         state.cardItems[itemIndex].cardQuantity += 1;
@@ -39,7 +39,7 @@ const cardSlice = createSlice({
 
     removeFromCard(state, action) {
       const nextCardItems = state.cardItems.filter(
-        (cardItem) => cardItem.id !== action.payload.id
+        (cardItem) => cardItem._id !== action.payload._id
       );
       state.cardItems = nextCardItems;
 
@@ -53,7 +53,7 @@ const cardSlice = createSlice({
     },
     decreasCard(state, action) {
       const itemIndex = state.cardItems.findIndex(
-        (cardItem) => cardItem.id === action.payload.id
+        (cardItem) => cardItem._id === action.payload._id
       );
 
       if (state.cardItems[itemIndex].cardQuantity > 1) {
@@ -64,7 +64,7 @@ const cardSlice = createSlice({
         });
       } else if (state.cardItems[itemIndex].cardQuantity === 1) {
         const nextCardItems = state.cardItems.filter(
-          (cardItem) => cardItem.id !== action.payload.id
+          (cardItem) => cardItem._id !== action.payload._id
         );
         state.cardItems = nextCardItems;
 

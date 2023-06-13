@@ -29,7 +29,5 @@ router.post("/", async (req, res) => {
   user = await user.save();
   const token = AuthToken(user);
   res.send(token);
-  
-  
 });
 module.exports = router;
