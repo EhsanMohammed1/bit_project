@@ -1,7 +1,7 @@
 import React from 'react'
 import { DataGrid } from '@mui/x-data-grid';
 import { useDispatch, useSelector } from 'react-redux';
-// import { productsDelete } from '../../Redux/Productslice';
+import { productsDelete } from '../../Redux/Productslice';
 
 
 
@@ -82,7 +82,7 @@ export default function Productlist() {
   ];
 
   const handleDelete = (id) => {
-    // dispach(productsDelete(id))
+    dispach(productsDelete(id))
   }
   return (
     <div style={{ padding: 10, margin: 10, height: '100%', width: '100%' }}>
