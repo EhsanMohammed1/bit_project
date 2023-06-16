@@ -129,7 +129,7 @@ const Fotter = () => {
         </div>
       </div >
       <div className="py-16 flex flex-col justify-center items-center ">
-        <navlink to="/"
+        <NavLink to="/"
           className="focus:outline-none"
           tabIndex={0}
           role="link"
@@ -142,7 +142,7 @@ const Fotter = () => {
             alt=" logo"
           />
 
-        </navlink>
+        </NavLink>
         <p
           tabIndex={0}
           className="focus:outline-none mt-6 text-xs lg:text-sm leading-none text-white"

@@ -20,6 +20,8 @@ import Dashbord from "./component/admin/Dashbord";
 import Products from "./component/admin/Products";
 import Summery from "./component/admin/Summery";
 import Createproduct from "./component/admin/Createproduct";
+import productlist from "./component/admin/productlist";
+import User from "./component/admin/User";
 function App() {
   return (
     <>
@@ -38,10 +40,12 @@ function App() {
 
         <Route path="/admin" Component={Dashbord}>
           <Route path="products" Component={Products}>
+            <Route index Component={productlist} />
             <Route path="create-product" Component={Createproduct} />
           </Route>
 
           <Route path="summery" Component={Summery} />
+          <Route path="users" Component={User} />
         </Route>
       </Routes>
       <Fotter />

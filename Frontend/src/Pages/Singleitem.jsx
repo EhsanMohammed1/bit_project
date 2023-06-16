@@ -2,42 +2,37 @@
 import React, { useEffect, useState } from 'react'
 import { NavLink } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-// import { useGetallProductsQuery } from '../Redux/ProductApi';
 import { useParams } from 'react-router-dom';
 import { addToCard } from '../Redux/CardSlice';
 import AddToChekOutBt from '../component/Button/AddToChekOutBt';
 
+
+
 const Singleitem = () => {
   let { id } = useParams();
-  id = parseInt(id)
 
-  console.log("id param", id);
   const dispatch = useDispatch();
 
   const { items: product } = useSelector((state) => state.products);
   const handleAddToCard = () => {
-    dispatch(addToCard(product[0]));
+    dispatch(addToCard(FilteredProducts));
   };
 
-  const [, setFilteredProducts] = useState([]);
-
+  const [FilteredProducts, setFilteredProducts] = useState({});
   useEffect(() => {
-    const filteredProducts = product.filter((p) => p._id === id);
-    console.log(filteredProducts)
-    setFilteredProducts(filteredProducts);
+    const el = product.find((p) => p._id === id);
+    setFilteredProducts(el);
   }, [product, id]);
 
   return (
     <div>
-      <section key={product._id} className="pt-12 pb-24 bg-blueGray-100 rounded-b-10xl overflow-hidden">
+      <section key={FilteredProducts?._id} className="pt-12 pb-24 bg-blueGray-100 rounded-b-10xl overflow-hidden">
         <div className="container px-4 mx-auto">
           <div className="flex flex-wrap -mx-4">
             <div className="w-full px-4">
               <ul className="flex flex-wrap items-center mb-16">
                 <li className="mr-6">
-                  <a
-                    className="flex items-center text-xl font-medium text-gray-400 hover:text-gray-500"
-                  >
+                  <a className="flex items-center text-xl font-medium text-gray-400 hover:text-gray-500">
                     <NavLink to="/">
                       <span>Home</span>
                     </NavLink>
@@ -87,7 +82,7 @@ const Singleitem = () => {
                     className="text-xl font-medium text-violet-500 hover:text-violet-600"
                     href="#"
                   >
-                    {product[0]?.brand} {product[0]?.name}
+                    {FilteredProducts?.brand} {FilteredProducts?.name}
                   </a>
                 </li>
               </ul>
@@ -99,8 +94,9 @@ const Singleitem = () => {
                 <div className="w-full sm:w-9/12 px-4 hover:-translate-y-1 hover:scale-110 transition ease-in-out delay-32">
                   <img
                     className="mb-5"
-                    src={product[0]?.img.path}
-                    alt={product[0]?.name}
+                    src={
+                      "http://localhost:5000/" + FilteredProducts?.img?.path}
+                    alt={FilteredProducts?.name}
 
 
                   />
@@ -121,25 +117,25 @@ const Singleitem = () => {
                   {product?.brand} {product?.id}
                 </span>
                 <h2 className="mt-6 mb-4  md:text-5xl lg:text-4xl font-heading font-medium">
-                  <span className='text-5xl'>{product[0]?.brand}</span>
-                  <h1 className=''>{product[0]?.name}</h1>
+                  <span className='text-5xl'>{FilteredProducts?.brand}</span>
+                  <h1 className=''>{FilteredProducts?.name}</h1>
 
                 </h2>
                 <p className="flex items-center mb-6">
                   <span className="mr-2 text-sm text-violet-500 font-medium">$</span>
-                  <span className="text-3xl text-violet-500 font-medium">{product[0]?.price}</span>
+                  <span className="text-3xl text-violet-500 font-medium">{FilteredProducts?.price}</span>
                 </p>
                 <p className="text-lg text-gray-400">
-                  {product[0]?.dic}
+                  {FilteredProducts?.dic}
                 </p>
               </div>
 
               <div className="mb-6">
                 <h4 className="mb-3 font-heading font-medium ">
                   <span>Color:</span>
-                  <span className="text-gray-400 space-x-2">{product[0]?.color}</span><br />
+                  <span className="text-gray-400 space-x-2">{FilteredProducts?.color}</span><br />
                   <span>Brand:</span>
-                  <span className="text-gray-400">{product[0]?.brand}</span>
+                  <span className="text-gray-400">{FilteredProducts?.brand}</span>
 
                 </h4>
 

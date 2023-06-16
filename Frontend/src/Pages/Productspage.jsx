@@ -8,7 +8,7 @@ const Products = () => {
     <div className='flex flex-col items-center'>
       <Search />
       <Product />
-      <Pagination />
+      {/* <Pagination /> */}
     </div>
   );
 };

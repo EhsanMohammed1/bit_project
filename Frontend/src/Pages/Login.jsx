@@ -2,7 +2,7 @@
 import React from 'react'
 import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { loginUser } from '../Redux/AuthSlice.js';
+import { loadUser, loginUser } from '../Redux/AuthSlice.js';
 import PasswordStrengthBar from 'react-password-strength-bar';
 import { useNavigate } from 'react-router';
 import { NavLink } from 'react-router-dom';
@@ -21,19 +21,20 @@ const Login = () => {
     password: "",
   });
 
-  console.log("auth", auth);
 
   const handleSubmit = (e) => {
 
-    console.log("user", user);
-
-    if (auth.isAdmin) {
-      navigate('/admin')
-    } else {
-      navigate('/product')
-    }
-    e.preventDefault();
     dispatch(loginUser(user));
+    e.preventDefault();
+
+    setTimeout(() => {
+      const isAdmin = localStorage.getItem("is-admin")
+      if (isAdmin === 'true') {
+        navigate('/admin')
+      } else {
+        navigate('/product')
+      }
+    }, 1000);
 
   }
 

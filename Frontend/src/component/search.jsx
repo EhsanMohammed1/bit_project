@@ -17,19 +17,7 @@ const search = () => {
             Search
           </button>
         </div>
-        <select
-          id="pricingType"
-          name="pricingType"
-          className=" h-12 bg-gray-50 border border-violet-500 text-gray-900 text-sm rounded-lg focus:ring-violet-500 focus:border-violet-500 block  p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white  dark:focus:ring-violet-500 dark:focus:border-violet-500  "
-        >
-          <option value="All" selected="" className=''>
-            All
-          </option >
 
-          <option value="Freemium">cover</option>
-          <option value="Free">charging</option>
-          <option value="Paid">airpods</option>
-        </select>
       </div>
 
     </>

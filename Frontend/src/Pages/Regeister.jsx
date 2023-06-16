@@ -32,13 +32,10 @@ const Regeister = () => {
 
   });
 
-  console.log("auth", auth);
 
 
 
   const handleSubmit = (e) => {
-    console.log("user", user);
-
     e.preventDefault();
     dispatch(registerUser(user));
 
@@ -48,7 +45,7 @@ const Regeister = () => {
 
 
   return (
-    <section className="bg-white dark:bg-gray-900 p-2 ">
+    <section className="bg-white  p-2 ">
 
       <div className="flex justify-center max-h-screen py-10">
 
@@ -69,34 +66,34 @@ const Regeister = () => {
 
             <form className="grid grid-cols-1 gap-12 mt-8 md:grid-cols-2 text-xl" onSubmit={handleSubmit} >
               <div>
-                <label className="block mb-2  text-gray-600 dark:text-gray-200 text-xl">
+                <label className="block mb-2  text-gray-600 dark:text-gray-900 text-xl">
                   Name
                 </label>
                 <input onChange={(e) => setUser({ ...user, name: e.target.value })}
                   type="text"
                   placeholder="John"
-                  className="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-violet-400 dark:focus:border-violet-400 focus:ring-violet-400 focus:outline-none focus:ring focus:ring-opacity-40"
+                  className="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg dark:placeholder-gray-600  dark:text-gray-300 dark:border-violet-700 focus:border-violet-400 dark:focus:border-violet-400 focus:ring-violet-400 focus:outline-none focus:ring focus:ring-opacity-40"
                 />
               </div>
               <div>
-                <label className="block mb-2 text-xl text-gray-600 dark:text-gray-200">
+                <label className="block mb-2 text-xl text-gray-600 dark:text-gray-900">
                   Email address
                 </label>
                 <input onChange={(e) => setUser({ ...user, email: e.target.value })}
                   type="email"
                   placeholder="********@example.com"
-                  className="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-violet-400 dark:focus:border-violet-400 focus:ring-violet-400 focus:outline-none focus:ring focus:ring-opacity-40"
+                  className="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg dark:placeholder-gray-600  dark:text-gray-300 dark:border-violet-700 focus:border-violet-400 dark:focus:border-violet-400 focus:ring-violet-400 focus:outline-none focus:ring focus:ring-opacity-40"
                 />
               </div>
               <div>
-                <label className="block mb-2 text-xl text-gray-600 dark:text-gray-200">
+                <label className="block mb-2 text-xl text-gray-600 dark:text-gray-900">
                   Password
                 </label>
 
                 <input onChange={(e) => setUser({ ...user, password: e.target.value })}
                   type="password"
                   placeholder="Enter your password"
-                  className="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-violet-400 dark:focus:border-violet-400 focus:ring-violet-400 focus:outline-none focus:ring focus:ring-opacity-40"
+                  className="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg dark:placeholder-gray-600  dark:text-gray-300 dark:border-violet-700 focus:border-violet-400 dark:focus:border-violet-400 focus:ring-violet-400 focus:outline-none focus:ring focus:ring-opacity-40"
                 />
                 <PasswordStrengthBar
                   password={user.password}
@@ -106,14 +103,14 @@ const Regeister = () => {
 
               </div>
               <div className='p-0'>
-                <label className="block mb-2 text-xl text-gray-600 dark:text-gray-200">
+                <label className="block mb-2 text-xl text-gray-600 dark:text-gray-900">
                   Confirm password
                 </label>
                 <input onChange={(e) => setUser({ ...user, confirmPassword: e.target.value })}
                   type="password"
                   placeholder="Enter your password"
 
-                  className="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg dark:placeholder-gray-600 dark:bg-gray-900 dark:text-gray-300 dark:border-gray-700 focus:border-violet-400 dark:focus:border-violet-400 focus:ring-violet-400 focus:outline-none focus:ring focus:ring-opacity-40"
+                  className="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg dark:placeholder-gray-600  dark:text-gray-300 dark:border-violet-700 focus:border-violet-400 dark:focus:border-violet-400 focus:ring-violet-400 focus:outline-none focus:ring focus:ring-opacity-40"
                 />
                 <PasswordStrengthBar
                   password={user.confirmPassword}

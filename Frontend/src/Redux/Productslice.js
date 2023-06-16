@@ -1,12 +1,13 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-import { setHeaders, url } from "./api.js";
+import {  url } from "./api.js";
 import { toast } from "react-toastify";
 
 const initialState = {
   items: [],
   status: null,
   createStatus: null,
+  deleteStatus:null
 };
 
 //products fetch
@@ -14,10 +15,11 @@ export const productsFetch = createAsyncThunk(
   "products/productsFetch",
   async () => {
     try {
-      const response = await axios.get(`${url}/products`);
+      const response = await axios.get(`${url}/products`,{
+       headers: {"x-auth-token": localStorage.getItem("token")}
+      });
       return response.data;
     } catch (error) {
-      console.log(error);
     }
   }
 );
@@ -27,7 +29,6 @@ export const productsCreate = createAsyncThunk(
   "products/productsCreate",
   async (values) => {
     try {
-      console.log(values);
       let formData = new FormData();
       formData.append("name", values.name);
       formData.append("price", values.price);
@@ -43,13 +44,34 @@ export const productsCreate = createAsyncThunk(
         data: formData,
         headers: {
           "Content-Type": "multipart/form-data",
-          "x-auth-token": localStorage.getItem("token")
         },
       });
 
       return response.values;
     } catch (error) {
-      console.log(error);
+      toast.error(error.response?.data);
+    }
+  }
+);
+
+
+// delete product
+export const productsDelete = createAsyncThunk(
+  "products/productsDelete",
+  async (id) => {
+    try {
+      
+
+      const response = await axios({
+        method: "delete",
+        url: `${url}/products/${id}`,
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      });
+
+      return response.values;
+    } catch (error) {
       toast.error(error.response?.data);
     }
   }
@@ -82,6 +104,22 @@ const productsSlice = createSlice({
     },
     [productsCreate.rejected]: (state, action) => {
       state.createStatus = "rejected";
+    },
+    
+
+
+     [productsDelete.pending]: (state, action) => {
+      state.productsStatus = "pending";
+    },
+    [productsDelete.fulfilled]: (state, action) => {
+      state.productsStatus = "success";
+
+const newList=state.items.filter(items=>items._id!==action.payload._id)
+state.items=newList
+   toast.success("Product Delete!");
+    },
+    [productsDelete.rejected]: (state, action) => {
+      state.productsStatus = "rejected";
     },
   },
 });

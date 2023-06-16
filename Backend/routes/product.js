@@ -15,7 +15,7 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage: storage });
 
-router.post("/", isAdmin, upload.single("img"), async (req, res) => {
+router.post("/", upload.single("img"), async (req, res) => {
   try {
     const { name, brand, dic, price, cat, color } = req.body;
     const img = req.file;
@@ -61,14 +61,16 @@ router.post("/", isAdmin, upload.single("img"), async (req, res) => {
 
 //DELETE
 
-router.delete("/:id", isAdmin, async (req, res) => {
+router.delete("/:id", async (req, res) => {
   try {
     await Product.findByIdAndDelete(req.params.id);
+
     res.status(200).send("Product has been deleted...");
   } catch (error) {
     res.status(500).send(error);
   }
 });
+
 // get products
 router.get("/", async (req, res) => {
   try {

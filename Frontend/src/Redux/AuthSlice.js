@@ -24,12 +24,14 @@ export const registerUser = createAsyncThunk(
         name: user.name,
         email: user.email,
         password: user.password,
+      },
+      {
+       headers: {"x-auth-token": localStorage.getItem("token")}
       });
       localStorage.setItem("token", token.data);
 
       return token.data;
     } catch (error) {
-      console.log(error.response.data);
       return rejectWithValue(error.response.data);
     }
   }
@@ -42,12 +44,15 @@ export const loginUser = createAsyncThunk(
       const token = await axios.post(`${url}/login`, {
         email: values.email,
         password: values.password,
-      });
+      },);
 
       localStorage.setItem("token", token.data);
+      if (token.data) {
+        const user = jwtDecode(token.data);
+        localStorage.setItem("is-admin",user.isAdmin)
+      } 
       return token.data;
     } catch (error) {
-      console.log(error.response);
       return rejectWithValue(error.response.data);
     }
   }
@@ -57,13 +62,14 @@ export const getUser = createAsyncThunk(
   "auth/getUser",
   async (id, { rejectWithValue }) => {
     try {
-      const token = await axios.get(`${url}/user/${id}`);
+      const token = await axios.get(`${url}/user/${id}`,{
+       headers: {"x-auth-token": localStorage.getItem("token")}
+      });
 
       localStorage.setItem("token", token.data);
 
       return token.data;
     } catch (error) {
-      console.log(error.response);
       return rejectWithValue(error.response.data);
     }
   }
@@ -187,6 +193,6 @@ const authSlice = createSlice({
   },
 });
 
-export const { loadUser, logoutUser } = authSlice.actions;
+export const { loadUser, logoutUser} = authSlice.actions;
 
 export default authSlice.reducer;

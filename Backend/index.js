@@ -2,20 +2,21 @@ const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
 
+const { cwd } = require("process");
+
 const register = require("./routes/register.js");
 const login = require("./routes/login.js");
 const products = require("./porducts.js");
 const productRouter = require("./routes/product.js");
 
 const app = express();
+app.use("/uploads", express.static(process.cwd() + "/uploads"));
+app.use(express.static("public"));
+app.use("/uploads", express.static("image"));
 
 require("dotenv").config();
-
 app.use(express.json({ limit: "50mb" }));
 app.use(cors());
-
-app.use(express.static('public'));
-app.use('/uploads', express.static('image'));
 
 app.use("/api/register", register);
 app.use("/api/login", login);

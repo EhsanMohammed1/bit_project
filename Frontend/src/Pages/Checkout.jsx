@@ -45,7 +45,7 @@ const Checkout = () => {
           <div key={cardItem._id} className="shrink-1 w-full px-12">
             <img
               className="h-32 w-32 max-w-full rounded-lg"
-              src={cardItem.img?.path}
+              src={"http://localhost:5000/" + cardItem.img?.path}
               alt={cardItem.name}
             />
           </div>

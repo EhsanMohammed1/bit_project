@@ -16,7 +16,6 @@ const Createproduct = () => {
   const [color, setcolor] = useState('');
   const [dic, setdic] = useState('');
 
-  // console.log(productimage);
 
   const handleupluadimage = (e) => {
     setproductimage(e.target.files[0]);
@@ -27,8 +26,6 @@ const Createproduct = () => {
   const handlesubmit = async (e) => {
     e.preventDefault();
 
-    console.log(brand)
-
     dispatch(
       productsCreate({
         name,
@@ -37,14 +34,13 @@ const Createproduct = () => {
         cat,
         color,
         dic,
-        img: productimage
+        img: setproductimage
       }))
   }
   return (
 
     <>
 
-      <h1 className='mb-2  text-2xl font-semibold text-center  uppercase '>upload products</h1>
       <div className="   p-8 mt-8 max-w-10xl flex ">
 
         <form onSubmit={handlesubmit}
@@ -131,7 +127,7 @@ const Createproduct = () => {
 
 
 
-          {productimage && <img src={productimage} className='sm:rounded-lg mb-20 h-xl  justify-end  max-w-xl border bg-violet-100 shadow-sm' alt="productimage" />}
+          {setproductimage && <img src={setproductimage} className='sm:rounded-lg mb-20 h-xl  justify-end  max-w-xl border bg-violet-100 shadow-sm' alt="productimage" />}
 
 
         </div>

@@ -1,17 +1,11 @@
 import React from 'react'
 import { NavLink, Outlet } from 'react-router-dom'
-import { BsBagFill, BsClipboardFill } from 'react-icons/bs'
-import { useSelector } from 'react-redux'
-import { useNavigate } from 'react-router-dom'
+import { BsBagFill, BsClipboardFill, BsFillPersonFill } from 'react-icons/bs'
+
 const Dashbord = () => {
 
 
-  //!!!!!!
-  const auth = useSelector(state => state.auth);
-  const navigate = useNavigate();
-  if (!auth.isAdmin) {
-    navigate('/product')
-  }
+
   return (
 
 
@@ -48,7 +42,19 @@ const Dashbord = () => {
 
             </NavLink>
           </li>
+          <li>
+            <NavLink
+              to="/admin/users"
+              className="flex flex-row items-center h-12 transform hover:translate-x-2 transition-transform ease-in duration-200 text-white hover:text-gray-500"
+            >
+              <span className="inline-flex items-center justify-center h-14 w-14 text-lg text-white ">
+                <i className="bx bx-home" />
+                <BsFillPersonFill />
+              </span>
+              <span className="text-xl font-medium">Users</span>
 
+            </NavLink>
+          </li>
         </ul>
       </div>
       <div className='p-10 w-full'>
