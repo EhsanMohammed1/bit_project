@@ -1,6 +1,6 @@
 import React from "react";
 import "../index.css";
-import { NavLink, useNavigate, Outlet } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import { loadUser, logoutUser } from "../Redux/AuthSlice";
 import { useDispatch } from "react-redux";
 import { toast } from "react-toastify"
@@ -132,7 +132,6 @@ const Navbar = () => {
       </div>
       <div className="hidden lg:flex lg:flex-1 lg:justify-end " >
         <NavLink to="/checkout">
-          <Checkout />
         </NavLink>
 
         {
