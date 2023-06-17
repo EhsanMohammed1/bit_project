@@ -116,19 +116,57 @@ router.get("/:id", async (req, res) => {
 
 //UPDATE
 
-router.put("/:id", isAdmin, async (req, res) => {
+router.put("/:productId", upload.single("img"), async (req, res) => {
   try {
-    const updatedProduct = await Product.findByIdAndUpdate(
-      req.params.id,
-      {
-        $set: req.body,
-      },
-      { new: true }
-    );
-    res.status(200).send(updatedProduct);
+    const { name, brand, dic, price, cat, color } = req.body;
+    const img = req.file;
+    const productId = req.params.productId;
+
+    // Find the existing product by ID
+    const existingProduct = await Product.findById(productId);
+
+    if (!existingProduct) {
+      return res.status(404).send({ error: "Product not found" });
+    }
+
+    existingProduct.name = name;
+    existingProduct.brand = brand;
+    existingProduct.dic = dic;
+    existingProduct.price = price;
+    existingProduct.cat = cat;
+    existingProduct.color = color;
+
+    if (img) {
+      existingProduct.img = {
+        filename: img.filename,
+        path: img.path,
+        mimetype: img.mimetype,
+      };
+
+      // Move the uploaded file to local storage
+      const fs = require("fs");
+      const sourcePath = req.path;
+      const destinationPath = `uploads/${img.filename}`;
+
+      fs.rename(sourcePath, destinationPath, async () => {
+        try {
+          const savedProduct = await existingProduct.save();
+          res.status(200).send(savedProduct);
+        } catch (error) {
+          console.log(error);
+          fs.unlink(destinationPath, () => {
+            res.status(500).send({ error: "Error updating the product" });
+          });
+        }
+      });
+    } else {
+      const savedProduct = await existingProduct.save();
+      res.status(200).send(savedProduct);
+    }
   } catch (error) {
-    res.status(500).send(error);
+    res.status(500).send({ error: "Internal server error" });
   }
 });
+
 
 module.exports = router;

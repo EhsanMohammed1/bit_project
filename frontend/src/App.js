@@ -1,27 +1,28 @@
-import "./index.css";
-import { Routes, Route } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import { ToastContainer } from "react-toastify";
-import Navbar from "./component/Navbar";
 import "react-toastify/dist/ReactToastify.css";
+import Navbar from "./component/Navbar";
+import "./index.css";
 
 //component
-import Home from "./Pages/Home";
-import Productspage from "./Pages/Productspage";
 import About from "./Pages/About";
+import Checkout from "./Pages/Checkout";
+import Home from "./Pages/Home";
+import Login from "./Pages/Login";
+import Notfound from "./Pages/Notfound";
+import Productspage from "./Pages/Productspage";
+import Regeister from "./Pages/Regeister";
+import Singleitem from "./Pages/Singleitem";
 import Contact from "./Pages/contact";
 import Fotter from "./component/Fotter";
-import Login from "./Pages/Login";
-import Checkout from "./Pages/Checkout";
-import Singleitem from "./Pages/Singleitem";
-import Notfound from "./Pages/Notfound";
-import Regeister from "./Pages/Regeister";
 //admin
+import Createproduct from "./component/admin/Createproduct";
 import Dashbord from "./component/admin/Dashbord";
 import Products from "./component/admin/Products";
 import Summery from "./component/admin/Summery";
-import Createproduct from "./component/admin/Createproduct";
-import productlist from "./component/admin/productlist";
+import UpdateProduct from './component/admin/UpdateProduct';
 import User from "./component/admin/User";
+import productlist from "./component/admin/productlist";
 function App() {
   return (
     <>
@@ -42,6 +43,7 @@ function App() {
           <Route path="products" Component={Products}>
             <Route index Component={productlist} />
             <Route path="create-product" Component={Createproduct} />
+            <Route path="update-product/:productId" Component={UpdateProduct} />
           </Route>
 
           <Route path="summery" Component={Summery} />

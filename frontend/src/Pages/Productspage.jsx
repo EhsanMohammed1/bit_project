@@ -1,13 +1,16 @@
 import React from 'react'
 import Search from '../component/search'
 import Product from "../component/Items"
-import Pagination from '../component/Pagination'
+import { useState } from 'react';
+
 const Products = () => {
+
+  const [searchValue, setSearchValue] = useState('');
 
   return (
     <div className='flex flex-col items-center'>
-      <Search />
-      <Product />
+      <Search setSearchValue={setSearchValue} />
+      <Product searchValue={searchValue} />
       {/* <Pagination /> */}
     </div>
   );

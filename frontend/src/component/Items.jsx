@@ -6,7 +6,7 @@ import AddToChekOutBt from './Button/AddToChekOutBt';
 import { useDispatch, useSelector } from 'react-redux';
 import { addToCard } from '../Redux/CardSlice';
 
-const Items = () => {
+const Items = ({ searchValue }) => {
 
   const { items: data, status } = useSelector((state) => state.products);
   const dispach = useDispatch();
@@ -17,9 +17,16 @@ const Items = () => {
     dispach(addToCard(product));
     console.log(product);
   }
+
+   // Filter items based on search value
+   const filteredItems = data.filter((product) =>
+   product.name.toLowerCase().includes(searchValue.toLowerCase())
+ );
+  
   return <section className='p-1 flex flex-wrap items-center justify-center'>
     {
       status === "pending" &&
+      
       <div className='text-5xl text-violet-900 p-40'>
 
         <div className="text-left">
@@ -45,8 +52,8 @@ const Items = () => {
       </div>
     }
     {
-      data &&
-      data?.map((product) =>
+      filteredItems &&
+      filteredItems?.map((product) =>
         <div key={product._id}
           className="w-full flex flex-col  items-center max-w-sm m-4 p-2 bg-white gap-4 border rounded-2xl  shadow-xl  dark:border-violet-700  border-transparent hover:border-violet-500 transition duration-300 border-violet-200  ">
           <div className=' self-end '>

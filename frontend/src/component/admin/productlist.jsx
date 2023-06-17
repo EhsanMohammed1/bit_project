@@ -2,24 +2,23 @@ import React from 'react'
 import { DataGrid } from '@mui/x-data-grid';
 import { useDispatch, useSelector } from 'react-redux';
 import { productsDelete } from '../../Redux/Productslice';
-
-
-
+import { useNavigate } from 'react-router-dom';
 
 
 
 export default function Productlist() {
   const { items } = useSelector((state) => state.products)
   const dispach = useDispatch()
+  const navigate = useNavigate();
   const rows = items && items.map(item => {
     return {
-      id: item._id,
-      img: "http://localhost:5000/" + item.img?.path
+      id: item?._id,
+      img: "http://localhost:5000/" + item?.img?.path
       ,
-      pName: item.name,
-      pdic: item.dic,
-      price: item.price.toLocaleString(),
-      color: item.color
+      pName: item?.name,
+      pdic: item?.dic,
+      price: item?.price.toLocaleString(),
+      color: item?.color
     }
   })
 
@@ -66,10 +65,10 @@ export default function Productlist() {
       renderCell: (params) => (
         <div>
 
-          <button onClick={() => handleDelete(params.row.id)} className='mx-4 rounded-xl px-6 h-12 font-medium bg-red-700 text-white'>
+          <button onClick={() => handleDelete(params?.row?.id)} className='mx-4 rounded-xl px-6 h-12 font-medium bg-red-700 text-white'>
             Delete
           </button>
-          <button className='mx-4 rounded-xl px-6 h-12 font-medium bg-green-700 text-white'>
+          <button onClick={() => handleEdit(params.row.id)} className='mx-4 rounded-xl px-6 h-12 font-medium bg-green-700 text-white'>
             Edit
           </button>
         </div>
@@ -84,6 +83,12 @@ export default function Productlist() {
   const handleDelete = (id) => {
     dispach(productsDelete(id))
   }
+
+  const handleEdit = (id) => {
+    navigate(`/admin/products/update-product/${id}`);
+  };
+  
+
   return (
     <div style={{ padding: 10, margin: 10, height: '100%', width: '100%' }}>
       <DataGrid

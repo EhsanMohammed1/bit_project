@@ -1,23 +1,43 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { productsCreate } from '../../Redux/Productslice';
+import { productsUpdate, fetchProductDetails } from '../../Redux/Productslice';
+import { useParams } from 'react-router-dom';
 
-
-const Createproduct = () => {
-  const dispatch = useDispatch()
-  const { createStatus } = useSelector((state) => state.products);
+const UpdateProduct = () => {
+  const { productId } = useParams();
+  const dispatch = useDispatch();
+  const { updateStatus, product } = useSelector((state) => state.products);
 
   const [productimage, setproductimage] = useState(null);
 
   const [id, setID] = useState('');
   const [name, setName] = useState('');
   const [brand, setBrand] = useState('');
-  const [price, setprice] = useState('');
-  const [cat, setcat] = useState('');
-  const [color, setcolor] = useState('');
-  const [dic, setdic] = useState('');
+  const [price, setPrice] = useState('');
+  const [cat, setCat] = useState('');
+  const [color, setColor] = useState('');
+  const [dic, setDic] = useState('');
   const [imagePath, setImagePath] = useState('');
 
+  useEffect(() => {
+    const getProductDetails = async () => {
+      try {
+        let product = await dispatch(fetchProductDetails(productId));
+        product = product.payload;
+        setImagePath("http://localhost:5000/"+product.img.path);
+        setName(product.name);
+        setBrand(product.brand);
+        setPrice(product.price);
+        setCat(product.cat);
+        setColor(product.color);
+        setDic(product.dic);
+      } catch (error) {
+        // Handle error case
+      }
+    };
+
+    getProductDetails();
+  }, [dispatch, productId]);
 
   const handleupluadimage = (e) => {
     const file = e.target.files[0];
@@ -25,12 +45,13 @@ const Createproduct = () => {
     setImagePath(URL.createObjectURL(file));
   }
 
-  const handlesubmit = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
     try {
       const response = await dispatch(
-        productsCreate({
+        productsUpdate({
+          productId,
           name,
           brand,
           price,
@@ -45,9 +66,9 @@ const Createproduct = () => {
         setID(response._id);
       }
     } catch (error) {
-      // Handle error cases
+      // Handle error case
     }
-  }
+  };
 
   return (
 
@@ -55,7 +76,7 @@ const Createproduct = () => {
 
       <div className="   p-8 mt-8 max-w-10xl flex ">
 
-        <form onSubmit={handlesubmit}
+        <form onSubmit={handleSubmit}
           className="py-6 px-9 w-1/2  "
 
           method="POST">
@@ -75,13 +96,15 @@ const Createproduct = () => {
 
           <input
             onChange={(e) => setName(e.target.value)}
+            value={name}
             required
             type="input"
             placeholder="product name"
             className="w-full rounded-md mb-2 border border-violet-300 bg-white py-3 px-6 text-base font-medium outline-none focus:border-violet-500 focus:shadow-md"
           />
           <input
-            onChange={(e) => setprice(e.target.value)}
+            onChange={(e) => setPrice(e.target.value)}
+            value={price}
             required
             type="input"
             placeholder="product price"
@@ -90,6 +113,7 @@ const Createproduct = () => {
           <select
 
             onChange={(e) => setBrand(e.target.value)}
+            value={brand}
             required
             className="w-full rounded-md border mb-2 border-violet-300 bg-white py-3 px-6 text-base font-medium outline-none focus:border-violet-500 focus:shadow-md">
             <option value="">select brand</option>
@@ -102,14 +126,16 @@ const Createproduct = () => {
           </select>
 
           <input
-            onChange={(e) => setcolor(e.target.value)}
+            onChange={(e) => setColor(e.target.value)}
+            value={color}
             required
             type="input"
             placeholder="color"
             className="w-full rounded-md border mb-2 border-violet-300 bg-white py-3 px-6 text-base font-medium outline-none focus:border-violet-500 focus:shadow-md"
           />
           <select
-            onChange={(e) => setcat(e.target.value)}
+            onChange={(e) => setCat(e.target.value)}
+            value={cat}
             required
             className="w-full rounded-md border mb-2 border-violet-300 bg-white py-3 px-6 text-base font-medium outline-none focus:border-violet-500 focus:shadow-md">
             <option value="">select category</option>
@@ -121,7 +147,8 @@ const Createproduct = () => {
             <option value="seaker and stand etc ...">seaker and stand etc ...</option>
           </select>
           <textarea
-            onChange={(e) => setdic(e.target.value)}
+            onChange={(e) => setDic(e.target.value)}
+            value={dic}
             required
             type="input"
             placeholder=" discription"
@@ -129,7 +156,7 @@ const Createproduct = () => {
           />
           <div>
             <button type='Submit' className="rounded-lg px-5  py-3 mt-4 text-center text-white font-bold bg-violet-500 text-xl transition-all duration-200 ease-in-out focus:shadow hover:bg-violet-900">
-              {createStatus === "pending" ? "Submitting" : "Submit"}
+              {updateStatus === "pending" ? "Submitting" : "Submit"}
 
             </button>
           </div>
@@ -139,8 +166,6 @@ const Createproduct = () => {
         <div className="  w-1/2 justify-end px-58  py-6 flex">
 
 
-
-          
           {setproductimage  && <img src={imagePath} className='sm:rounded-lg mb-20 h-xl  justify-end  max-w-xl border bg-violet-100 shadow-sm' alt="productimage" />}
 
 
@@ -148,7 +173,7 @@ const Createproduct = () => {
       </div>
     </>
 
-  )
-}
+  );
+};
 
-export default Createproduct
+export default UpdateProduct;
