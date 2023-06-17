@@ -30,7 +30,7 @@ const Login = () => {
     setTimeout(() => {
       const isAdmin = localStorage.getItem("is-admin")
       if (isAdmin === 'true') {
-        navigate('/admin')
+        navigate('/admin/summery')
       } else {
         navigate('/product')
       }

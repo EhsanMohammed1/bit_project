@@ -3,6 +3,7 @@ import { AiOutlineBarChart } from "react-icons/ai"
 import { FaUsers } from "react-icons/fa"
 import { NavLink } from 'react-router-dom'
 import { BiFoodMenu } from "react-icons/bi"
+import { Outlet } from 'react-router-dom'
 const Summery = () => {
   return (
     <>
@@ -55,6 +56,9 @@ const Summery = () => {
             <p className="text-4xl text-white py-2">Earnings</p>
             <p className="text-2xl text-red-700 ">-30%</p>
           </NavLink>
+        </div>
+        <div className=''>
+          <Outlet />
 
         </div>
       </div>

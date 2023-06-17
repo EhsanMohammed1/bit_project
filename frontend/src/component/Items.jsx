@@ -18,15 +18,18 @@ const Items = ({ searchValue }) => {
     console.log(product);
   }
 
-   // Filter items based on search value
-   const filteredItems = data.filter((product) =>
-   product.name.toLowerCase().includes(searchValue.toLowerCase())
- );
-  
+  // Filter items based on search value
+  const filteredItems = data?.filter((product) =>
+    product.name.toLowerCase().includes(searchValue.toLowerCase())
+  );
+
   return <section className='p-1 flex flex-wrap items-center justify-center'>
+
+
     {
+
       status === "pending" &&
-      
+
       <div className='text-5xl text-violet-900 p-40'>
 
         <div className="text-left">
@@ -43,7 +46,7 @@ const Items = ({ searchValue }) => {
     }
 
     {
-      status === "error" &&
+      status === "rejected" &&
       <div classNameName='text-5xl text-violet-900 p-20'>
         <div className=" border-t border-b border-violet-500 text-gray-700 px-4 py-3" role="alert">
           <p className="font-bold">An Error Happned !</p>
@@ -55,6 +58,7 @@ const Items = ({ searchValue }) => {
       filteredItems &&
       filteredItems?.map((product) =>
         <div key={product._id}
+
           className="w-full flex flex-col  items-center max-w-sm m-4 p-2 bg-white gap-4 border rounded-2xl  shadow-xl  dark:border-violet-700  border-transparent hover:border-violet-500 transition duration-300 border-violet-200  ">
           <div className=' self-end '>
             <button onClick={() => handleAddToCard(product)}>
@@ -87,7 +91,6 @@ const Items = ({ searchValue }) => {
             <span className="text-2xl font-bold text-violet-800 dark:text-white capitalize bg-violet-700 px-7 py-2 rounded-lg  hover:border-violet-900">
               {product.price}$
             </span>
-
 
 
           </div>
