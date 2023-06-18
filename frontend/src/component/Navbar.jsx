@@ -1,7 +1,7 @@
 import React from "react";
 import "../index.css";
 import { NavLink, useNavigate } from "react-router-dom";
-import { loadUser, logoutUser } from "../Redux/AuthSlice";
+import { loadUser, loginUser, logoutUser } from "../Redux/AuthSlice";
 import { useDispatch } from "react-redux";
 import { toast } from "react-toastify"
 import { RiLogoutBoxRLine } from "react-icons/ri";
@@ -74,7 +74,7 @@ const Navbar = () => {
           <Checkout />
         </NavLink>
         {
-          Auth._id ?
+          Auth._id && loginUser === true ?
             <RiLogoutBoxRLine className="h-10 w-10 text-white px-1 cursor-pointer hover:text-violet-400" onClick={() => {
               dispatch(logoutUser())
               dispatch(loadUser(null))

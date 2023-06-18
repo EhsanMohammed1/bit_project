@@ -2,10 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { productsUpdate, fetchProductDetails } from '../../Redux/Productslice';
 import { useParams } from 'react-router-dom';
-
+import { useNavigate } from 'react-router-dom';
 const UpdateProduct = () => {
   const { productId } = useParams();
   const dispatch = useDispatch();
+  const navigate = useNavigate()
   const { updateStatus, product } = useSelector((state) => state.products);
 
   const [productimage, setproductimage] = useState(null);
@@ -24,7 +25,7 @@ const UpdateProduct = () => {
       try {
         let product = await dispatch(fetchProductDetails(productId));
         product = product.payload;
-        setImagePath("http://localhost:5000/"+product.img.path);
+        setImagePath("http://localhost:5000/" + product.img.path);
         setName(product.name);
         setBrand(product.brand);
         setPrice(product.price);
@@ -61,7 +62,7 @@ const UpdateProduct = () => {
           img: productimage
         })
       );
-  
+
       if (response && response._id) {
         setID(response._id);
       }
@@ -155,10 +156,12 @@ const UpdateProduct = () => {
             className="w-full rounded-md border h-52 border-violet-300 bg-white py-3 px-6 text-base font-medium outline-none focus:border-violet-500 focus:shadow-md"
           />
           <div>
-            <button type='Submit' className="rounded-lg px-5  py-3 mt-4 text-center text-white font-bold bg-violet-500 text-xl transition-all duration-200 ease-in-out focus:shadow hover:bg-violet-900">
+            <button type='Submit' className="rounded-lg px-5  py-3 mt-4 text-center text-white font-bold bg-violet-800 text-xl transition-all duration-200 ease-in-out focus:shadow hover:bg-violet-900">
               {updateStatus === "pending" ? "Submitting" : "Submit"}
 
             </button>
+            <button className="  rounded-lg px-5 ml-10 mx-7 py-3 mt-4 jus text-center text-white font-bold bg-violet-800 text-xl transition-all duration-200 ease-in-out focus:shadow hover:bg-violet-900"
+              onClick={() => navigate("/admin/products/")}>Product List</button>
           </div>
         </form>
 
@@ -166,7 +169,7 @@ const UpdateProduct = () => {
         <div className="  w-1/2 justify-end px-58  py-6 flex">
 
 
-          {setproductimage  && <img src={imagePath} className='sm:rounded-lg mb-20 h-xl  justify-end  max-w-xl border bg-violet-100 shadow-sm' alt="productimage" />}
+          {setproductimage && <img src={imagePath} className='sm:rounded-lg mb-20 h-xl  justify-end  max-w-xl border bg-white shadow-sm' alt="productimage" />}
 
 
         </div>

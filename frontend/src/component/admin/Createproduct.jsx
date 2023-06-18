@@ -1,12 +1,12 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { productsCreate } from '../../Redux/Productslice';
-
+import { useNavigate } from 'react-router';
 
 const Createproduct = () => {
   const dispatch = useDispatch()
   const { createStatus } = useSelector((state) => state.products);
-
+  const navigate = useNavigate()
   const [productimage, setproductimage] = useState(null);
 
   const [id, setID] = useState('');
@@ -40,7 +40,7 @@ const Createproduct = () => {
           img: productimage
         })
       );
-  
+
       if (response && response._id) {
         setID(response._id);
       }
@@ -54,6 +54,7 @@ const Createproduct = () => {
     <>
 
       <div className="   p-8 mt-8 max-w-10xl flex ">
+
 
         <form onSubmit={handlesubmit}
           className="py-6 px-9 w-1/2  "
@@ -128,20 +129,22 @@ const Createproduct = () => {
             className="w-full rounded-md border h-52 border-violet-300 bg-white py-3 px-6 text-base font-medium outline-none focus:border-violet-500 focus:shadow-md"
           />
           <div>
-            <button type='Submit' className="rounded-lg px-5  py-3 mt-4 text-center text-white font-bold bg-violet-500 text-xl transition-all duration-200 ease-in-out focus:shadow hover:bg-violet-900">
+            <button type='Submit' className="rounded-lg px-5  py-3 mt-4 text-center text-white font-bold bg-violet-800 text-xl transition-all duration-200 ease-in-out focus:shadow hover:bg-violet-900">
               {createStatus === "pending" ? "Submitting" : "Submit"}
 
             </button>
+            <button className="  rounded-lg px-5 ml-10 mx-7 py-3 mt-4 jus text-center text-white font-bold bg-violet-800 text-xl transition-all duration-200 ease-in-out focus:shadow hover:bg-violet-900"
+              onClick={() => navigate("/admin/products/")}>Product List</button>
           </div>
         </form>
 
 
-        <div className="  w-1/2 justify-end px-58  py-6 flex">
+        <div className="  w-1/2 justify-end    flex">
 
 
 
-          
-          {setproductimage  && <img src={imagePath} className='sm:rounded-lg mb-20 h-xl  justify-end  max-w-xl border bg-violet-100 shadow-sm' alt="productimage" />}
+
+          {setproductimage && <img src={imagePath} className='sm:rounded-lg mb-20 h-xl   justify-end  max-w-xl border bg-white shadow-sm' alt={imagePath} />}
 
 
         </div>

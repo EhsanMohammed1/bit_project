@@ -11,7 +11,6 @@ const Products = () => {
     <div className='flex flex-col items-center'>
       <Search setSearchValue={setSearchValue} />
       <Product searchValue={searchValue} />
-      {/* <Pagination /> */}
     </div>
   );
 };

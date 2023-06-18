@@ -22,78 +22,75 @@ export default function Productlist() {
     }
   })
 
+
   const columns = [
     { field: 'id', headerName: 'ID', width: 250 },
     { field: 'pName', headerName: 'Name', width: 150 },
-
-
     {
-      field: 'img', headerName: 'image', width: 100,
+      field: 'img',
+      headerName: 'Image',
+      width: 100,
       renderCell: (params) => (
-        <div className='w-20 h-20 p-4'>
-          <img src={params.row.img} alt='img' />
+        <div className="w-20 h-20 p-4">
+          <img src={params.row.img} alt="img" />
         </div>
-      )
+      ),
     },
-
     {
       field: 'price',
       headerName: 'Price',
       sortable: false,
       width: 100,
-
     },
     {
       field: 'color',
       headerName: 'Color',
       sortable: false,
       width: 100,
-
     },
     {
       field: 'pdic',
       headerName: 'Description',
       type: 'number',
-      width: "1000",
+      width: '1000',
+      sortable: false,
     },
     {
-      field: 'ations',
+      field: 'actions',
       headerName: 'Actions',
       sortable: false,
-      width: "400",
-
+      width: '400',
       renderCell: (params) => (
         <div>
-
-          <button onClick={() => handleDelete(params?.row?.id)} className='mx-4 rounded-xl px-6 h-12 font-medium bg-red-700 text-white'>
+          <button
+            onClick={() => handleDelete(params?.row?.id)}
+            className="mx-4 rounded-2xl px-6 h-11 font-medium bg-red-700 text-white"
+          >
             Delete
           </button>
-          <button onClick={() => handleEdit(params.row.id)} className='mx-4 rounded-xl px-6 h-12 font-medium bg-green-700 text-white'>
+          <button
+            onClick={() => handleEdit(params.row.id)}
+            className="mx-4 rounded-2xl px-6 h-11 font-medium bg-green-700 text-white"
+          >
             Edit
           </button>
         </div>
-
       ),
-
-
     },
-
   ];
 
   const handleDelete = (id) => {
-    dispach(productsDelete(id))
-  }
+    dispach(productsDelete(id));
+  };
 
   const handleEdit = (id) => {
     navigate(`/admin/products/update-product/${id}`);
   };
-  
 
   return (
-    <div style={{ padding: 10, margin: 10, height: '100%', width: '100%' }}>
+    <div className="h-screen w-full p-10">
       <DataGrid
         rows={rows}
-
         columns={columns}
         disableRowSelectionOnClick
         pageSizeOptions={[5, 10]}

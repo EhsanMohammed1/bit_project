@@ -20,5 +20,6 @@ const userModules = new mongoose.Schema({
   isAdmin: { type: Boolean, default: false },
 });
 
+
 const User = mongoose.model("User", userModules);
 exports.User = User;

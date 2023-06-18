@@ -38,6 +38,9 @@ const Regeister = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     dispatch(registerUser(user));
+    setTimeout(() => {
+      navigate('/product')
+    })
 
   }
 
@@ -54,7 +57,7 @@ const Regeister = () => {
             <h1 className="text-4xl py-7 font-semibold tracking-wider text-gray-800 capitalize dark:text-white">
               Registration now.
             </h1>
-            <p className="mt-4 text-gray-500 dark:text-gray-400 text-2xl">
+            <p className="mt-4 text-gray-700  text-2xl">
               Let’s get you all set up so you can verify your personal account and
               begin setting up your profile.
             </p>
@@ -66,34 +69,34 @@ const Regeister = () => {
 
             <form className="grid grid-cols-1 gap-12 mt-8 md:grid-cols-2 text-xl" onSubmit={handleSubmit} >
               <div>
-                <label className="block mb-2  text-gray-600 dark:text-gray-900 text-xl">
+                <label className="block mb-2 text  text-gray-800 text-xl">
                   Name
                 </label>
                 <input onChange={(e) => setUser({ ...user, name: e.target.value })}
                   type="text"
                   placeholder="John"
-                  className="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg dark:placeholder-gray-600  dark:text-gray-300 dark:border-violet-700 focus:border-violet-400 dark:focus:border-violet-400 focus:ring-violet-400 focus:outline-none focus:ring focus:ring-opacity-40"
+                  className="w-full py-2 px-3 border-2 text-xl border-violet-200 rounded-md shadow-sm focus:outline-none focus:border-violet-500"
                 />
               </div>
               <div>
-                <label className="block mb-2 text-xl text-gray-600 dark:text-gray-900">
+                <label className="block mb-2 text-xl  text-gray-800">
                   Email address
                 </label>
                 <input onChange={(e) => setUser({ ...user, email: e.target.value })}
                   type="email"
                   placeholder="********@example.com"
-                  className="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg dark:placeholder-gray-600  dark:text-gray-300 dark:border-violet-700 focus:border-violet-400 dark:focus:border-violet-400 focus:ring-violet-400 focus:outline-none focus:ring focus:ring-opacity-40"
+                  className="w-full py-2 px-3 border-2 text-xl border-violet-200 rounded-md shadow-sm focus:outline-none focus:border-violet-500"
                 />
               </div>
               <div>
-                <label className="block mb-2 text-xl text-gray-600 dark:text-gray-900">
+                <label className="block mb-2 text-xl  text-gray-800">
                   Password
                 </label>
 
                 <input onChange={(e) => setUser({ ...user, password: e.target.value })}
                   type="password"
                   placeholder="Enter your password"
-                  className="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg dark:placeholder-gray-600  dark:text-gray-300 dark:border-violet-700 focus:border-violet-400 dark:focus:border-violet-400 focus:ring-violet-400 focus:outline-none focus:ring focus:ring-opacity-40"
+                  className="w-full py-2 px-3 border-2 text-xl border-violet-200 rounded-md shadow-sm focus:outline-none focus:border-violet-500"
                 />
                 <PasswordStrengthBar
                   password={user.password}
@@ -103,14 +106,14 @@ const Regeister = () => {
 
               </div>
               <div className='p-0'>
-                <label className="block mb-2 text-xl text-gray-600 dark:text-gray-900">
+                <label className="block mb-2 text-xl  text-gray-800">
                   Confirm password
                 </label>
                 <input onChange={(e) => setUser({ ...user, confirmPassword: e.target.value })}
                   type="password"
                   placeholder="Enter your password"
 
-                  className="block w-full px-5 py-3 mt-2 text-gray-700 placeholder-gray-400 bg-white border border-gray-200 rounded-lg dark:placeholder-gray-600  dark:text-gray-300 dark:border-violet-700 focus:border-violet-400 dark:focus:border-violet-400 focus:ring-violet-400 focus:outline-none focus:ring focus:ring-opacity-40"
+                  className="w-full py-2 px-3 border-2 text-xl border-violet-200 rounded-md shadow-sm focus:outline-none focus:border-violet-500"
                 />
                 <PasswordStrengthBar
                   password={user.confirmPassword}
