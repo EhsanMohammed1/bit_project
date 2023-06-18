@@ -74,7 +74,7 @@ const Navbar = () => {
           <Checkout />
         </NavLink>
         {
-          Auth._id && loginUser === true ?
+          Auth._id ?
             <RiLogoutBoxRLine className="h-10 w-10 text-white px-1 cursor-pointer hover:text-violet-400" onClick={() => {
               dispatch(logoutUser())
               dispatch(loadUser(null))
@@ -135,7 +135,7 @@ const Navbar = () => {
         </NavLink>
 
         {
-          Auth._id ?
+          isAdmin ?
             <RiLogoutBoxRLine className="h-10 w-10 text-white px-1 cursor-pointer hover:text-violet-400" onClick={() => {
               dispatch(logoutUser())
               dispatch(loadUser(null))
