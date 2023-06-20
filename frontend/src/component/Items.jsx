@@ -3,7 +3,6 @@ import { NavLink } from 'react-router-dom';
 import AddToChekOutBt from './Button/AddToChekOutBt';
 import { useDispatch, useSelector } from 'react-redux';
 import { addToCard } from '../Redux/CardSlice';
-
 const Items = ({ searchValue }) => {
   const { items: data, status } = useSelector((state) => state.products);
   const dispatch = useDispatch();
@@ -13,18 +12,17 @@ const Items = ({ searchValue }) => {
     console.log(product);
   }
 
-  // Filter items based on search value
   const filteredItems = data?.filter((product) => {
     const searchValueLowerCase = searchValue.toLowerCase();
     return (
       product.name.toLowerCase().includes(searchValueLowerCase) ||
       product.cat.toLowerCase().includes(searchValueLowerCase)
-      // Add more fields to search here if needed
     );
   });
 
   return (
     <section className='p-1 flex flex-wrap items-center justify-center'>
+
       {status === "pending" && (
         <div className='text-5xl text-violet-900 p-40'>
           <div className="text-left">
@@ -79,6 +77,8 @@ const Items = ({ searchValue }) => {
       )}
     </section>
   );
+
+
 };
 
 export default Items;

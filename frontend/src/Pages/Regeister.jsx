@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
-import { registerUser } from '../Redux/AuthSlice.js';
+import { loadUser, registerUser } from '../Redux/AuthSlice.js';
 import PasswordStrengthBar from 'react-password-strength-bar';
 import { useNavigate } from 'react-router';
 
@@ -10,10 +10,10 @@ const Regeister = () => {
   const dispatch = useDispatch();
   const auth = useSelector(state => state.auth);
   const navigate = useNavigate()
-
   useEffect(() => {
-    if (auth._id) {
+    if (auth._id && auth.isAdmin === false) {
       navigate('/product')
+      dispatch(loadUser())
     }
 
 

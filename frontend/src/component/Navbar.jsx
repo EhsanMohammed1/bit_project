@@ -141,7 +141,6 @@ const Navbar = () => {
               dispatch(loadUser(null))
               toast.warning(`You Loged Out !`, { position: "top-left", autoClose: 4000 })
               navigate("/login")
-
             }} />
             : <NavLink to="/login">
               <Loginbt />
