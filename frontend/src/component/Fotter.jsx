@@ -6,11 +6,11 @@ import { NavLink } from 'react-router-dom'
 const Fotter = () => {
   return (
 
-    <footer className="  bg-violet-900 grid ">
+    <footer className="  grid ">
       <div
         tabIndex={0}
         aria-label="footer"
-        className="focus:outline-none border-t border-b border-gray-200 dark:border-violet-700 py-16 h-full "
+        className="focus:outline-none border-t border-b border-gray-200 py-16 h-full "
       >
         <div className="mx-auto container px-4  ">
           <div className="lg:flex">
